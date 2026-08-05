@@ -3,8 +3,8 @@ import { useState } from 'react'
 function TerminalIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="4 17 10 11 4 5"/>
-      <line x1="12" y1="19" x2="20" y2="19"/>
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" y1="19" x2="20" y2="19" />
     </svg>
   )
 }
@@ -12,8 +12,8 @@ function TerminalIcon() {
 function CopyIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
     </svg>
   )
 }
@@ -21,7 +21,7 @@ function CopyIcon() {
 function CheckIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12"/>
+      <polyline points="20 6 9 17 4 12" />
     </svg>
   )
 }
@@ -30,7 +30,7 @@ export default function Hero() {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('curl https://yourportfolio.dev')
+    navigator.clipboard.writeText('curl https://yashwanth-portfolio-blue.vercel.app')
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -38,9 +38,9 @@ export default function Hero() {
   return (
     <section id="about" className="hero animate-fade-in-up">
       <div className="hero-header">
-        <h1 className="hero-name">Your Name Here</h1>
+        <h1 className="hero-name">Yashwanth Prabhu</h1>
         <p className="hero-role">
-          Design engineer<span className="hero-role-dot">·</span>Systemist
+          UI/UX Designer<span className="hero-role-dot">·</span>Systemist
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export default function Hero() {
               <TerminalIcon />
               <span className="curl-command">
                 <span>curl</span>
-                https://yourportfolio.dev
+                https://yashwanth-portfolio-blue.vercel.app
               </span>
             </div>
             <button

@@ -5,14 +5,14 @@ const NAV_LINKS = [
   { label: 'Projects', href: '#projects', active: false },
   { label: 'Community', href: '#community', active: false },
   { label: 'Talks', href: '#talks', active: false },
-  { label: 'Travel', href: '#travel', accent: true, active: false },
+  { label: 'Travel', href: '#travel', active: false },
 ]
 
 function SunIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="4"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
     </svg>
   )
 }
@@ -20,7 +20,7 @@ function SunIcon() {
 function MoonIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   )
 }
@@ -28,8 +28,8 @@ function MoonIcon() {
 function LogoIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M4 6C4 4.343 5.343 3 7 3h10c1.657 0 3 1.343 3 3v12c0 1.657-1.343 3-3 3H7c-1.657 0-3-1.343-3-3V6z"/>
-      <path fill="white" d="M8 8h8M8 12h5M8 16h6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M4 6C4 4.343 5.343 3 7 3h10c1.657 0 3 1.343 3 3v12c0 1.657-1.343 3-3 3H7c-1.657 0-3-1.343-3-3V6z" />
+      <path fill="white" d="M8 8h8M8 12h5M8 16h6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   )
 }
