@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
+import About from './components/About'
+import Projects from './components/Projects'
 import Hero from './components/Hero'
 import NowBuilding from './components/NowBuilding'
 import Tools from './components/Tools'
@@ -12,6 +14,8 @@ export default function App() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
 
+  const [activeTab, setActiveTab] = useState('projects')
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
@@ -21,12 +25,23 @@ export default function App() {
 
   return (
     <div className="app">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar
+        theme={theme}
+        toggleTheme={toggleTheme}
+        activeTab={activeTab}
+        onSelectTab={setActiveTab}
+      />
       <main className="main">
         <div className="container">
-          <Hero />
-          <NowBuilding />
-          <Tools />
+          {activeTab === 'about' && <About />}
+          {activeTab === 'projects' && <Projects />}
+          {activeTab !== 'about' && activeTab !== 'projects' && (
+            <>
+              <Hero />
+              <NowBuilding />
+              <Tools />
+            </>
+          )}
         </div>
       </main>
       <Footer />

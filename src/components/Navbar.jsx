@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about', active: true },
-  { label: 'Projects', href: '#projects', active: false },
-  { label: 'Community', href: '#community', active: false },
-  { label: 'Talks', href: '#talks', active: false },
-  { label: 'Travel', href: '#travel', active: false },
+  { id: 'home', label: 'Home', href: '#home' },
+  { id: 'about', label: 'About', href: '#about' },
+  { id: 'projects', label: 'Projects', href: '#projects' },
+  { id: 'community', label: 'Community', href: '#community' },
+  { id: 'talks', label: 'Talks', href: '#talks' },
+  { id: 'travel', label: 'Travel', href: '#travel' },
 ]
 
 function SunIcon() {
@@ -27,14 +28,16 @@ function MoonIcon() {
 
 function LogoIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M4 6C4 4.343 5.343 3 7 3h10c1.657 0 3 1.343 3 3v12c0 1.657-1.343 3-3 3H7c-1.657 0-3-1.343-3-3V6z" />
-      <path fill="white" d="M8 8h8M8 12h5M8 16h6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+      <path d="M12 3.5c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-2.2-1.8-4-4-4z" />
+      <path d="M12 12.5c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-2.2-1.8-4-4-4z" />
+      <path d="M3.5 12c0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4z" />
+      <path d="M12.5 12c0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4z" />
     </svg>
   )
 }
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme, activeTab = 'about', onSelectTab }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -44,27 +47,41 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavClick = (e, linkId) => {
+    if (onSelectTab) {
+      onSelectTab(linkId)
+    }
+  }
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="navbar-inner">
-          <a href="#" className="navbar-logo" aria-label="Home">
+          <a
+            href="#home"
+            className="navbar-logo"
+            aria-label="Home"
+            onClick={(e) => handleNavClick(e, 'home')}
+          >
             <LogoIcon />
           </a>
 
           <nav aria-label="Main navigation">
             <ul className="navbar-nav">
-              {NAV_LINKS.map(link => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className={`${link.active ? 'active' : ''} ${link.accent ? 'active' : ''}`}
-                    style={link.accent ? { color: 'var(--accent)' } : {}}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isActive = activeTab === link.id
+                return (
+                  <li key={link.id}>
+                    <a
+                      href={link.href}
+                      className={isActive ? 'active' : ''}
+                      onClick={(e) => handleNavClick(e, link.id)}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
 
@@ -79,7 +96,7 @@ export default function Navbar({ theme, toggleTheme }) {
             </button>
             <button
               className={`mobile-menu-btn ${mobileOpen ? 'open' : ''}`}
-              onClick={() => setMobileOpen(o => !o)}
+              onClick={() => setMobileOpen((o) => !o)}
               aria-label="Toggle menu"
               id="mobile-menu-btn"
             >
@@ -92,13 +109,15 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Mobile menu */}
         <nav className={`mobile-menu ${mobileOpen ? 'open' : ''}`} aria-label="Mobile navigation">
-          {NAV_LINKS.map(link => (
+          {NAV_LINKS.map((link) => (
             <a
-              key={link.label}
+              key={link.id}
               href={link.href}
-              className={link.active ? 'active' : ''}
-              onClick={() => setMobileOpen(false)}
-              style={link.accent ? { color: 'var(--accent)' } : {}}
+              className={activeTab === link.id ? 'active' : ''}
+              onClick={(e) => {
+                handleNavClick(e, link.id)
+                setMobileOpen(false)
+              }}
             >
               {link.label}
             </a>
