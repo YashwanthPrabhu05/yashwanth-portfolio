@@ -12,37 +12,39 @@
   --accent-light: #d4973f;
   --border: #e8e8e2;
   --border-light: #f0f0ea;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --transition: 0.2s ease;
-  --max-width: 720px;
+  --max-width: 1200px;
 }
 
 [data-theme="dark"] {
-  --bg: #111110;
-  --bg-card: #1a1a18;
-  --bg-code: #222220;
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-code: #1a1a1a;
   --text-primary: #f0efe9;
-  --text-secondary: #a8a8a0;
-  --text-muted: #666660;
-  --accent: #d4973f;
-  --accent-light: #e0ab5a;
-  --border: #2a2a28;
-  --border-light: #222220;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --accent: #a855f7;
+  --accent-light: #c084fc;
+  --border: #222222;
+  --border-light: #1a1a1a;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
 /* ===========================
    Reset & Base
    =========================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -526,8 +528,8 @@ button {
   border: 1px solid var(--border);
   background-color: var(--bg-card);
   transition: color var(--transition), border-color var(--transition),
-              background-color var(--transition), transform var(--transition),
-              box-shadow var(--transition);
+    background-color var(--transition), transform var(--transition),
+    box-shadow var(--transition);
   position: relative;
 }
 
@@ -637,6 +639,7 @@ button {
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -644,18 +647,38 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease forwards;
 }
 
-.animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
-.animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
-.animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
-.animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-1 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
 
 /* ===========================
    Responsive
@@ -985,5 +1008,3 @@ button {
     gap: 28px;
   }
 }
-
-

@@ -1,89 +1,124 @@
 import { useState } from 'react'
-
-function TerminalIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="4 17 10 11 4 5" />
-      <line x1="12" y1="19" x2="20" y2="19" />
-    </svg>
-  )
-}
-
-function CopyIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-    </svg>
-  )
-}
-
-function CheckIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  )
-}
+import Lanyard from './Lanyard/Lanyard'
+import { ErrorBoundary } from './Lanyard/ErrorBoundary'
 
 export default function Hero() {
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('curl https://yashwanth-portfolio-blue.vercel.app')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   return (
-    <section id="about" className="hero animate-fade-in-up">
-      <div className="hero-header">
-        <h1 className="hero-name">Yashwanth Prabhu</h1>
-        <p className="hero-role">
-          UI/UX Designer<span className="hero-role-dot">·</span>Systemist
-        </p>
+    <section id="home" className="hero-section" style={{
+      position: 'relative',
+      width: '100%',
+      maxWidth: '1280px',
+      margin: '0 auto',
+      minHeight: 'auto',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      paddingTop: '1.5rem',
+      paddingLeft: '4vw',
+      paddingRight: '4vw'
+    }}>
+      {/* 3D Lanyard Full Viewport Background Canvas */}
+      <div className="lanyard-viewport-wrapper" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 1,
+        pointerEvents: 'none'
+      }}>
+        <ErrorBoundary>
+          <Lanyard
+            cardModel="/models/card.glb"
+            stringColor="#ffffff"
+            clipColor="#667073"
+            gravity={40}
+            cameraDistance={10.5}
+            fov={20}
+            lightingIntensity={50}
+            cardStartPosition={[1.8, -1.2]}
+          />
+        </ErrorBoundary>
       </div>
 
-      <div className="hero-body">
-        <div className="hero-photo-wrapper">
-          <img
-            src="/profile.png"
-            alt="Profile photo"
-            className="hero-photo"
-            loading="eager"
-          />
-        </div>
+      {/* Left Content Overlay */}
+      <div className="hero-content-container" style={{
+        position: 'relative',
+        zIndex: 10,
+        maxWidth: '580px',
+        pointerEvents: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.75rem'
+      }}>
+        <h1 className="hero-title" style={{
+          fontSize: '3.125rem',
+          fontWeight: 400,
+          lineHeight: 1.12,
+          letterSpacing: '-0.035em',
+          color: '#ffffff',
+          pointerEvents: 'none'
+        }}>
+          Designing Intuitive experiences that create <em style={{ fontFamily: 'Playfair Display, Georgia, serif', fontStyle: 'italic', color: '#a855f7', fontWeight: 'normal' }}>real impact</em>
+        </h1>
 
-        <div className="hero-content">
-          <p className="hero-bio">
-            I design in code, and ship{' '}
-            <a href="#projects">small tools</a> on the side — mostly
-            free and open source. I{' '}
-            <a href="#about">design interfaces</a> and{' '}
-            <a href="#about">systems</a> to save time: mine, and the
-            time of the people who use what I make. It&rsquo;s the metric I
-            care about most —{' '}
-            <strong>good design quietly hands people their time back</strong>,
-            and time is a <a href="#about">non-fungible commodity</a>.
-          </p>
+        <p className="hero-subtitle" style={{
+          fontSize: '1.25rem',
+          fontWeight: 300,
+          color: 'rgba(255, 255, 255, 0.65)',
+          lineHeight: 1.65,
+          maxWidth: '520px',
+          pointerEvents: 'none'
+        }}>
+          I'm a UI/UX Designer focused on creating intuitive, accessible and visually refined digital experiences that drive real impact.
+        </p>
 
-          <div className="curl-block" role="code" aria-label="curl command">
-            <div className="curl-icon">
-              <TerminalIcon />
-              <span className="curl-command">
-                <span>curl</span>
-                https://yashwanth-portfolio-blue.vercel.app
-              </span>
-            </div>
-            <button
-              className={`curl-copy-btn ${copied ? 'copied' : ''}`}
-              onClick={handleCopy}
-              aria-label="Copy curl command"
-              id="curl-copy-btn"
-            >
-              {copied ? <CheckIcon /> : <CopyIcon />}
-              {copied ? 'copied!' : 'copy'}
-            </button>
+        {/* Now Building Card Widget */}
+        <div className="now-building-card-widget" style={{
+          pointerEvents: 'auto',
+          background: 'rgba(18, 18, 20, 0.85)',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          borderRadius: '14px',
+          overflow: 'hidden',
+          display: 'flex',
+          maxWidth: '520px',
+          width: '100%',
+          boxShadow: '0 10px 28px rgba(0, 0, 0, 0.5)',
+          marginTop: '0.4rem'
+        }}>
+          {/* Left Column: Full Height Flush Image */}
+          <div style={{
+            width: '170px',
+            minHeight: '120px',
+            flexShrink: 0,
+            background: '#141416'
+          }}>
+            <img
+              src="/project.png"
+              alt="CREA Mobile App"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          </div>
+
+          {/* Right Column: Text Details */}
+          <div style={{
+            padding: '0.85rem 1.2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: '0.2rem',
+            flex: 1
+          }}>
+            <span style={{ fontSize: '0.78rem', color: 'rgba(255, 255, 255, 0.65)', fontWeight: 300 }}>Now Building</span>
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff', letterSpacing: '-0.01em' }}>CREA Mobile App</h4>
+            <p style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.5)', lineHeight: 1.35, margin: 0, fontWeight: 300 }}>
+              Design directly in your browser. Your agent writes the code.
+            </p>
           </div>
         </div>
       </div>
