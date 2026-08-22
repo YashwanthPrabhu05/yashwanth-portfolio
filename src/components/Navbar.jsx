@@ -5,39 +5,19 @@ const NAV_LINKS = [
   { id: 'about', label: 'About', href: '#about' },
   { id: 'projects', label: 'Projects', href: '#projects' },
   { id: 'community', label: 'Community', href: '#community' },
-  { id: 'talks', label: 'Talks', href: '#talks' },
-  { id: 'travel', label: 'Travel', href: '#travel' },
+  { id: 'blogs', label: 'Blogs', href: '#blogs' },
 ]
 
-function SunIcon() {
+function ArrowUpRightIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
     </svg>
   )
 }
 
-function MoonIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </svg>
-  )
-}
-
-function LogoIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-      <path d="M12 3.5c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-2.2-1.8-4-4-4z" />
-      <path d="M12 12.5c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-2.2-1.8-4-4-4z" />
-      <path d="M3.5 12c0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4z" />
-      <path d="M12.5 12c0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4z" />
-    </svg>
-  )
-}
-
-export default function Navbar({ theme, toggleTheme, activeTab = 'about', onSelectTab }) {
+export default function Navbar({ activeTab = 'home', onSelectTab }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -54,76 +34,136 @@ export default function Navbar({ theme, toggleTheme, activeTab = 'about', onSele
   }
 
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <div className="navbar-inner">
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`} style={{
+      background: 'transparent',
+      paddingTop: '24px',
+      paddingBottom: '24px',
+      position: 'relative',
+      zIndex: 50,
+      width: '100%'
+    }}>
+      <div style={{
+        width: '100%',
+        paddingLeft: '4vw',
+        paddingRight: '4vw',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        position: 'relative'
+      }}>
+
+        {/* Real Logo SVG Asset */}
+        <a
+          href="#home"
+          className="navbar-logo"
+          aria-label="YP Home"
+          onClick={(e) => handleNavClick(e, 'home')}
+          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+        >
+          <img
+            src="/Yp_logo.svg"
+            alt="YP Logo"
+            style={{ height: '90px', width: 'auto', display: 'block', objectFit: 'none', overflow: 'visible', transform: 'translateY(0.1%)' }}
+          />
+        </a>
+
+        {/* Nav Links (Centered) */}
+        <nav aria-label="Main navigation" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+          <ul className="navbar-nav" style={{ display: 'flex', gap: '2.2rem', listStyle: 'none', margin: 0, padding: 0 }}>
+            {NAV_LINKS.map((link) => {
+              const isActive = activeTab === link.id
+              return (
+                <li key={link.id}>
+                  <a
+                    href={link.href}
+                    className={isActive ? 'active' : ''}
+                    onClick={(e) => handleNavClick(e, link.id)}
+                    style={{
+                      fontSize: '0.95rem',
+                      fontWeight: 200,
+                      color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.65)',
+                      textDecoration: 'none',
+                      paddingBottom: '6px',
+                      borderBottom: isActive ? '2px solid #a855f7' : '2px solid transparent',
+                      transition: 'all 0.2s ease',
+                      letterSpacing: '0.01em'
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+
+        {/* Right Actions: Let's Connect Pill CTA */}
+        <div className="navbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <a
-            href="#home"
-            className="navbar-logo"
-            aria-label="Home"
-            onClick={(e) => handleNavClick(e, 'home')}
+            href="mailto:contact@yashwanthprabhu.com"
+            className="lets-connect-btn"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '8px 18px',
+              borderRadius: '999px',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(255, 255, 255, 0.04)',
+              backdropFilter: 'blur(12px)',
+              fontSize: '0.925rem',
+              fontWeight: 500,
+              color: '#ffffff',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+            }}
           >
-            <LogoIcon />
+            Let's Connect
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '26px',
+              height: '26px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+              color: '#ffffff'
+            }}>
+              <ArrowUpRightIcon />
+            </span>
           </a>
 
-          <nav aria-label="Main navigation">
-            <ul className="navbar-nav">
-              {NAV_LINKS.map((link) => {
-                const isActive = activeTab === link.id
-                return (
-                  <li key={link.id}>
-                    <a
-                      href={link.href}
-                      className={isActive ? 'active' : ''}
-                      onClick={(e) => handleNavClick(e, link.id)}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-
-          <div className="navbar-actions">
-            <button
-              className="theme-toggle"
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              id="theme-toggle-btn"
-            >
-              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-            </button>
-            <button
-              className={`mobile-menu-btn ${mobileOpen ? 'open' : ''}`}
-              onClick={() => setMobileOpen((o) => !o)}
-              aria-label="Toggle menu"
-              id="mobile-menu-btn"
-            >
-              <span />
-              <span />
-              <span />
-            </button>
-          </div>
+          <button
+            className={`mobile-menu-btn ${mobileOpen ? 'open' : ''}`}
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
+            id="mobile-menu-btn"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
 
-        {/* Mobile menu */}
-        <nav className={`mobile-menu ${mobileOpen ? 'open' : ''}`} aria-label="Mobile navigation">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              className={activeTab === link.id ? 'active' : ''}
-              onClick={(e) => {
-                handleNavClick(e, link.id)
-                setMobileOpen(false)
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
       </div>
+
+      {/* Mobile menu */}
+      <nav className={`mobile-menu ${mobileOpen ? 'open' : ''}`} aria-label="Mobile navigation">
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link.id}
+            href={link.href}
+            className={activeTab === link.id ? 'active' : ''}
+            onClick={(e) => {
+              handleNavClick(e, link.id)
+              setMobileOpen(false)
+            }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
     </header>
   )
 }
