@@ -7,26 +7,16 @@ import Tools from './components/Tools'
 import Footer from './components/Footer'
 
 export default function App() {
-  const [theme, setTheme] = useState(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored) return stored
-    return 'dark'
-  })
-
   const [activeTab, setActiveTab] = useState('home')
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
+    document.documentElement.setAttribute('data-theme', 'dark')
+    localStorage.setItem('theme', 'dark')
+  }, [])
 
   return (
     <div className="app" style={{ overflow: 'visible', minHeight: '100vh' }}>
       <Navbar
-        theme={theme}
-        toggleTheme={toggleTheme}
         activeTab={activeTab}
         onSelectTab={setActiveTab}
       />
