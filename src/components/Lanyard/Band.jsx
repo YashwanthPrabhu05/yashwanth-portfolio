@@ -10,20 +10,53 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import * as THREE from "three";
-import { generateCardTexture } from "../../utils/generateCardTexture";
+import { generateCardTextureAsync } from "../../utils/generateCardTexture";
+
+// Suspense cache for the card face. Band already suspends on its GLTF, so
+// suspending here too means the card only ever appears fully textured — no
+// blank-white frame while a swapped-in texture decodes.
+let cardUrlValue = null;
+let cardUrlPromise = null;
+function readCardUrl() {
+  if (cardUrlValue) return cardUrlValue;
+  if (!cardUrlPromise) {
+    cardUrlPromise = generateCardTextureAsync({
+      firstName: "Yashwanth",
+      lastName: "Prabhu",
+      title: "UIUX DESIGNER",
+      date: "AUG 16 2025",
+      bgColor: "#0d0d0d",
+    }).then((url) => {
+      cardUrlValue = url;
+      return url;
+    });
+  }
+  throw cardUrlPromise;
+}
 import { generateStringTexture } from "../../utils/generateStringTexture";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
+
+const ROPE_SEGMENT = 0.85;
+const CARD_JOINT_OFFSET = 1.7;
+
+// Entrance: the chain spawns taut and horizontal, straight out to the right of
+// the anchor — the 3 o'clock position — so releasing the physics swings the card
+// down like a clock hand and lets it oscillate into place.
+const dropAt = (distance) => [distance, 0, 0];
 
 const segmentProps = {
   type: "dynamic",
   canSleep: true,
   colliders: false,
-  angularDamping: 4,
-  linearDamping: 4,
+  // Angular damping stays high so the card doesn't tumble and show its blank
+  // back face; the lower linear damping keeps the swing lively.
+  angularDamping: 5,
+  linearDamping: 2,
 };
 
 export default function Band({
+  onReady,
   maxSpeed = 50,
   minSpeed = 0,
   cardModel = "/models/card.glb",
@@ -53,24 +86,13 @@ export default function Band({
 
   const vec = useMemo(() => new THREE.Vector3(), []);
   const dir = useMemo(() => new THREE.Vector3(), []);
+  const clipWorldPos = useMemo(() => new THREE.Vector3(), []);
+  const cardQuat = useMemo(() => new THREE.Quaternion(), []);
   const { pointer, camera } = useThree();
 
   const { nodes, materials } = useGLTF(cardModel);
 
-  const cardImageUrl = useMemo(
-    () =>
-      cardImage ||
-      generateCardTexture({
-        firstName: "Yashwanth",
-        lastName: "Prabhu",
-        title: "UIUX DESIGNER",
-        date: "AUG 16 2025",
-        bgColor: "#0d0d0d",
-      }),
-    [cardImage]
-  );
-
-  const cardTexture = useTexture(cardImageUrl);
+  const cardTexture = useTexture(cardImage || readCardUrl());
   cardTexture.flipY = false;
   cardTexture.needsUpdate = true;
 
@@ -103,6 +125,14 @@ export default function Band({
     };
   }, [stringImageSrc]);
 
+  // Band only mounts once its model and textures have resolved, so this is the
+  // point where the card can actually be seen — release the drop just after the
+  // first painted frame.
+  useEffect(() => {
+    const id = setTimeout(() => onReady?.(), 120);
+    return () => clearTimeout(id);
+  }, [onReady]);
+
   const curve = useMemo(() => {
     const c = new THREE.CatmullRomCurve3([
       new THREE.Vector3(),
@@ -114,10 +144,10 @@ export default function Band({
     return c;
   }, []);
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 0.85]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 0.85]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 0.85]);
-  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.5, 0]]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], ROPE_SEGMENT]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], ROPE_SEGMENT]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], ROPE_SEGMENT]);
+  useSphericalJoint(j3, card, [[0, 0, 0], [0, CARD_JOINT_OFFSET, 0]]);
 
   useFrame((state, delta) => {
     if (dragged) {
@@ -142,18 +172,26 @@ export default function Band({
           0.1,
           Math.min(1, ref.current.lerped.distanceTo(ref.current.translation()))
         );
-        ref.current.lerped.lerp(
-          ref.current.translation(),
+        // Clamping matters: an unclamped alpha overshoots on slow frames and the
+        // rope diverges into NaN, which makes the card vanish.
+        const alpha = Math.min(
+          1,
           delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
         );
+        ref.current.lerped.lerp(ref.current.translation(), alpha);
       });
 
-      if (j3.current && j2.current?.lerped && j1.current?.lerped) {
-        curve.points[0].copy(j3.current.translation());
+      if (j3.current && j2.current?.lerped && j1.current?.lerped && card.current) {
+        const cardTrans = card.current.translation();
+        const cardRot = card.current.rotation();
+        cardQuat.set(cardRot.x, cardRot.y, cardRot.z, cardRot.w);
+        clipWorldPos.set(0, 1.70, 0).applyQuaternion(cardQuat).add(cardTrans);
+
+        curve.points[0].copy(clipWorldPos);
         curve.points[1].copy(j2.current.lerped);
         curve.points[2].copy(j1.current.lerped);
         curve.points[3].copy(fixed.current.translation());
-        if (band.current) {
+        if (band.current && curve.points.every((p) => Number.isFinite(p.x) && Number.isFinite(p.y) && Number.isFinite(p.z))) {
           band.current.geometry.setPoints(curve.getPoints(32));
         }
       }
@@ -163,7 +201,9 @@ export default function Band({
         const rotVal = card.current.rotation();
         card.current.setAngvel({
           x: angVal.x,
-          y: angVal.y - rotVal.y * 0.25,
+          // Restoring term that turns the card back to face the viewer. Too weak
+          // and it settles stuck at an angle, showing the card edge-on.
+          y: angVal.y - rotVal.y * 1.8,
           z: angVal.z,
         });
       }
@@ -172,18 +212,18 @@ export default function Band({
 
   return (
     <>
-      <group position={[cardX, 3.8, 0]}>
+      <group position={[cardX, 3.8 + cardY, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
 
-        <RigidBody ref={j1} {...segmentProps} position={[cardX * 0.25, cardY * 0.25, 0]}>
+        <RigidBody ref={j1} {...segmentProps} position={dropAt(ROPE_SEGMENT)}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        <RigidBody ref={j2} {...segmentProps} position={[cardX * 0.5, cardY * 0.5, 0]}>
+        <RigidBody ref={j2} {...segmentProps} position={dropAt(ROPE_SEGMENT * 2)}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
-        <RigidBody ref={j3} {...segmentProps} position={[cardX * 0.75, cardY * 0.75, 0]}>
+        <RigidBody ref={j3} {...segmentProps} position={dropAt(ROPE_SEGMENT * 3)}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
@@ -191,7 +231,7 @@ export default function Band({
           ref={card}
           {...segmentProps}
           type={dragged ? "kinematicPosition" : "dynamic"}
-          position={[cardX * 1.0, cardY * 1.0, 0]}
+          position={dropAt(ROPE_SEGMENT * 3 + CARD_JOINT_OFFSET)}
           colliders={false}
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
@@ -260,8 +300,8 @@ export default function Band({
           resolution={[width, height]}
           useMap={!!stringTexture && isStringTextureLoaded}
           map={stringTexture}
-          repeat={stringTexture ? [-17 / stringAspectRatio, 1] : undefined}
-          lineWidth={1}
+          repeat={stringTexture ? [2, 1] : undefined}
+          lineWidth={0.85}
         />
       </mesh>
     </>

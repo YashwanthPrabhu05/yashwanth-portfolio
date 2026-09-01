@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const NAV_LINKS = [
   { id: 'home', label: 'Home', href: '#home' },
@@ -20,6 +21,9 @@ function ArrowUpRightIcon() {
 export default function Navbar({ activeTab = 'home', onSelectTab }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const breakpoint = useBreakpoint()
+  const isSmall = breakpoint === 'mobile' || breakpoint === 'small'
+  const showFullNav = breakpoint === 'desktop'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 12)
@@ -63,13 +67,13 @@ export default function Navbar({ activeTab = 'home', onSelectTab }) {
           <img
             src="/Yp_logo.svg"
             alt="YP Logo"
-            style={{ height: '90px', width: 'auto', display: 'block', objectFit: 'none', overflow: 'visible', transform: 'translateY(0.1%)' }}
+            style={{ height: isSmall ? '52px' : '90px', width: 'auto', display: 'block', objectFit: 'none', overflow: 'visible', transform: 'translateY(0.1%)' }}
           />
         </a>
 
         {/* Nav Links (Centered) */}
         <nav aria-label="Main navigation" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <ul className="navbar-nav" style={{ display: 'flex', gap: '2.2rem', listStyle: 'none', margin: 0, padding: 0 }}>
+          <ul className="navbar-nav" style={{ display: showFullNav ? 'flex' : 'none', gap: '2.2rem', listStyle: 'none', margin: 0, padding: 0 }}>
             {NAV_LINKS.map((link) => {
               const isActive = activeTab === link.id
               return (
@@ -105,13 +109,13 @@ export default function Navbar({ activeTab = 'home', onSelectTab }) {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
-              padding: '8px 18px',
+              gap: breakpoint === 'small' ? 0 : '10px',
+              padding: breakpoint === 'small' ? '6px' : isSmall ? '6px 12px' : '8px 18px',
               borderRadius: '999px',
               border: '1px solid rgba(255, 255, 255, 0.15)',
               background: 'rgba(255, 255, 255, 0.04)',
               backdropFilter: 'blur(12px)',
-              fontSize: '0.925rem',
+              fontSize: isSmall ? '0.85rem' : '0.925rem',
               fontWeight: 500,
               color: '#ffffff',
               textDecoration: 'none',
@@ -119,7 +123,7 @@ export default function Navbar({ activeTab = 'home', onSelectTab }) {
               boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
             }}
           >
-            Let's Connect
+            {breakpoint !== 'small' && "Let's Connect"}
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',

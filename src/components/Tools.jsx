@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const TOOL_GROUPS = [
   {
@@ -33,14 +34,18 @@ const TOOL_GROUPS = [
 
 export default function Tools() {
   const [activeTooltip, setActiveTooltip] = useState(null)
+  const breakpoint = useBreakpoint()
+  const isSmall = breakpoint === 'mobile' || breakpoint === 'small'
+  const btnSize = isSmall ? 32 : 38
+  const iconSize = isSmall ? 17 : 20
 
   return (
     <div style={{
       display: 'flex',
       justifyContent: 'center',
       width: '100%',
-      marginTop: '3rem',
-      marginBottom: '2rem',
+      marginTop: isSmall ? '2rem' : '3rem',
+      marginBottom: isSmall ? '1.25rem' : '2rem',
       position: 'relative',
       zIndex: 20,
       pointerEvents: 'auto'
@@ -48,8 +53,8 @@ export default function Tools() {
       <div className="tool-dock" style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '6px',
-        padding: '8px 12px',
+        gap: isSmall ? '4px' : '6px',
+        padding: isSmall ? '6px 8px' : '8px 12px',
         background: 'rgba(18, 18, 20, 0.85)',
         border: '1px solid rgba(255, 255, 255, 0.12)',
         borderRadius: '16px',
@@ -69,8 +74,8 @@ export default function Tools() {
                 aria-label={tool.label}
                 style={{
                   position: 'relative',
-                  width: '38px',
-                  height: '38px',
+                  width: `${btnSize}px`,
+                  height: `${btnSize}px`,
                   borderRadius: '10px',
                   background: activeTooltip === tool.label ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.04)',
                   border: activeTooltip === tool.label ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(255, 255, 255, 0.08)',
@@ -86,8 +91,8 @@ export default function Tools() {
                   src={tool.icon}
                   alt={tool.label}
                   style={{
-                    width: '20px',
-                    height: '20px',
+                    width: `${iconSize}px`,
+                    height: `${iconSize}px`,
                     objectFit: 'contain',
                     filter: 'brightness(0.95)'
                   }}

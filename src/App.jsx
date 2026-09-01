@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import About from './components/About'
 import Projects from './components/Projects'
@@ -8,11 +8,6 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    localStorage.setItem('theme', 'dark')
-  }, [])
 
   return (
     <div className="app" style={{ overflow: 'visible', minHeight: '100vh' }}>

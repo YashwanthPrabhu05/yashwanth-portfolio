@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, Suspense } from "react";
+import { useRef, useEffect, useState, useCallback, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Lightformer } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
@@ -22,6 +22,10 @@ export default function Lanyard({
 }) {
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // Hold the simulation until the card is loaded, so the entrance drop plays
+  // from the beginning instead of being caught halfway through.
+  const [dropping, setDropping] = useState(false);
+  const startDrop = useCallback(() => setDropping(true), []);
 
   const lightScale = 1 + (lightingIntensity - 50) / 50;
 
@@ -58,9 +62,10 @@ export default function Lanyard({
         >
           <ambientLight intensity={Math.PI * lightScale} />
 
-          <Physics gravity={[0, -gravity, 0]} timeStep={1 / 60}>
+          <Physics gravity={[0, -gravity, 0]} timeStep={1 / 60} paused={!dropping}>
             <Suspense fallback={null}>
               <Band
+                onReady={startDrop}
                 cardModel={cardModel}
                 cardImage={cardImage}
                 stringImageSrc={stringImageSrc}

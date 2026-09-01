@@ -12,4 +12,21 @@
   touch-action: none;
   overflow: visible;
   pointer-events: auto !important;
+  animation: lanyard-fade-in 0.45s ease-out both;
+}
+
+@keyframes lanyard-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lanyard-container canvas {
+    animation: none;
+  }
 }
