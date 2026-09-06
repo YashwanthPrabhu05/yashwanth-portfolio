@@ -5,9 +5,9 @@ const TOOL_GROUPS = [
   {
     id: 'devices',
     items: [
-      { id: 'mobile', label: 'Mobile', icon: '/tool_icons/mobile.svg' },
-      { id: 'laptop', label: 'Desktop', icon: '/tool_icons/laptop.svg' },
-      { id: 'watch', label: 'Watch', icon: '/tool_icons/watch.svg' }
+      { id: 'mobile', label: 'iPhone 15 Pro', icon: '/tool_icons/mobile.svg' },
+      { id: 'laptop', label: 'MacBook Pro', icon: '/tool_icons/laptop.svg' },
+      { id: 'watch', label: 'Watch 9', icon: '/tool_icons/watch.svg' }
     ]
   },
   {
@@ -48,7 +48,8 @@ export default function Tools() {
       marginBottom: isSmall ? '1.25rem' : '2rem',
       position: 'relative',
       zIndex: 20,
-      pointerEvents: 'auto'
+      pointerEvents: 'auto',
+      overflow: 'visible'
     }}>
       <div className="tool-dock" style={{
         display: 'inline-flex',
@@ -61,10 +62,10 @@ export default function Tools() {
         backdropFilter: 'blur(20px)',
         boxShadow: '0 12px 32px rgba(0, 0, 0, 0.6)',
         maxWidth: '100%',
-        overflowX: 'auto'
+        overflow: 'visible'
       }}>
         {TOOL_GROUPS.map((group, groupIdx) => (
-          <div key={group.id} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <div key={group.id} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', position: 'relative', overflow: 'visible' }}>
             {/* Render items in this group */}
             {group.items.map((tool) => (
               <button
@@ -84,7 +85,8 @@ export default function Tools() {
                   justifyContent: 'center',
                   cursor: 'pointer',
                   transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-                  transform: activeTooltip === tool.label ? 'translateY(-3px)' : 'none'
+                  transform: activeTooltip === tool.label ? 'translateY(-3px)' : 'none',
+                  overflow: 'visible'
                 }}
               >
                 <img
@@ -100,20 +102,23 @@ export default function Tools() {
                 {activeTooltip === tool.label && (
                   <span style={{
                     position: 'absolute',
-                    bottom: 'calc(100% + 10px)',
+                    bottom: 'calc(100% + 8px)',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    background: '#141416',
-                    color: '#ffffff',
-                    padding: '5px 10px',
-                    borderRadius: '6px',
-                    fontSize: '0.75rem',
+                    background: '#ffffff',
+                    color: '#0a0a0a',
+                    padding: '3px 8px',
+                    borderRadius: '4px',
+                    fontSize: '11.5px',
                     fontWeight: 500,
+                    fontFamily: 'var(--font)',
+                    letterSpacing: '-0.01em',
+                    lineHeight: '1.2',
                     whiteSpace: 'nowrap',
                     pointerEvents: 'none',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    boxShadow: '0 6px 16px rgba(0,0,0,0.6)',
-                    zIndex: 100
+                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.35)',
+                    zIndex: 9999,
+                    animation: 'tooltipFadeIn 0.15s ease-out'
                   }}>
                     {tool.label}
                   </span>
