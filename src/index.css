@@ -405,7 +405,7 @@ button {
    About Page (Reference Layout)
    =========================== */
 .about-section {
-  padding: 32px 0 60px;
+  padding: 16px 0 60px;
 }
 
 .about-header {
@@ -453,7 +453,7 @@ button {
 .about-gallery-img-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--bg-card);
@@ -483,7 +483,7 @@ button {
 
 @media (max-width: 640px) {
   .about-section {
-    padding: 24px 0 40px;
+    padding: 12px 0 40px;
   }
 
   .about-title {
@@ -507,7 +507,7 @@ button {
    Projects Page (Reference Layout)
    =========================== */
 .projects-section {
-  padding: 32px 0 60px;
+  padding: 16px 0 60px;
 }
 
 .projects-header {
@@ -629,7 +629,7 @@ button {
 
 @media (max-width: 640px) {
   .projects-section {
-    padding: 24px 0 40px;
+    padding: 12px 0 40px;
   }
 
   .projects-title {
@@ -650,7 +650,7 @@ button {
    Community Page
    =========================== */
 .community-section {
-  padding: 40px 0 80px 0;
+  padding: 16px 0 80px 0;
 }
 
 .community-container {
@@ -889,7 +889,7 @@ button {
    Blogs & Essays Page
    =========================== */
 .blogs-section {
-  padding: 40px 0 80px 0;
+  padding: 16px 0 80px 0;
 }
 
 .blogs-container {

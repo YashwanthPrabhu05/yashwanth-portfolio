@@ -55,7 +55,7 @@ export default function Hero() {
       justifyContent: 'space-between',
       alignItems: isStacked ? 'stretch' : 'flex-start',
       gap: isStacked ? '1.5rem' : 0,
-      paddingTop: '1.5rem',
+      paddingTop: '1rem',
       paddingBottom: isStacked ? '1.5rem' : 0,
       paddingLeft: '4vw',
       paddingRight: '4vw'

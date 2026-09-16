@@ -85,7 +85,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-inner">
           <p className="footer-location">
-            &copy; Bengaluru, {timeStr}
+            &copy; Chennai, {timeStr}
             {sameTimezone && (
               <span> (Ah, we are in the same timezone!)</span>
             )}

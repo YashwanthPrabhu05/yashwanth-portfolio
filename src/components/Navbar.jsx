@@ -40,8 +40,8 @@ export default function Navbar({ activeTab = 'home', onSelectTab }) {
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`} style={{
       background: 'transparent',
-      paddingTop: '24px',
-      paddingBottom: '24px',
+      paddingTop: '14px',
+      paddingBottom: '8px',
       position: 'relative',
       zIndex: 50,
       width: '100%'
@@ -67,7 +67,7 @@ export default function Navbar({ activeTab = 'home', onSelectTab }) {
           <img
             src="/Yp_logo.svg"
             alt="YP Logo"
-            style={{ height: isSmall ? '52px' : '90px', width: 'auto', display: 'block', objectFit: 'none', overflow: 'visible', transform: 'translateY(0.1%)' }}
+            style={{ height: isSmall ? '42px' : '54px', width: 'auto', display: 'block', objectFit: 'none', overflow: 'visible', transform: 'translateY(0.1%)' }}
           />
         </a>
 
