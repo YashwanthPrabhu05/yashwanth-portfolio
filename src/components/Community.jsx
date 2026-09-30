@@ -2,32 +2,12 @@ import React from 'react'
 
 const BADGES = [
   {
-    id: 'user-group-leader',
-    label: 'User Group Leader',
+    id: 'member',
+    label: 'Member',
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="14" width="7" height="7" rx="1" />
-        <rect x="3" y="14" width="7" height="7" rx="1" />
-      </svg>
-    ),
-  },
-  {
-    id: 'community-ambassador',
-    label: 'Community Ambassador',
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l11.394-.746c.28 0 .466.187.373.466l-.746 3.078c-.093.373-.373.56-.746.56l-1.306-.093v10.073c0 1.213-.653 1.865-1.959 1.959l-11.488.746c-.746.093-1.213-.28-1.213-1.026V5.42c0-.56.373-.933.87-1.121zm2.332 3.171v10.632l2.985-.187v-5.223l2.891 5.036 3.731-.28V6.913l-2.705.187v4.85l-2.705-4.85-4.197.28z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'ambassador',
-    label: 'Ambassador',
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
       </svg>
     ),
   },
@@ -37,85 +17,51 @@ const COMMUNITIES = [
   {
     id: 'figma-chennai',
     name: 'Friends of Figma Chennai',
-    description: 'Local chapter of the global Figma community, hosting design events and workshops.',
+    description: "Local chapter of the global Figma community — I'm a member here, attending design events and workshops.",
     href: 'https://friends.figma.com/chennai/',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 38 57" fill="none">
-        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z" fill="#0ACF83" />
-        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#1ABCFE" />
-        <path d="M0 28.5C0 23.2533 4.25329 19 9.5 19H19V38H9.5C4.25329 38 0 33.7467 0 28.5Z" fill="#EA4C89" />
-        <path d="M0 9.5C0 4.25329 4.25329 0 9.5 0H19V19H9.5C4.25329 19 0 14.7467 0 9.5Z" fill="#F24E1E" />
-        <path d="M19 0H28.5C33.7467 0 38 4.25329 38 9.5C38 14.7467 33.7467 19 28.5 19H19V0Z" fill="#FF7262" />
-      </svg>
-    ),
+    icon: '/community/friends-of-figma-chennai.png',
   },
   {
-    id: 'notion-chennai',
-    name: 'Notion Chennai',
-    description: "Chennai's Notion enthusiasts sharing templates, workflows, and productivity hacks.",
-    href: 'https://www.notion.so/community',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff">
-        <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l11.394-.746c.28 0 .466.187.373.466l-.746 3.078c-.093.373-.373.56-.746.56l-1.306-.093v10.073c0 1.213-.653 1.865-1.959 1.959l-11.488.746c-.746.093-1.213-.28-1.213-1.026V5.42c0-.56.373-.933.87-1.121zm2.332 3.171v10.632l2.985-.187v-5.223l2.891 5.036 3.731-.28V6.913l-2.705.187v4.85l-2.705-4.85-4.197.28z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'chennai-design',
-    name: 'Chennai Design',
-    description: 'A grassroots community for designers in Chennai to connect, learn, and grow together.',
-    href: 'https://twitter.com/chennaidesign',
-    icon: (
-      <div className="chennai-design-icon-box">
-        c
-      </div>
-    ),
-  },
-  {
-    id: 'raycast-bengaluru',
-    name: 'Raycast Bengaluru',
-    description: 'Power users and developers exploring Raycast extensions and automation.',
-    href: 'https://www.raycast.com/community',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <rect width="24" height="24" rx="6" fill="#FF6363" />
-        <path d="M6 12L12 6L18 12L12 18L6 12Z" fill="#FFFFFF" />
-        <path d="M12 9L15 12L12 15L9 12L12 9Z" fill="#FF6363" />
-      </svg>
-    ),
+    id: 'claude-design-meetup',
+    name: 'Claude Design Meetup — Kissflow Studio',
+    description: 'A meetup exploring AI-powered design and product workflows, hosted by Kissflow Studio in Chennai.',
+    href: 'https://kissflow.com',
+    icon: '/community/claude-design-meetup-kissflow.png',
   },
 ]
 
 const GALLERY_PHOTOS = [
   {
-    id: 'figma-sf',
-    src: '/community/figma_sf_tour.jpg',
-    caption: 'Figma SF office tour 2024',
+    id: 'make-with-figma',
+    src: '/community/make_with_figma_chennai.jpg',
+    caption: 'Make with Figma — Friends of Figma Chennai',
+    objectPosition: 'center top',
   },
   {
-    id: 'config-leads',
-    src: '/community/figma_leads_config.jpg',
-    caption: 'With Friends of Figma Leads at Config 2025',
+    id: 'fof-banner',
+    src: '/community/friends_of_figma_banner.png',
+    caption: 'Friends of Figma Chennai event',
+    objectPosition: 'center top',
   },
   {
-    id: 'figma-india',
-    src: '/community/figma_india_launch.jpg',
-    caption: 'Figma India office launch',
+    id: 'claude-meetup-group',
+    src: '/community/community_meetup_group_1.jpg',
+    caption: 'Claude Design Meetup hosted by Kissflow Studio',
   },
   {
-    id: 'notion-ambassadors',
-    src: '/community/notion_ambassadors.jpg',
-    caption: 'With Notion Ambassadors and Ivan Zhao',
+    id: 'fof-meetup-group',
+    src: '/community/community_meetup_group_2.jpg',
+    caption: 'Friends of Figma Chennai community gathering',
   },
   {
-    id: 'akshay-kothari',
-    src: '/community/akshay_kothari.jpg',
-    caption: 'Akshay Kothari, COO Notion',
+    id: 'community-speaking',
+    src: '/community/community_speaking.png',
+    caption: 'Q&A session at local design meetup',
   },
   {
-    id: 'mwn-2025',
-    src: '/community/mwn_2025.jpg',
-    caption: 'MWN 2025 Ambassadors group',
+    id: 'community-workshop',
+    src: '/community/community_workshop.jpg',
+    caption: 'Interactive design workshop & networking',
   },
 ]
 
@@ -149,20 +95,10 @@ export default function Community() {
         {/* Intro Paragraphs */}
         <div className="community-intro">
           <p>
-            Community is how I give back. What started as showing up to local meetups turned into leading them. Today I help run chapters around Figma, Notion, Raycast, and design and productivity across Chennai and Bengaluru, and host free meetups every quarter.
+            Community is where I learn and connect. I'm a member of Friends of Figma, Chennai, where I show up for local meetups, design events, and workshops with other designers in the city.
           </p>
           <p>
-            I've also mentored a number of early-career designers into their first jobs, something I find as rewarding as the work itself. If that sounds helpful,{' '}
-            <a
-              href="https://topmate.io/yashwanthprabhu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="community-topmate-link"
-            >
-              book a call on Topmate
-              <ArrowUpRightIcon />
-            </a>
-            .
+            I've also attended the Claude Design Meetup hosted by Kissflow Studio, diving into conversations around AI-native design and tooling.
           </p>
         </div>
 
@@ -184,7 +120,11 @@ export default function Community() {
             {COMMUNITIES.map((comm) => (
               <div key={comm.id} className="community-item">
                 <div className="community-item-icon-box">
-                  {comm.icon}
+                  {typeof comm.icon === 'string' ? (
+                    <img src={comm.icon} alt={comm.name} className="community-item-icon" />
+                  ) : (
+                    comm.icon
+                  )}
                 </div>
                 <div className="community-item-content">
                   <a
@@ -213,6 +153,7 @@ export default function Community() {
                     src={photo.src}
                     alt={photo.caption}
                     className="community-gallery-img"
+                    style={{ objectPosition: photo.objectPosition || 'center' }}
                     loading="lazy"
                   />
                 </div>

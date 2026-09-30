@@ -7,18 +7,18 @@ export default function NowBuilding() {
         rel="noopener noreferrer"
         className="project-card"
         id="now-building-card"
-        aria-label="View current project: DesignMode"
+        aria-label="View current project: CREA : A Metal Decor"
       >
         <div className="project-card-image">
           <img
             src="/project.png"
-            alt="DesignMode project screenshot"
+            alt="CREA : A Metal Decor project screenshot"
             loading="lazy"
           />
         </div>
         <div className="project-card-body">
           <p className="project-badge">Now Building</p>
-          <h2 className="project-title">DesignMode</h2>
+          <h2 className="project-title">CREA : A Metal Decor</h2>
           <p className="project-desc">
             Edit layout, typography, colour, spacing, copy and DOM with real
             controls, then ship the diff to{' '}

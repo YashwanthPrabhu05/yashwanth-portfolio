@@ -54,7 +54,7 @@ function TimerIcon() {
 
 const FEATURED_STORY = {
   id: 'featured-designmode',
-  title: 'Building DesignMode: Merging Live DOM with AI Agents',
+  title: 'Building CREA : A Metal Decor: Merging Live DOM with AI Agents',
   subtitle:
     'How turning any live website into an editable canvas and streaming diffs into AI coding tools revolutionizes product design loops.',
   date: 'Dec 2025',

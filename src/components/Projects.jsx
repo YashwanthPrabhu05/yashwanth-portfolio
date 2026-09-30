@@ -23,7 +23,7 @@ function LockIcon() {
 const PROJECTS_DATA = [
   {
     id: 'infrax',
-    title: 'InfraX',
+    title: 'Catalyst Hub',
     isLocked: true,
     year: '2026',
     tags: ['Enterprise', 'Agentic AI', 'IBM'],
@@ -34,7 +34,7 @@ const PROJECTS_DATA = [
   },
   {
     id: 'designmode',
-    title: 'DesignMode',
+    title: 'CREA : A Metal Decor',
     isLocked: false,
     year: '2026',
     tags: ['AI tooling', 'Open source', 'Live'],
@@ -45,7 +45,7 @@ const PROJECTS_DATA = [
   },
   {
     id: 'dispatcher-assistant',
-    title: 'Dispatcher Assistant',
+    title: 'Exam AI',
     isLocked: false,
     year: '2026',
     tags: ['AI orchestration', 'Personal system'],
@@ -55,7 +55,7 @@ const PROJECTS_DATA = [
   },
   {
     id: 'replan',
-    title: 'Replan',
+    title: 'CRM',
     isLocked: false,
     year: '2026',
     tags: ['Consumer mobile', 'AI', 'Design exercise'],
