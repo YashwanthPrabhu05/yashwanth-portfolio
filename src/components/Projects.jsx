@@ -20,52 +20,78 @@ function LockIcon() {
   )
 }
 
+function ArrowUpRightIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="project-arrow-icon"
+    >
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
+    </svg>
+  )
+}
+
 const PROJECTS_DATA = [
   {
-    id: 'infrax',
-    title: 'Catalyst Hub',
-    isLocked: true,
-    year: '2026',
-    tags: ['Enterprise', 'Agentic AI', 'IBM'],
-    description:
-      'Bringing agentic AI to how enterprise teams provision and manage infrastructure at scale.',
-    image: '/projects/infrax.png',
-    alt: 'InfraX server infrastructure',
-  },
-  {
-    id: 'designmode',
+    id: 'crea',
+    aliasId: 'designmode',
     title: 'CREA : A Metal Decor',
     isLocked: false,
     year: '2026',
-    tags: ['AI tooling', 'Open source', 'Live'],
+    tags: ['Mobile UX', 'E-Commerce', 'Bespoke'],
     description:
-      'Your Figma properties panel on any live website, every change becomes a brief your coding age...',
-    image: '/projects/designmode.png',
-    alt: 'DesignMode browser inspector interface',
+      'A bespoke e-commerce mobile application crafted for spiritual brass, bronze, and artisanal metal decor collections with divine journeys and festival subscriptions.',
+    image: '/projects/crea.jpg',
+    alt: 'CREA : A Metal Decor Luxury Mobile App',
   },
   {
     id: 'dispatcher-assistant',
+    aliasId: 'exam-ai',
     title: 'Exam AI',
     isLocked: false,
     year: '2026',
-    tags: ['AI orchestration', 'Personal system'],
-    description: 'A Notion custom agent that takes an idea off a...',
+    tags: ['AI orchestration', 'Personal system', 'Productivity'],
+    description:
+      'A Notion custom agent that takes ideas and syllabi off the page, orchestrating automated spaced-repetition and active-recall systems.',
     image: '/projects/dispatcher.svg',
-    alt: 'Dispatcher Assistant workflow automation',
+    alt: 'Exam AI Dispatcher Assistant workflow automation',
   },
   {
-    id: 'replan',
-    title: 'CRM',
+    id: 'sripuram-one',
+    aliasId: 'replan',
+    title: 'Sripuram ONE - Mobile App',
     isLocked: false,
     year: '2026',
-    tags: ['Consumer mobile', 'AI', 'Design exercise'],
-    description: 'A consumer mobile travel planner that fixes the...',
-    image: '/projects/replan.svg',
-    alt: 'Replan travel planner map',
+    tags: ['Mobile App', 'Devotional', 'Community'],
+    description:
+      'An all-in-one devotional mobile application designed for devotees to book poojas, watch live darshan streams, and track spiritual festival calendars.',
+    image: '/projects/sripuram_one.jpg',
+    alt: 'Sripuram ONE Devotional Mobile App',
+  },
+  {
+    id: 'catalysthub',
+    aliasId: 'infrax',
+    title: 'Catalysthub - Interior Design Company Website Design',
+    isLocked: false,
+    year: '2026',
+    tags: ['Web Design', 'Interior Studio', 'Full-Funnel Marketing'],
+    description:
+      'Website and full-funnel marketing for an interior design studio, showcasing serene spaces and bespoke residences where comfort meets quiet luxury.',
+    image: '/projects/catalysthub.jpg',
+    alt: 'Catalysthub Interior Design Studio Website and Marketing',
   },
 ]
 
-export default function Projects() {
+export default function Projects({ onSelectProject }) {
   return (
     <section className="projects-section animate-fade-in-up" id="projects-content">
       <div className="projects-header">
@@ -77,21 +103,39 @@ export default function Projects() {
 
       <div className="projects-grid">
         {PROJECTS_DATA.map((project) => (
-          <article key={project.id} className="project-card-v2">
+          <article
+            key={project.id}
+            className="project-card-v2 interactive"
+            onClick={() => onSelectProject?.(project.id)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                onSelectProject?.(project.id)
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={`View case study for ${project.title}`}
+          >
             <div className="project-card-v2-img-wrapper">
               <img
                 src={project.image}
                 alt={project.alt}
                 className="project-card-v2-img"
+                style={{ objectPosition: project.id === 'crea' ? 'center 25%' : 'center' }}
                 loading="eager"
               />
+              <div className="project-card-overlay-badge">
+                <span>View Case Study</span>
+                <ArrowUpRightIcon />
+              </div>
             </div>
 
             <div className="project-card-v2-body">
               <div className="project-card-v2-header">
                 <h2 className="project-card-v2-title">
                   {project.title}
-                  {project.isLocked && <LockIcon />}
+                  {project.isLocked ? <LockIcon /> : <ArrowUpRightIcon />}
                 </h2>
                 <span className="project-card-v2-year">{project.year}</span>
               </div>

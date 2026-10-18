@@ -161,7 +161,7 @@ export default function Hero() {
           }}>
             <img
               src="/project.png"
-              alt="CREA Mobile App"
+              alt="Design Repository"
               style={{
                 width: '100%',
                 height: '100%',
@@ -181,7 +181,7 @@ export default function Hero() {
             flex: 1
           }}>
             <span style={{ fontSize: '0.78rem', color: 'rgba(255, 255, 255, 0.65)', fontWeight: 300 }}>Now Building</span>
-            <h4 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff', letterSpacing: '-0.01em' }}>CREA Mobile App</h4>
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff', letterSpacing: '-0.01em' }}>Design Repository</h4>
             <p style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.5)', lineHeight: 1.35, margin: 0, fontWeight: 300 }}>
               Design directly in your browser. Your agent writes the code.
             </p>

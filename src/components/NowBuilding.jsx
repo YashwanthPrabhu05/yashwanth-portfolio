@@ -2,17 +2,16 @@ export default function NowBuilding() {
   return (
     <section id="projects" className="now-building animate-fade-in-up animate-delay-2">
       <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#case-study/crea"
         className="project-card"
         id="now-building-card"
         aria-label="View current project: CREA : A Metal Decor"
       >
         <div className="project-card-image">
           <img
-            src="/project.png"
+            src="/projects/crea.jpg"
             alt="CREA : A Metal Decor project screenshot"
+            style={{ objectPosition: 'center 20%' }}
             loading="lazy"
           />
         </div>
@@ -20,16 +19,8 @@ export default function NowBuilding() {
           <p className="project-badge">Now Building</p>
           <h2 className="project-title">CREA : A Metal Decor</h2>
           <p className="project-desc">
-            Edit layout, typography, colour, spacing, copy and DOM with real
-            controls, then ship the diff to{' '}
-            <span onClick={e => e.preventDefault()} style={{ pointerEvents: 'none' }}>
-              <a href="#">Claude Code</a>
-            </span>
-            , Codex, Cursor,{' '}
-            <span onClick={e => e.preventDefault()} style={{ pointerEvents: 'none' }}>
-              <a href="#">Windsurf</a>
-            </span>
-            , or any MCP-compatible AI coding agent.
+            A bespoke e-commerce mobile application crafted for spiritual brass, bronze,
+            and artisanal metal decor collections with devotional shopping journeys and festival subscriptions.
           </p>
         </div>
       </a>

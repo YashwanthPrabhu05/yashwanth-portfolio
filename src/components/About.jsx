@@ -23,11 +23,11 @@ const GALLERY_ITEMS = [
     objectPosition: 'center center',
   },
   {
-    id: 'motorola-phone',
-    src: '/about/my_first_motorola_phone.png',
-    alt: 'My first Motorola phone',
-    caption: 'My first Motorola phone',
-    objectPosition: 'center center',
+    id: 'cine-dance',
+    src: '/about/cine_dance.jpg',
+    alt: 'Cine dance passion',
+    caption: 'Cine dance passion',
+    objectPosition: 'center 35%',
   },
 ]
 
