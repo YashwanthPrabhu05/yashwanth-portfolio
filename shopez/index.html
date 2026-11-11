@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f2f2">
+    <title>ShopEZ — AI-Powered Kirana Billing | Ritam Biswas</title>
+    <link rel="icon" href="../assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="../app.js"></script>
+  </head>
+  <body>
+    <div class="preloader" aria-label="Loading portfolio" role="status">
+      <img src="../assets/images/logo_light.png" alt=""><div class="preloader__line"><span></span></div><span class="preloader__count">000</span>
+    </div>
+    <nav class="site-nav case-nav" aria-label="Main navigation">
+      <a class="site-nav__logo" href="../#hero" aria-label="Ritam Biswas home"><img src="../assets/images/logo_light.png" alt="Ritam Biswas"></a>
+      <button class="site-nav__toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="site-nav__links">
+        <a href="../#featured">WORK</a><a href="../#devi-paksha">HIGHLIGHT</a><a href="../#about">ABOUT</a>
+        <a href="../#experience">EXPERIENCE</a><a href="../#contact">CONTACT</a><a href="../#socials">SOCIALS</a>
+      </div>
+    </nav>
+    <main class="case-shell">
+      <div class="case-main">
+        <div class="case-brand"><img src="../assets/Shopez/shopez%20logo.png" alt="ShopEZ"><div><strong>ShopEZ</strong><span>AI-Powered Kirana Billing</span></div></div>
+        <h1 class="case-title">How I redesigned a hackathon billing app for the person actually standing behind the counter.</h1>
+        <div class="case-note"><div class="case-note__heading"><span>ℹ</span>A Quick Note</div><p>ShopEZ began as a team hackathon project and won the Best Innovation award. The core idea came from the team. At the hackathon I mainly shaped the UX and put together a basic UI under time pressure. Afterwards I redesigned the UI on my own, refined the UX, and contributed some Flutter front-end and UI refinement in code. The original was built with Flutter/Dart, Flask/Python, Supabase and YOLOv8-based item recognition through OpenCV. This page is about the redesign, and where something is a proposal or untested, I say so.</p></div>
+        <figure class="case-hero-image"><img src="../assets/Shopez/hero.png" alt="ShopEZ app screens for scan billing and customer selection"></figure>
+        <div class="case-stats">
+          <div class="case-stat"><strong>12M+ Kirana Stores</strong><span>Industry estimates for India's neighbourhood grocery shops. There is no official count.</span></div>
+          <div class="case-stat"><strong>5 Core Areas</strong><span>Splash, onboarding, dashboard, scan-to-bill and credit management.</span></div>
+          <div class="case-stat"><strong>~30 Second Bills</strong><span>Best case in our own internal tests, not a validated result. Details in The Flow.</span></div>
+        </div>
+
+        <section class="case-section" id="what-shopez-does">
+          <div class="case-section__content">
+            <h2>What ShopEZ Does</h2>
+            <p>Kirana stores are India's neighbourhood grocery shops. Industry estimates put them at 12 million or more, and many still track bills and customer credit by hand.</p>
+            <p>At a busy counter, hands are full and time is short, so an app that needs a lot of typing, searching or menu-hopping is hard to use during a sale.</p>
+            <p>ShopEZ starts with the camera: place the items in view, the app recognises them, and the bill builds itself. Recognition runs on YOLOv8 through OpenCV, with a Flutter app, a Flask backend and Supabase behind it. It was built as a hackathon prototype.</p>
+            <div class="case-callout"><strong>Perspective</strong><p>“At a busy counter the interface has to work around busy hands, not against them.”</p></div>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="why-it-matters">
+          <div class="case-section__content">
+            <h2>Why It Matters</h2>
+            <p>Why the paper system had to go. An illustration of one bill, written by hand and built in the app.</p>
+            <figure class="case-image"><img src="../assets/Shopez/sketch-before-after.png" alt="A kirana bill written by hand and built in the app"></figure>
+            <p>Here is what the problem rests on, and what it does not. I did not interview shopkeepers or run usability research. My understanding comes from watching a relative who runs a kirana store track transactions by hand, from web research, and from the team's own reasoning. Read it as one shop's view plus desk research, not as a study.</p>
+            <table class="comparison-table"><thead><tr><th>What I saw and read</th><th>What it costs</th></tr></thead><tbody><tr><td>Bills written by hand</td><td>Slow, error-prone, hard to look back on</td></tr><tr><td>Credit kept in a notebook</td><td>Easy to lose, hard to chase</td></tr><tr><td>Reminders happen in person</td><td>Asking for payment feels awkward</td></tr></tbody></table>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="where-it-started">
+          <div class="case-section__content">
+            <h2>Where It Started</h2>
+            <p>The original app, built by the team over the hackathon, could scan items and generate a bill. That was roughly it. My part was the UX flow and a basic UI, drawn up quickly because the clock was running.</p>
+            <p>The home screen opened to a customer list with no business summary. Credit tracking was buried. The first screen asked users to choose between “Retailer” and “Customer,” a choice a shopkeeper-only tool never needed.</p>
+            <p>A year later I came back to it on my own: a full UI redesign, a second pass on the UX, and some Flutter front-end work to carry parts of it into code. The question I started from was simple:</p>
+            <div class="case-callout"><strong>Perspective</strong><p>“What would this look like if it were designed properly for the person behind the counter?”</p></div>
+            <figure class="case-image"><img src="../assets/Shopez/v1.png" alt="First ShopEZ interface iteration"></figure>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="what-changed">
+          <div class="case-section__content">
+            <h2>What Changed</h2>
+            <table class="comparison-table"><thead><tr><th>Area</th><th>Hackathon build</th><th>Redesign</th></tr></thead><tbody>
+              <tr><td>First screen</td><td>Role selector: Retailer or Customer</td><td>Single purpose, shopkeeper only</td></tr>
+              <tr><td>Home</td><td>Customer list, no summary</td><td>Dashboard: sales, credit, stock alerts</td></tr>
+              <tr><td>AI scan</td><td>Items detected, no feedback</td><td>Per-item confidence scores (from YOLOv8), colour coded</td></tr>
+              <tr><td>Credit tracking</td><td>Buried in customer detail</td><td>First-class feature on dashboard and ledger</td></tr>
+              <tr><td>Payment</td><td>Not present</td><td>Cash, UPI and credit options</td></tr>
+              <tr><td>Copy</td><td>Generic app language</td><td>“No more paper khata”</td></tr>
+            </tbody></table>
+            <p>The redesign is mainly a UI and UX redesign. I carried some of it into Flutter, and the rest lives in the designs. I have not marked each feature as built or not, so treat it as a design-stage concept with partial implementation.</p>
+            <figure class="case-image"><img src="../assets/Shopez/v2.png" alt="Redesigned ShopEZ screens"></figure>
+            <figure class="case-image"><img src="../assets/Shopez/dashboard-annotated.png" alt="Annotated ShopEZ dashboard"></figure>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="decisions">
+          <div class="case-section__content">
+            <h2>The Decision Journey</h2>
+            <article class="decision"><span class="decision__number">DECISION 01</span><h3>Leading with the camera</h3><figure class="case-image"><img src="../assets/Shopez/sketch-billing-flow.png" alt="The camera-first billing flow, from items to bill"></figure><p>At the counter the items are already in front of the shopkeeper. Searching a catalogue means typing and scrolling for every item, so the app starts from what is physically there: place the items in view, scan, and get a bill. In our tests we put several grocery items together and scanned them in one go.</p><p>The cost is that the whole flow depends on recognition. It worked best on packaged items and struggled with loose or unpackaged ones. That limit is why the next decision matters.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 02</span><h3>Making the AI visible, not invisible</h3><p>YOLOv8 returns a confidence score for every item it detects. Rather than hide it, the concept shows it per item: a 95% detection reads green and an 88% one reads amber, so the shopkeeper can tell which to glance at twice.</p><p>We tried a range of grocery items. Packaged goods were recognised more easily. Loose items were harder, and changed packaging could throw the model off. So every bill goes through a review step, and any item can be added manually, which also covers anything the model does not recognise.</p><table class="comparison-table"><thead><tr><th>The shortcut</th><th>What ShopEZ does</th></tr></thead><tbody><tr><td>Hide the model’s confidence</td><td>Show a score per item</td></tr><tr><td>Send detections straight to the bill</td><td>Review the items before billing</td></tr><tr><td>Treat recognition as final</td><td>“Add manually” for misses and new packaging</td></tr></tbody></table><div class="lesson"><strong>Insight</strong><p>The review step costs seconds, and those seconds are part of the roughly 30-second runs in The Flow. I kept it because a wrong item becomes a wrong bill, and on a credit sale a wrong ledger entry. Trust is bought with speed here, and I would rather spend the speed.</p></div><figure class="case-image"><img src="../assets/Shopez/scan-screen.png" alt="ShopEZ scan screen with item recognition"></figure></article>
+            <article class="decision"><span class="decision__number">DECISION 03</span><h3>The Walk-in Customer button</h3><p>The first version asked for a customer on every bill, as if each sale belonged to a registered customer.</p><p>My assumption, from watching one store and not from data, was that plenty of sales are quick cash sales that do not need a customer record, and a lookup on every one is friction. So “Walk-in Customer” skips selection and goes straight to payment. Customers on credit still get the full flow, with recent customers at the top.</p><p>Payment offers cash, UPI and credit. Those three came from our own product reasoning, not from a payment-methods study.</p><figure class="case-image"><img src="../assets/Shopez/review-bill-select-customer.png" alt="ShopEZ bill review and customer selection"></figure></article>
+            <article class="decision"><span class="decision__number">DECISION 04</span><h3>Words on a button</h3><p>The bill summary screen originally ended with “Confirm Transaction,” which sounds formal and final, like a bank.</p><p>By that point the sale is already under way: it started a few screens earlier, when the camera scanned the first item. A confirmation step makes it feel like starting again. “Continue to Bill” says the work is nearly done. This was a judgement about wording, and I have not tested it with shopkeepers.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 05</span><h3>Digitising udhaar without making it awkward</h3><figure class="case-image"><img src="../assets/Shopez/sketch-udhaar-cycle.png" alt="The udhaar cycle: credit given, noted in the khata, payment received"></figure><p>Udhaar is credit given on trust, usually written in a paper ledger called a khata. The shopkeeper often knows the customer personally, which makes asking for payment uncomfortable. The goal was to digitise those records and take some of that awkwardness out.</p><table class="comparison-table"><thead><tr><th>Feature</th><th>What it shows</th><th>Why it is there</th></tr></thead><tbody><tr><td>Transaction timeline</td><td>Every bill and payment in order</td><td>A full history to point to if a balance is questioned</td></tr><tr><td>Running total</td><td>Paid in green, credit in red</td><td>One clear balance per customer</td></tr><tr><td>Send Reminder</td><td>Composes an SMS or WhatsApp message</td><td>The shopkeeper does not have to raise it in person</td></tr></tbody></table><div class="lesson"><strong>Insight</strong><p>Reminders were not a finding from research. A judge at the hackathon suggested SMS and WhatsApp reminders, and we added them to the concept because they fit the problem.</p></div></article>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="the-flow">
+          <div class="case-section__content">
+            <h2>The Flow</h2>
+            <figure class="case-image"><img src="../assets/Shopez/full-flow-strip.png" alt="The billing flow: scan, review, select a customer, and settle payment"><figcaption>The billing flow in one strip: scan, review, select a customer, and settle the payment.</figcaption></figure>
+            <p>In our internal tests, a bill for a small basket took around or under 30 seconds in the best case: place the items, scan, pick a customer, correct anything the model got wrong, and generate the bill. That is my own repeated testing, not a validated result, and it is not a promise for a real shop.</p>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+
+        <section class="case-section" id="reflection">
+          <div class="case-section__content">
+            <h2>Reflection</h2>
+            <div class="reflection-grid">
+              <article><h3>Test with real users earlier</h3><p>My understanding came from watching one relative's store, web research and the team's reasoning. I ran no interviews or usability tests, so these decisions are informed hypotheses. Watching a shopkeeper use the scan screen would test the camera-first idea first.</p></article>
+              <article><h3>Design the failure states</h3><p>Manual entry covers unrecognised items and changed packaging. What is still missing are dedicated states for camera failure and no internet connection.</p></article>
+              <article><h3>Language toggle from day one</h3><p>The app is in English. Some shopkeepers may be more comfortable in Hindi or a regional language, so language support should have been in the first frame of the Figma file.</p></article>
+            </div>
+          </div>
+          <aside><a href="#what-shopez-does">What ShopEZ Does</a><a href="#why-it-matters">Why It Matters</a><a href="#where-it-started">Where It Started</a><a href="#what-changed">What Changed</a><a href="#decisions">The Decision Journey</a><a href="#the-flow">The Flow</a><a href="#reflection">Reflection</a></aside>
+        </section>
+      </div>
+      <footer class="case-footer"><a href="../#projects">← Back to portfolio</a><p>Copyright © 2026 Ritam Biswas. All rights reserved.</p></footer>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  </body>
+</html>
