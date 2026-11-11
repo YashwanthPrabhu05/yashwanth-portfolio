@@ -251,8 +251,21 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .highlight__note { margin: 12px 0 0; color: #868686; font-size: 10px; }
 
 .about__intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: center; }
-.about__portrait { min-height: 250px; overflow: hidden; background: #e5e3e1; border-radius: 12px; }
-.about__portrait img { width: 100%; height: 100%; max-height: 320px; object-fit: cover; }
+.about__portrait {
+  position: relative;
+  min-height: 360px;
+  height: 100%;
+  max-height: 440px;
+  overflow: hidden;
+  background: #e5e3e1;
+  border-radius: 14px;
+}
+.about__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
 .about__copy p { margin: 0 0 15px; color: #666; line-height: 1.75; }
 .about-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin: 28px 0 55px; border-top: 1px solid var(--line); }
 .about-facts div { display: grid; gap: 8px; padding: 18px 12px 16px 0; border-bottom: 1px solid var(--line); }
@@ -501,7 +514,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .highlight-card { grid-template-columns: 1fr; }
   .highlight-card__media { min-height: 280px; max-height: 370px; }
   .about__intro { grid-template-columns: 1fr; }
-  .about__portrait { min-height: 220px; max-height: 320px; }
+  .about__portrait {
+    min-height: 320px;
+    max-height: 400px;
+  }
   .about-facts { grid-template-columns: repeat(2,minmax(0,1fr)); margin-bottom: 35px; }
   .toolkit { padding: 17px; }
   .toolkit__grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
