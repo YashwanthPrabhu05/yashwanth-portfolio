@@ -40,21 +40,28 @@
       </nav>
 
       <section class="hero" id="hero">
-        <div class="hero-art" aria-label="A playful collection of objects on a green designer's board">
+        <div class="hero-art" aria-label="A blue designer's board with draggable decorations">
           <img class="hero-art__board" src="assets/hero%20section%20image/green%20board.png" alt="">
-          <img class="hero-art__sticker hero-art__stamp" data-parallax="0.5" src="assets/Random%20item/STAMP.png" alt="">
-          <img class="hero-art__sticker hero-art__eyes" data-parallax="0.8" src="assets/Random%20item/EYES.png" alt="">
-          <img class="hero-art__sticker hero-art__glasses" data-parallax="1.1" src="assets/hero%20section%20image/glasses.png" alt="">
-          <img class="hero-art__sticker hero-art__flame" data-parallax="1.5" src="assets/hero%20section%20image/flame.png" alt="">
-          <img class="hero-art__sticker hero-art__earphones" data-parallax="0.7" src="assets/hero%20section%20image/earphones.png" alt="">
-          <img class="hero-art__sticker hero-art__ok" data-parallax="1.2" src="assets/hero%20section%20image/ok.png" alt="">
-          <img class="hero-art__sticker hero-art__sticker-extra" data-parallax="1.4" src="assets/Random%20item/download%20%286%29%201.png" alt="">
+          <img class="hero-art__sticker hero-art__stamp" data-parallax="0.5" data-cursor-label="Grab it" src="assets/Random%20item/STAMP.png" alt="Stamp decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__eyes" data-parallax="0.8" data-cursor-label="Grab it" src="assets/Random%20item/EYES.png" alt="Eyes decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__glasses" data-parallax="1.1" data-cursor-label="Grab it" src="assets/hero%20section%20image/glasses.png" alt="Glasses decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__flame" data-parallax="1.5" data-cursor-label="Grab it" src="assets/hero%20section%20image/flame.png" alt="Flame decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__earphones" data-parallax="0.7" data-cursor-label="Grab it" src="assets/hero%20section%20image/earphones.png" alt="Earphones decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__ok" data-parallax="1.2" data-cursor-label="Grab it" src="assets/hero%20section%20image/ok.png" alt="OK hand decoration" draggable="false">
+          <img class="hero-art__sticker hero-art__sticker-extra" data-parallax="1.4" data-cursor-label="Grab it" src="assets/Random%20item/download%20%286%29%201.png" alt="Sticker decoration" draggable="false">
+          <div class="hero-art__ghost-cursor" aria-hidden="true">
+            <img class="hero-art__ghost-cursor-sticker" alt="">
+            <svg width="20" height="25" viewBox="0 0 24 30" aria-hidden="true">
+              <path d="M2 2 22 19l-9 1-4 8L2 2Z" fill="#ff7957" stroke="#fff" stroke-linejoin="round" stroke-width="1.5"/>
+            </svg>
+            <span>Grab it</span>
+          </div>
         </div>
 
         <div class="hero-copy">
           <h1>
-            Hellooo! I'm Yashwanth, a<br class="desktop-break">
-            Product Designer <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt=""> <span class="accent">turning<br class="desktop-break"> ideas into meaningful digital experiences.</span>
+            Hellooo! I'm Yashwanth, a
+            Product Designer <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt=""> <span class="accent">turning ideas into meaningful digital experiences.</span>
           </h1>
           <p>From understanding what needs to be solved to refining the smallest interface details, I enjoy transforming complex problems into simple, intuitive, and visually engaging experiences. Previously worked on digital products across web and mobile at Fyrasoft.</p>
           <div class="button-row">
@@ -87,8 +94,7 @@
 
       <section class="featured section-block" id="featured">
         <div class="featured__heading">
-          <div><div class="section-kicker">NOT BAD, HONESTLY</div><h2>Featured<br>Project</h2></div>
-          <img class="featured__doodle" src="assets/images/Feature%20project.png" alt="">
+          <div><div class="section-kicker">NOT BAD, HONESTLY</div><h2><span>Featured</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>Project</span></h2></div>
         </div>
         <a class="featured-card" href="zeno/" aria-label="Read the Gradian case study">
           <img class="featured-card__bg" src="assets/Zeno%20image/bg.png" alt="">
@@ -122,7 +128,7 @@
       <section class="projects section-block" id="projects">
         <div class="section-heading">
           <div class="section-kicker">THERE'S MORE</div>
-          <h2>Selected<br>Projects</h2>
+          <h2><span>Selected</span><span class="projects__folder-slot heading-motion-slot"><img class="projects__folder heading-motion-icon" src="assets/images/Selected%20project.png" alt=""></span><span>Projects</span></h2>
         </div>
         <div class="project-grid">
           <a class="project-card project-card--wide" href="shopez/">
@@ -171,51 +177,30 @@
       <section class="highlight section-block" id="flex">
         <div class="section-heading">
           <div class="section-kicker">A RECENT FLEX</div>
-          <h2>More Than<br>Expected</h2>
+          <h2>More Than <img class="highlight__heading-icon" src="assets/images/Flex.png" alt=""> Expected</h2>
         </div>
-        <p class="highlight__intro">What started as a passion for creating interfaces gradually turned into opportunities to share ideas, experiment with creativity, and challenge myself beyond everyday design work.</p>
-        <p class="highlight__intro">From participating in design competitions to exploring AI-powered creative workflows, I've enjoyed pushing my creative boundaries and learning along the way.</p>
-        <div class="achievements-grid">
-          <div class="achievement-card">
-            <span class="achievement-card__badge">1st Place</span>
-            <div>
-              <h3>Prompt Pixel</h3>
-              <p>CIT Tech Fest</p>
-            </div>
+        <p class="highlight__intro">What started as a passion for creating interfaces gradually turned into opportunities to share ideas, experiment with creativity, and challenge myself beyond everyday design work. From participating in design competitions to exploring AI-powered creative workflows, I've enjoyed pushing my creative boundaries and learning along the way.</p>
+        <div class="highlight__feature">
+          <div class="highlight__poster">
+            <img src="assets/images/Flex.png" alt="">
+            <div><span>CREATIVE HIGHLIGHTS</span><strong>1st Place</strong><b>Prompt Pixel</b><small>CIT Tech Fest</small></div>
           </div>
-          <div class="achievement-card">
-            <span class="achievement-card__badge">2nd Place</span>
-            <div>
-              <h3>Protopitch</h3>
-              <p>CIT Tech Fest</p>
-            </div>
-          </div>
-          <div class="achievement-card">
-            <span class="achievement-card__badge">Research</span>
-            <div>
-              <h3>Paper Presentation — Flipkart Redesign Concept</h3>
-              <p>Madha Engineering College</p>
-            </div>
-          </div>
-          <div class="achievement-card">
-            <span class="achievement-card__badge">Mentorship</span>
-            <div>
-              <h3>Canva Workshop</h3>
-              <p>Conducted a four-day workshop for engineering juniors</p>
-            </div>
-          </div>
-          <div class="achievement-card">
-            <span class="achievement-card__badge">Elite + Silver</span>
-            <div>
-              <h3>NPTEL — Python / Data Science</h3>
-              <p>Elite + Silver certification</p>
-            </div>
-          </div>
-          <div class="achievement-card">
-            <span class="achievement-card__badge">Community</span>
-            <div>
-              <h3>Friends of Figma</h3>
-              <p>Participated in design community events</p>
+          <div class="highlight__side">
+            <article class="highlight__story">
+              <img src="assets/images/Flex.png" alt="">
+              <div><h3>Prompt Pixel</h3><span>1st Place · CIT Tech Fest</span></div>
+              <p>1st Place — Prompt Pixel, CIT Tech Fest.</p>
+            </article>
+            <div class="highlight__achievements">
+              <span class="highlight__eyebrow">MORE MOMENTS</span>
+              <div class="highlight__metrics">
+                <article><strong>2nd Place</strong><span>Protopitch</span><small>CIT Tech Fest</small></article>
+                <article><strong>Research</strong><span>Paper Presentation — Flipkart Redesign Concept</span><small>Madha Engineering College</small></article>
+                <article><strong>Mentorship</strong><span>Canva Workshop</span><small>Four-day workshop for engineering juniors</small></article>
+                <article><strong>Elite + Silver</strong><span>NPTEL — Python / Data Science</span><small>Elite + Silver certification</small></article>
+                <article><strong>Community</strong><span>Friends of Figma</span><small>Design community events</small></article>
+              </div>
+              <div class="highlight__actions"><span class="button button--muted" aria-label="More moments will be added">More soon</span><a class="button button--white" href="#projects">Explore my work</a></div>
             </div>
           </div>
         </div>
@@ -224,90 +209,85 @@
       <section class="about section-block" id="about">
         <div class="section-heading">
           <div class="section-kicker">OBLIGATORY INTRODUCTION</div>
-          <h2>A Bit About<br>Me</h2>
+          <h2>A Bit About <img class="about__heading-icon" src="assets/images/About%20me.png" alt=""> Me</h2>
         </div>
-        <div class="about__intro">
+        <div class="about__bio">
+          <p>Namaste! I'm Yashwanth Prabhu, a Product Designer with a Computer Science background. My journey started with an interest in creating visually appealing interfaces, but I soon discovered that good design goes beyond aesthetics.</p>
+          <p>I enjoy understanding user problems, exploring ideas, structuring experiences, and bringing them to life through thoughtful design. From mapping user journeys to refining the smallest details, I believe every design decision should have a purpose.</p>
+          <p>These days, I'm particularly interested in the intersection of product design, technology, and AI — exploring better ways to turn ideas into real products.</p>
+        </div>
+        <div class="about__bento">
           <div class="about__portrait"><img src="assets/images/yashwanth.jpg" alt="Yashwanth Prabhu"></div>
-          <div class="about__copy">
-            <p>Namaste! I'm Yashwanth Prabhu, a Product Designer with a Computer Science background. My journey started with an interest in creating visually appealing interfaces, but I soon discovered that good design goes beyond aesthetics.</p>
-            <p>I enjoy understanding user problems, exploring ideas, structuring experiences, and bringing them to life through thoughtful design. From mapping user journeys to refining the smallest details, I believe every design decision should have a purpose.</p>
-            <p>These days, I'm particularly interested in the intersection of product design, technology, and AI — exploring better ways to turn ideas into real products.</p>
-          </div>
-        </div>
-        <div class="about-facts">
-          <div><span>Designation</span><strong>Product Designer</strong></div>
-          <div><span>Experience</span><strong>Product Design at Fyrasoft</strong></div>
-          <div><span>Location</span><strong>Chennai, India</strong></div>
-          <div><span>Education</span><strong>New Prince Shri Bhavani College of Engineering &amp; Technology</strong></div>
-          <div><span>Graduation</span><strong>2026</strong></div>
-          <div><span>Email</span><strong><a href="mailto:syashwanthprabhu@gmail.com">syashwanthprabhu@gmail.com</a></strong></div>
-        </div>
-        <div class="toolkit">
-          <div class="toolkit__heading"><div><div class="section-kicker">MY TOOLKIT</div><h3>Tools I reach for</h3></div><span>Curious by default</span></div>
-          <div class="toolkit-categories">
-            <div class="toolkit-group">
-              <h4>Design &amp; Prototyping</h4>
-              <div class="toolkit-tags">
-                <span class="toolkit-tag">Figma</span>
-                <span class="toolkit-tag">Adobe XD</span>
-                <span class="toolkit-tag">Adobe Photoshop</span>
-                <span class="toolkit-tag">Adobe Illustrator</span>
-                <span class="toolkit-tag">Framer</span>
-              </div>
+          <div class="about__details">
+            <div class="about-facts">
+              <div><span>Designation</span><strong>Product Designer</strong></div>
+              <div><span>Experience</span><strong>Product Design at Fyrasoft</strong></div>
+              <div><span>Location</span><strong>Chennai, India</strong></div>
+              <div><span>Education</span><strong>New Prince Shri Bhavani College of Engineering &amp; Technology</strong></div>
+              <div><span>Graduation</span><strong>2026</strong></div>
+              <div><span>Email</span><strong><a href="mailto:syashwanthprabhu@gmail.com">syashwanthprabhu@gmail.com</a></strong></div>
             </div>
-            <div class="toolkit-group">
-              <h4>AI &amp; Development</h4>
-              <div class="toolkit-tags">
-                <span class="toolkit-tag">Figma Make</span>
-                <span class="toolkit-tag">Claude</span>
-                <span class="toolkit-tag">HTML</span>
-                <span class="toolkit-tag">CSS</span>
-                <span class="toolkit-tag">Java</span>
-                <span class="toolkit-tag">Spring Boot</span>
+            <div class="toolkit">
+              <span class="toolkit__label">MY TOOLKIT</span>
+              <div class="toolkit__icons">
+                <img src="assets/images/new%20tech%20stack/vs%20code.png" alt="VS Code" title="VS Code">
+                <img src="assets/images/new%20tech%20stack/figma.png" alt="Figma" title="Figma">
+                <img src="assets/images/new%20tech%20stack/framer.png" alt="Framer" title="Framer">
+                <img src="assets/images/new%20tech%20stack/protopie.png" alt="ProtoPie" title="ProtoPie">
+                <img src="assets/images/new%20tech%20stack/figr.png" alt="Figr" title="Figr">
+                <img src="assets/images/new%20tech%20stack/notion.png" alt="Notion" title="Notion">
+                <img src="assets/images/new%20tech%20stack/stitch.png" alt="Stitch" title="Stitch">
+                <img src="assets/images/new%20tech%20stack/ckaude.png" alt="Claude" title="Claude">
+                <img src="assets/images/new%20tech%20stack/gemini.png" alt="Gemini" title="Gemini">
               </div>
             </div>
           </div>
         </div>
-        <div class="outside">
-          <div><div class="section-kicker">OUTSIDE OF DESIGN</div><h3>Curiosity &amp; Experimentation</h3><p>Exploring new AI tools, experimenting with creative workflows, and discovering how design and technology can work better together.</p></div>
-          <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="Curiosity">
-        </div>
-        <div class="opportunity">
-          <img src="assets/images/Globe.png" alt="Open to opportunities">
-          <div><strong>Open to Opportunities</strong><p>Always interested in meaningful collaborations, exciting product challenges, and opportunities to create better digital experiences.</p></div>
-          <span class="opportunity__status"><i></i> OPEN TO WORK</span>
+        <div class="about__cards">
+          <article class="about__card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.75h11.5A2.5 2.5 0 0 1 19 6.25v14H7.5A2.5 2.5 0 0 1 5 17.75z"/><path d="M5 17.75a2.5 2.5 0 0 1 2.5-2.5H19M9 8h6"/></svg>
+            <div><h3>Curiosity &amp; Experimentation</h3><p>Exploring new AI tools, experimenting with creative workflows, and discovering how design and technology can work better together.</p></div>
+          </article>
+          <article class="about__card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>
+            <div><h3>Open to Opportunities</h3><p>Always interested in meaningful collaborations, exciting product challenges, and opportunities to create better digital experiences.</p></div>
+          </article>
         </div>
       </section>
 
       <section class="experience section-block" id="experience">
         <div class="section-heading">
           <div class="section-kicker">SOMEHOW EMPLOYED</div>
-          <h2>My Design<br>Journey</h2>
+          <h2>My Design <img class="journey__heading-icon" src="assets/images/How%20i%20work-1.png" alt=""> Journey</h2>
         </div>
-        <div class="experience-list">
+        <div class="experience-grid">
           <article class="experience-item">
-            <img src="assets/images/yp-logo.jpg" style="object-fit: cover; border-radius: 8px;" alt="Fyrasoft">
-            <div><h3>Fyrasoft</h3><strong>PRODUCT DESIGNER</strong><span>NOVEMBER 2025 – PRESENT | FULL-TIME</span><p>Working across web and mobile products, shaping user experiences, creating design systems, and translating business requirements into intuitive digital products.</p></div><b>↗</b>
+            <img src="assets/images/fyrasoft-logo.png" alt="">
+            <div class="experience-item__heading"><h3>Fyrasoft</h3><strong>PRODUCT DESIGNER</strong></div>
+            <span class="experience-item__duration">NOVEMBER 2025 – PRESENT | FULL-TIME</span>
           </article>
           <article class="experience-item">
-            <img src="assets/images/status%20code%202.png" style="object-fit: cover; border-radius: 8px;" alt="Tems Tech Solutions">
-            <div><h3>Tems Tech Solutions</h3><strong>UI/UX DESIGN INTERN</strong><span>2024 | 15 DAYS</span><p>Gained practical experience in UI/UX through mobile application concepts, login page design, and prototyping.</p></div><b>↗</b>
+            <img src="assets/images/tems-tech-logo.png" alt="">
+            <div class="experience-item__heading"><h3>Tems Tech Solutions</h3><strong>UI/UX DESIGN INTERN</strong></div>
+            <span class="experience-item__duration">2024 | 15 DAYS</span>
           </article>
           <article class="experience-item">
-            <img src="assets/images/Foss%201.png" style="object-fit: cover; border-radius: 8px;" alt="New Prince Shri Bhavani College of Engineering & Technology">
-            <div><h3>New Prince Shri Bhavani College of Engineering &amp; Technology</h3><strong>B.E. COMPUTER SCIENCE</strong><span>2022 – 2026 | DEGREE</span><p>Developed a foundation in technology while exploring product design, creative problem-solving, and digital experiences.</p></div><b>↗</b>
+            <img src="assets/images/education-mark.svg" alt="">
+            <div class="experience-item__heading"><h3>New Prince Shri Bhavani College of Engineering &amp; Technology</h3><strong>B.E. COMPUTER SCIENCE</strong></div>
+            <span class="experience-item__duration">2022 – 2026 | DEGREE</span>
           </article>
-        </div>
-        <div class="grass-break">
-          <img src="assets/images/How%20i%20work-1.png" alt="">
-          <div><span>BEFORE THE PIXELS,</span><strong>THERE WAS CURIOSITY.</strong></div>
+          <article class="grass-break">
+            <div><span>BEFORE THE PIXELS,</span><strong>THERE WAS CURIOSITY.</strong></div>
+            <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="">
+            <div class="grass-break__meadow" aria-hidden="true"></div>
+          </article>
         </div>
       </section>
 
       <section class="contact section-block" id="contact">
         <div class="section-heading">
           <div class="section-kicker">MIGHT AS WELL SAY HI</div>
-          <h2>Let's Build<br>Together</h2>
+          <h2>Let's Build Together</h2>
           <p>Whether it's a collaboration, an exciting opportunity, or simply a conversation about design, I'm always happy to connect. Tell me what's on your mind.</p>
         </div>
         <form class="contact-form">
@@ -322,7 +302,7 @@
       <section class="socials section-block" id="socials">
         <div class="section-heading">
           <div class="section-kicker">ELSEWHERE ON THE INTERNET</div>
-          <h2>Find me<br>online</h2>
+          <h2>Find me online</h2>
           <p>Connect with me, explore my work, or just say hello.</p>
         </div>
         <a class="social-link" href="https://www.linkedin.com/in/yashwanth-prabhu-474a37269/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>Connect with me</span><b>↗</b></a>

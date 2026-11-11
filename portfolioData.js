@@ -247,21 +247,21 @@ export const portfolioData = {
         role: "Product Designer",
         duration: "November 2025 – Present | Full-time",
         description: "Working across web and mobile products, shaping user experiences, creating design systems, and translating business requirements into intuitive digital products.",
-        icon: "assets/images/yp-logo.jpg",
+        icon: "assets/images/fyrasoft-logo.png",
       },
       {
         company: "Tems Tech Solutions",
         role: "UI/UX Design Intern",
         duration: "2024 | 15 Days",
         description: "Gained practical experience in UI/UX through mobile application concepts, login page design, and prototyping.",
-        icon: "assets/images/status%20code%202.png",
+        icon: "assets/images/tems-tech-logo.png",
       },
       {
         company: "New Prince Shri Bhavani College of Engineering & Technology",
         role: "B.E. Computer Science",
-        duration: "2022 – 2026",
+        duration: "2022 – 2026 | Degree",
         description: "Developed a foundation in technology while exploring product design, creative problem-solving, and digital experiences.",
-        icon: "assets/images/Foss%201.png",
+        icon: "assets/images/education-mark.svg",
       },
     ],
     transitionStatement: {
@@ -328,4 +328,3 @@ export const portfolioData = {
     copyright: "© 2026 Yashwanth Prabhu. All rights reserved.",
   },
 };
-

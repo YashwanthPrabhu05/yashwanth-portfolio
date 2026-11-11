@@ -32,8 +32,7 @@ export function renderHero(data) {
 
   heroCopy.innerHTML = `
     <h1>
-      ${hero.greeting} <br class="desktop-break">
-      ${hero.titleRole} <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt=""> 
+      ${hero.greeting} ${hero.titleRole} <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt="">
       <span class="accent">${hero.accentText}</span>
     </h1>
     <p>${hero.description} ${hero.workSnippet}</p>
@@ -53,9 +52,8 @@ export function renderFeaturedProject(data) {
     <div class="featured__heading">
       <div>
         <div class="section-kicker">${feat.sectionLabel}</div>
-        <h2>${feat.heading.replace(" ", "<br>")}</h2>
+        <h2><span>Featured</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>Project</span></h2>
       </div>
-      <img class="featured__doodle" src="assets/images/Feature%20project.png" alt="">
     </div>
     <a class="featured-card" href="${feat.cta.href}" aria-label="Read the ${feat.projectName} case study">
       <img class="featured-card__bg" src="assets/Zeno%20image/bg.png" alt="">
@@ -104,7 +102,7 @@ export function renderSelectedProjects(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${sel.sectionLabel}</div>
-      <h2>${sel.heading.replace(" ", "<br>")}</h2>
+      <h2><span>Selected</span><span class="projects__folder-slot heading-motion-slot"><img class="projects__folder heading-motion-icon" src="assets/images/Selected%20project.png" alt=""></span><span>Projects</span></h2>
     </div>
     <div class="project-grid">
       ${sel.items
@@ -136,27 +134,44 @@ export function renderMoreThanExpected(data) {
   const section = document.querySelector("#flex, #more-than-expected, .highlight");
   if (!section) return;
   const flexData = data.moreThanExpected;
+  const [featuredAchievement, ...otherAchievements] = flexData.achievements;
 
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${flexData.sectionLabel}</div>
-      <h2>${flexData.heading.replace(" ", "<br>")}</h2>
+      <h2>${flexData.heading.replace("Expected", '<img class="highlight__heading-icon" src="assets/images/Flex.png" alt=""> Expected')}</h2>
     </div>
-    ${flexData.paragraphs.map((p) => `<p class="highlight__intro">${p}</p>`).join("")}
-    <div class="achievements-grid">
-      ${flexData.achievements
-        .map(
-          (item) => `
-        <div class="achievement-card">
-          <span class="achievement-card__badge">${item.badge}</span>
-          <div>
-            <h3>${item.title}</h3>
-            <p>${item.venue}</p>
+    <p class="highlight__intro">${flexData.paragraphs.join(" ")}</p>
+    <div class="highlight__feature">
+      <div class="highlight__poster">
+        <img src="assets/images/Flex.png" alt="">
+        <div><span>CREATIVE HIGHLIGHTS</span><strong>${featuredAchievement.badge}</strong><b>${featuredAchievement.title}</b><small>${featuredAchievement.venue}</small></div>
+      </div>
+      <div class="highlight__side">
+        <article class="highlight__story">
+          <img src="assets/images/Flex.png" alt="">
+          <div><h3>${featuredAchievement.title}</h3><span>${featuredAchievement.badge} · ${featuredAchievement.venue}</span></div>
+          <p>${featuredAchievement.highlight || `${featuredAchievement.title} — ${featuredAchievement.venue}.`}</p>
+        </article>
+        <div class="highlight__achievements">
+          <span class="highlight__eyebrow">MORE MOMENTS</span>
+          <div class="highlight__metrics">
+            ${otherAchievements
+              .map((item) => `
+              <article>
+                <strong>${item.badge}</strong>
+                <span>${item.title}</span>
+                <small>${item.venue}</small>
+              </article>
+            `)
+              .join("")}
+          </div>
+          <div class="highlight__actions">
+            <span class="button button--muted" aria-label="More moments will be added">More soon</span>
+            <a class="button button--white" href="#projects">Explore my work</a>
           </div>
         </div>
-      `
-        )
-        .join("")}
+      </div>
     </div>
   `;
 }
@@ -165,70 +180,60 @@ export function renderAbout(data) {
   const section = document.querySelector(".about");
   if (!section) return;
   const ab = data.about;
+  const toolkitIcons = [
+    { name: "VS Code", image: "assets/images/new%20tech%20stack/vs%20code.png" },
+    { name: "Figma", image: "assets/images/new%20tech%20stack/figma.png" },
+    { name: "Framer", image: "assets/images/new%20tech%20stack/framer.png" },
+    { name: "ProtoPie", image: "assets/images/new%20tech%20stack/protopie.png" },
+    { name: "Figr", image: "assets/images/new%20tech%20stack/figr.png" },
+    { name: "Notion", image: "assets/images/new%20tech%20stack/notion.png" },
+    { name: "Stitch", image: "assets/images/new%20tech%20stack/stitch.png" },
+    { name: "Claude", image: "assets/images/new%20tech%20stack/ckaude.png" },
+    { name: "Gemini", image: "assets/images/new%20tech%20stack/gemini.png" },
+  ];
 
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${ab.sectionLabel}</div>
-      <h2>${ab.heading.replace(" ", "<br>")}</h2>
+      <h2>${ab.heading.replace("Me", '<img class="about__heading-icon" src="assets/images/About%20me.png" alt=""> Me')}</h2>
     </div>
-    <div class="about__intro">
+    <div class="about__bio">
+      ${ab.bio.map((p) => `<p>${p}</p>`).join("")}
+    </div>
+    <div class="about__bento">
       <div class="about__portrait">
         <img src="${ab.portrait}" alt="${data.personal.name}">
       </div>
-      <div class="about__copy">
-        ${ab.bio.map((p) => `<p>${p}</p>`).join("")}
-      </div>
-    </div>
-    <div class="about-facts">
-      ${ab.details
-        .map(
-          (d) => `
-        <div>
-          <span>${d.label}</span>
-          <strong>${d.isLink ? `<a href="${d.href}">${d.value}</a>` : d.value}</strong>
-        </div>
-      `
-        )
-        .join("")}
-    </div>
-    <div class="toolkit">
-      <div class="toolkit__heading">
-        <div>
-          <div class="section-kicker">${ab.toolkit.sectionLabel}</div>
-          <h3>${ab.toolkit.heading}</h3>
-        </div>
-        <span>${ab.toolkit.subheading}</span>
-      </div>
-      <div class="toolkit-categories">
-        ${ab.toolkit.categories
-          .map(
-            (cat) => `
-          <div class="toolkit-group">
-            <h4>${cat.name}</h4>
-            <div class="toolkit-tags">
-              ${cat.items.map((tool) => `<span class="toolkit-tag">${tool}</span>`).join("")}
+      <div class="about__details">
+        <div class="about-facts">
+          ${ab.details
+            .map(
+              (d) => `
+            <div>
+              <span>${d.label}</span>
+              <strong>${d.isLink ? `<a href="${d.href}">${d.value}</a>` : d.value}</strong>
             </div>
+          `
+            )
+            .join("")}
+        </div>
+        <div class="toolkit">
+          <span class="toolkit__label">${ab.toolkit.sectionLabel}</span>
+          <div class="toolkit__icons">
+            ${toolkitIcons.map((tool) => `<img src="${tool.image}" alt="${tool.name}" title="${tool.name}">`).join("")}
           </div>
-        `
-          )
-          .join("")}
+        </div>
       </div>
     </div>
-    <div class="outside">
-      <div>
-        <div class="section-kicker">${ab.outsideOfDesign.sectionLabel}</div>
-        <h3>${ab.outsideOfDesign.heading}</h3>
-        <p>${ab.outsideOfDesign.text}</p>
-      </div>
-      <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="Creative spirit">
-    </div>
-    <div class="opportunity">
-      <img src="assets/images/Globe.png" alt="Open to opportunities">
-      <div>
-        <strong>${ab.opportunities.title}</strong>
-        <p>${ab.opportunities.text}</p>
-      </div>
-      <span class="opportunity__status"><i></i> ${ab.opportunities.statusText}</span>
+    <div class="about__cards">
+      <article class="about__card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.75h11.5A2.5 2.5 0 0 1 19 6.25v14H7.5A2.5 2.5 0 0 1 5 17.75z"/><path d="M5 17.75a2.5 2.5 0 0 1 2.5-2.5H19M9 8h6"/></svg>
+        <div><h3>${ab.outsideOfDesign.heading}</h3><p>${ab.outsideOfDesign.text}</p></div>
+      </article>
+      <article class="about__card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>
+        <div><h3>${ab.opportunities.title}</h3><p>${ab.opportunities.text}</p></div>
+      </article>
     </div>
   `;
 }
@@ -241,32 +246,31 @@ export function renderJourney(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${j.sectionLabel}</div>
-      <h2>${j.heading.replace(" ", "<br>")}</h2>
+      <h2>My Design <img class="journey__heading-icon" src="assets/images/How%20i%20work-1.png" alt=""> Journey</h2>
     </div>
-    <div class="experience-list">
+    <div class="experience-grid">
       ${j.timeline
         .map(
           (item) => `
         <article class="experience-item">
-          <img src="${item.icon}" style="object-fit: cover; border-radius: 8px;" alt="${item.company}">
-          <div>
+          <img src="${item.icon}" alt="">
+          <div class="experience-item__heading">
             <h3>${item.company}</h3>
             <strong>${item.role.toUpperCase()}</strong>
-            <span>${item.duration.toUpperCase()}</span>
-            <p>${item.description}</p>
           </div>
-          <b>↗</b>
+          <span class="experience-item__duration">${item.duration.toUpperCase()}</span>
         </article>
       `
         )
         .join("")}
-    </div>
-    <div class="grass-break">
-      <img src="assets/images/How%20i%20work-1.png" alt="">
-      <div>
-        <span>${j.transitionStatement.prefix}</span>
-        <strong>${j.transitionStatement.highlight}</strong>
-      </div>
+      <article class="grass-break">
+        <div>
+          <span>${j.transitionStatement.prefix}</span>
+          <strong>${j.transitionStatement.highlight}</strong>
+        </div>
+        <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="">
+        <div class="grass-break__meadow" aria-hidden="true"></div>
+      </article>
     </div>
   `;
 }
@@ -279,7 +283,7 @@ export function renderContact(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${c.sectionLabel}</div>
-      <h2>${c.heading.replace(" ", "<br>")}</h2>
+      <h2>${c.heading}</h2>
       <p>${c.description}</p>
     </div>
     <form class="contact-form">
@@ -300,7 +304,7 @@ export function renderFindMeOnline(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${f.sectionLabel}</div>
-      <h2>${f.heading.replace(" ", "<br>")}</h2>
+      <h2>${f.heading}</h2>
       <p>${f.subtitle}</p>
     </div>
     ${f.socialLinks
@@ -358,4 +362,3 @@ export function renderAll(data) {
   renderFindMeOnline(data);
   renderFooter(data);
 }
-
