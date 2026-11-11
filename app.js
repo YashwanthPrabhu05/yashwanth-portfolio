@@ -1,3 +1,9 @@
+import { portfolioData } from "./portfolioData.js";
+import { renderAll } from "./renderPortfolio.js";
+
+// Dynamically render all portfolio sections from single data source
+renderAll(portfolioData);
+
 const preloader = document.querySelector(".preloader");
 
 document.querySelectorAll("img").forEach((image) => {
@@ -219,6 +225,7 @@ if (contactForm) {
     );
     const status = contactForm.querySelector(".form-status");
     status.textContent = "Opening your email app…";
-    window.location.href = `mailto:biswasritam404@gmail.com?subject=${subject}&body=${body}`;
+    const recipient = portfolioData.personal?.email || portfolioData.contact?.recipientEmail || "syashwanthprabhu@gmail.com";
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
   });
 }
