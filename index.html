@@ -1,18 +1,324 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark" style="background-color: #0a0a0a">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Portfolio of a design engineer and systemist — building tools, interfaces, and systems that save people time." />
-    <title>Portfolio — Design Engineer · Systemist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f2f2">
+    <meta name="description" content="Ritam Biswas — Product Designer turning complexity into clarity.">
+    <title>Ritam Biswas | Product &amp; UX/UI Designer</title>
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
   </head>
-  <body style="background-color: #0a0a0a">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body>
+    <div class="preloader" aria-label="Loading portfolio" role="status">
+      <img src="assets/images/logo_light.png" alt="">
+      <div class="preloader__line"><span></span></div>
+      <span class="preloader__count">000</span>
+    </div>
+
+    <main class="site-shell">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__logo" href="#hero" aria-label="Ritam Biswas home">
+          <img src="assets/images/logo_light.png" alt="Ritam Biswas">
+        </a>
+        <button class="site-nav__toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+        <div class="site-nav__links">
+          <a href="#featured">WORK</a>
+          <a href="#devi-paksha">HIGHLIGHT</a>
+          <a href="#about">ABOUT</a>
+          <a href="#experience">EXPERIENCE</a>
+          <a href="#contact">CONTACT</a>
+          <a href="#socials">SOCIALS</a>
+        </div>
+      </nav>
+
+      <section class="hero" id="hero">
+        <div class="hero-art" aria-label="A playful collection of objects on a green designer's board">
+          <img class="hero-art__board" src="assets/hero%20section%20image/green%20board.png" alt="">
+          <img class="hero-art__sticker hero-art__stamp" data-parallax="0.5" src="assets/Random%20item/STAMP.png" alt="">
+          <img class="hero-art__sticker hero-art__eyes" data-parallax="0.8" src="assets/Random%20item/EYES.png" alt="">
+          <img class="hero-art__sticker hero-art__glasses" data-parallax="1.1" src="assets/hero%20section%20image/glasses.png" alt="">
+          <img class="hero-art__sticker hero-art__flame" data-parallax="1.5" src="assets/hero%20section%20image/flame.png" alt="">
+          <img class="hero-art__sticker hero-art__earphones" data-parallax="0.7" src="assets/hero%20section%20image/earphones.png" alt="">
+          <img class="hero-art__sticker hero-art__ok" data-parallax="1.2" src="assets/hero%20section%20image/ok.png" alt="">
+          <img class="hero-art__sticker hero-art__sticker-extra" data-parallax="1.4" src="assets/Random%20item/download%20%286%29%201.png" alt="">
+        </div>
+
+        <div class="hero-copy">
+          <h1>
+            Namaste <img class="hero-icon" src="assets/images/hero-head-1.png" alt=""> I'm Ritam, a<br class="desktop-break">
+            Product Designer <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt=""> <span class="accent">turning<br class="desktop-break"> complexity into clarity.</span>
+          </h1>
+          <p>From figuring out what’s worth solving to obsessing over the tiniest details. Previously a Founding Product Designer at a Copenhagen-based EV startup.</p>
+          <div class="button-row">
+            <a class="button button--dark" href="#projects">View my Work</a>
+            <a class="button button--light" href="https://drive.google.com/file/d/1Jt9EQvYeNBdH3JnhU8e--4qNHByIu6Qo/view" target="_blank" rel="noreferrer">View Resume</a>
+          </div>
+        </div>
+
+        <div class="logo-strip" aria-label="Organizations and communities">
+          <div class="logo-strip__track">
+            <img src="assets/Icon%20Row/Frame%2049.png" alt="Growth">
+            <img src="assets/Icon%20Row/fossunited%20logo.png" alt="FOSS United">
+            <img src="assets/Icon%20Row/Group%20314.png" alt="Winter of Code">
+            <img src="assets/Icon%20Row/Frame%201000006349.png" alt="Google Developer Groups">
+            <img src="assets/Icon%20Row/IndiaFOSS-2026-logo.png" alt="IndiaFOSS 2026">
+            <img src="assets/Icon%20Row/Frame%201000006348.png" alt="BedR">
+            <img src="assets/Icon%20Row/Frame%201000006347.png" alt="Sukriya">
+            <img src="assets/Icon%20Row/Group%2033.png" alt="StatusCode2">
+            <img src="assets/Icon%20Row/Frame%2049.png" alt="Growth">
+            <img src="assets/Icon%20Row/fossunited%20logo.png" alt="FOSS United">
+            <img src="assets/Icon%20Row/Group%20314.png" alt="Winter of Code">
+            <img src="assets/Icon%20Row/Frame%201000006349.png" alt="Google Developer Groups">
+            <img src="assets/Icon%20Row/IndiaFOSS-2026-logo.png" alt="IndiaFOSS 2026">
+            <img src="assets/Icon%20Row/Frame%201000006348.png" alt="BedR">
+            <img src="assets/Icon%20Row/Frame%201000006347.png" alt="Sukriya">
+            <img src="assets/Icon%20Row/Group%2033.png" alt="StatusCode2">
+          </div>
+        </div>
+      </section>
+
+      <section class="featured section-block" id="featured">
+        <div class="featured__heading">
+          <div><div class="section-kicker">NOT BAD, HONESTLY</div><h2>Featured<br>Project</h2></div>
+          <img class="featured__doodle" src="assets/images/Feature%20project.png" alt="">
+        </div>
+        <a class="featured-card" href="zeno/" aria-label="Read the Zeno case study">
+          <img class="featured-card__bg" src="assets/Zeno%20image/bg.png" alt="">
+          <img class="featured-card__pattern" src="assets/Zeno%20image/patterns.png" alt="">
+          <div class="featured-card__copy">
+            <strong>Smarter charging.<br>Cheaper every time.</strong>
+            <span class="featured-card__caption">Zeno charges your EV automatically at the cheapest electricity hour of the day, right from your phone.</span>
+          </div>
+          <img class="featured-card__phone" src="assets/Zeno%20image/ZENO%20App.png" alt="ZENO app home screen held in a hand">
+          <span class="featured-card__brand"><img src="assets/images/zeno%20logo.png" alt="ZENO"></span>
+        </a>
+        <div class="featured-summary">
+          <div class="featured-summary__title">
+            <img src="assets/images/zeno%20logo.png" alt="ZENO">
+            <div><strong>ZENO</strong><span>Smart EV Charging Management</span></div>
+          </div>
+          <p>As the founding product designer, I helped shape ZENO's EV charging experience from early ideas to launch. The challenge? Figuring out what drivers actually needed, cutting through the complexity, and making everyday charging feel effortless for 5,000+ registered users in Denmark.</p>
+          <div class="featured-summary__grid">
+            <article><strong>From Zero to Launch</strong><span>Helped shape the product from early exploration to developer handoff, making key UX decisions along the way.</span></article>
+            <article><strong>Less Noise, More Clarity</strong><span>Structured onboarding, charging, and dashboard flows around what drivers actually needed to do.</span></article>
+            <article><strong>Built to Scale</strong><span>Created a reusable, variable-based design system to keep the experience consistent as the product evolved.</span></article>
+            <article><strong>The Four-Second Rule</strong><span>Prioritized battery status and ready-by information so drivers could understand their charging at a glance.</span></article>
+          </div>
+          <div class="featured-summary__bottom">
+            <span>Portfolio recreation of an EV charging experience I worked on at a Copenhagen-based startup. Original product and company details are confidential.</span>
+            <a class="button button--dark" href="zeno/">Read Case Study <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section-block" id="projects">
+        <div class="section-heading">
+          <div class="section-kicker">THERE'S MORE</div>
+          <h2>Selected<br>Projects</h2>
+        </div>
+        <div class="project-grid">
+          <a class="project-card project-card--wide" href="shopez/">
+            <div class="project-card__image"><img src="assets/images/SHOPEZ.png" alt="ShopEZ - AI Kirana Billing App"></div>
+            <div class="project-card__info">
+              <div><h3>SHOPEZ</h3><p>Kirana billing that begins the moment you point the camera</p></div>
+              <span class="project-card__arrow">↗</span>
+              <div class="tag-row"><span>AI BILLING</span><span>KIRANA RETAIL</span><span>MOBILE APP</span></div>
+            </div>
+          </a>
+          <a class="project-card" href="game-on/">
+            <div class="project-card__image project-card__image--lavender"><img src="assets/images/GAMEON.png" alt="GameON - Find a Nearby Game"></div>
+            <div class="project-card__info">
+              <div><h3>GAMEON</h3><p>Making it easier to find, join, and play local sports games</p></div>
+              <span class="project-card__arrow">↗</span>
+              <div class="tag-row"><span>MOBILE APP</span><span>PRODUCT CONCEPT</span><span>SPORTS</span></div>
+            </div>
+          </a>
+          <a class="project-card" href="https://www.figma.com/design/YjLXUm3ewgTPgoWfI6Ubz2/Smart-Farming-Assistant?node-id=0-1&t=rZMf4eRmUfzfHB6z-1" target="_blank" rel="noreferrer">
+            <div class="project-card__image project-card__image--green"><img src="assets/images/IoT%20APP.png" alt="Smart Agriculture IoT App"></div>
+            <div class="project-card__info">
+              <div><h3>SMART AGRICULTURE IOT APP</h3><p>Turning live field and crop data into something a farmer can act on</p></div>
+              <span class="project-card__arrow">↗</span>
+              <div class="tag-row"><span>AGRITECH</span><span>IOT</span><span>MOBILE APP</span></div>
+            </div>
+          </a>
+          <a class="project-card" href="https://enkelenergi.framer.website/" target="_blank" rel="noreferrer">
+            <div class="project-card__image project-card__image--peach"><img src="assets/images/EV.png" alt="EV Charging Startup Website"></div>
+            <div class="project-card__info">
+              <div><h3>EV CHARGING STARTUP WEBSITE</h3><p>From launch to 5,000+ users for a Copenhagen EV startup</p></div>
+              <span class="project-card__arrow">↗</span>
+              <div class="tag-row"><span>UX/UI DESIGN</span><span>FRAMER BUILD</span><span>EV CHARGING</span></div>
+            </div>
+          </a>
+          <a class="project-card" href="https://www.notion.so/Manokamna-Interior-Designs-31830418f5cc80fa91b5f6afaddd5574?source=copy_link" target="_blank" rel="noreferrer">
+            <div class="project-card__image project-card__image--cream"><img src="assets/images/BRAND%20LOGO.png" alt="Manokamna Interior Designs"></div>
+            <div class="project-card__info">
+              <div><h3>MANOKAMNA</h3><p>An interior design studio's identity, built outward from its M monogram</p></div>
+              <span class="project-card__arrow">↗</span>
+              <div class="tag-row"><span>LOGO DESIGN</span><span>VISUAL SYSTEM</span><span>INTERIOR DESIGN</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="highlight section-block" id="devi-paksha">
+        <div class="section-heading">
+          <div class="section-kicker">A RECENT FLEX</div>
+          <h2>More Than<br>Expected</h2>
+        </div>
+        <p class="highlight__intro">What started as a random chai conversation about viral music websites turned into Devi Paksha, our own little Durga Puja experiment. A mix of Bengali nostalgia, Mahalaya music, and a bit of vibe coding that somehow turned into something much bigger than we expected.</p>
+        <div class="highlight-card">
+          <div class="highlight-card__media">
+            <img src="assets/images/Flex.png" alt="A glimpse of the Devi Paksha digital experience">
+            <span class="highlight-card__play">▶</span>
+          </div>
+          <div class="highlight-card__details">
+            <div class="highlight-card__title">
+              <img src="assets/images/Devi-paksha-logo.png" alt="">
+              <div><strong>Devi Paksha</strong><span>A Digital Ode to Puja</span></div>
+            </div>
+            <p>An interactive digital experience bringing together Bengali culture, nostalgic music, Mahalaya and the atmosphere of Durga Puja.</p>
+            <div class="metrics">
+              <div><small>IN THE FIRST 2 DAYS</small><strong>300K+</strong><span>Reel views</span></div>
+              <div><small>&nbsp;</small><strong>30K+</strong><span>Reel likes</span></div>
+              <div><small>&nbsp;</small><strong>1.1K+</strong><span>Shares</span></div>
+              <div><small>&nbsp;</small><strong>150K+</strong><span>Website visitors</span></div>
+            </div>
+            <div class="button-row">
+              <span class="button button--muted" aria-disabled="true">Visit Website</span>
+              <a class="button button--white" href="https://www.instagram.com/reel/Db92efXoaLf/" target="_blank" rel="noreferrer">Watch the Reel</a>
+            </div>
+          </div>
+        </div>
+        <p class="highlight__note">Unavailable: the Devi Paksha website is offline for now, taking a post-Puja break.</p>
+      </section>
+
+      <section class="about section-block" id="about">
+        <div class="section-heading">
+          <div class="section-kicker">OBLIGATORY INTRODUCTION</div>
+          <h2>A Bit About<br>Me</h2>
+        </div>
+        <div class="about__intro">
+          <div class="about__portrait"><img src="assets/images/ritam_new.png" alt="Ritam Biswas"></div>
+          <div class="about__copy">
+            <p>Namaste! I'm Ritam Biswas, a Product Designer with a CS background. I started out in graphic design and illustration, mostly chasing good visuals, until I realized there's more to design than making things look pretty.</p>
+            <p>These days, I enjoy figuring out what's worth building, why it matters, and how to make it work. From untangling messy problems to obsessing over the tiniest details, I guess I never really stopped loving the visual side of things either.</p>
+          </div>
+        </div>
+        <div class="about-facts">
+          <div><span>Designation</span><strong>Product Designer</strong></div>
+          <div><span>Experience</span><strong>2 years 9 months</strong></div>
+          <div><span>Location</span><strong>Kolkata, India</strong></div>
+          <div><span>Education</span><strong>IIIT Kalyani (Grad. 2027)</strong></div>
+          <div><span>Email</span><strong><a href="mailto:biswasritam404@gmail.com">biswasritam404@gmail.com</a></strong></div>
+        </div>
+        <div class="toolkit">
+          <div class="toolkit__heading"><div><div class="section-kicker">MY TOOLKIT</div><h3>Tools I reach for</h3></div><span>Curious by default</span></div>
+          <div class="toolkit__grid">
+            <img src="assets/images/new%20tech%20stack/figma.png" alt="Figma"><img src="assets/images/new%20tech%20stack/framer.png" alt="Framer">
+            <img src="assets/images/new%20tech%20stack/protopie.png" alt="ProtoPie"><img src="assets/images/new%20tech%20stack/figr.png" alt="Figr">
+            <img src="assets/images/new%20tech%20stack/notion.png" alt="Notion"><img src="assets/images/new%20tech%20stack/stitch.png" alt="Stitch">
+            <img src="assets/images/new%20tech%20stack/ckaude.png" alt="Claude"><img src="assets/images/new%20tech%20stack/gemini.png" alt="Gemini">
+            <img src="assets/images/new%20tech%20stack/caude%20code.png" alt="Claude Code"><img src="assets/images/new%20tech%20stack/vs%20code.png" alt="VS Code">
+          </div>
+        </div>
+        <div class="outside">
+          <div><div class="section-kicker">OUTSIDE OF DESIGN</div><h3>Currently reading</h3><p>Reading “Before the Coffee Gets Cold.” Coffee is clearly involved.</p></div>
+          <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="">
+        </div>
+        <div class="opportunity">
+          <img src="assets/images/Globe.png" alt="">
+          <div><strong>Open to Opportunities</strong><p>Open to product design opportunities across India and internationally.</p></div>
+          <span class="opportunity__status"><i></i> OPEN TO WORK</span>
+        </div>
+      </section>
+
+      <section class="experience section-block" id="experience">
+        <div class="section-heading">
+          <div class="section-kicker">SOMEHOW EMPLOYED</div>
+          <h2>My Design<br>Journey</h2>
+        </div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <img src="assets/images/Foss%201.png" alt="">
+            <div><h3>FOSS United Kolkata</h3><strong>DESIGNER</strong><span>AUG 2024 – PRESENT | REMOTE | KOLKATA</span></div><b>↗</b>
+          </article>
+          <article class="experience-item">
+            <img src="assets/images/bedr.png" alt="">
+            <div><h3>BedR</h3><strong>PRODUCT DESIGN INTERN</strong><span>JUL 2026 – PRESENT | HYBRID | MUMBAI</span></div><b>↗</b>
+          </article>
+          <article class="experience-item experience-item--confidential">
+            <img src="assets/images/stealth.png" alt="">
+            <div><h3>EU Smart Energy Startup</h3><strong>FOUNDING PRODUCT DESIGNER</strong><span>JAN 2024 – JUN 2026 | REMOTE | DENMARK</span><p>Part of this work is confidential. Get in touch to hear more.</p></div><b>↗</b>
+          </article>
+          <article class="experience-item">
+            <img src="assets/images/gdg.png" alt="">
+            <div><h3>GDG &amp; WOC 4.0</h3><strong>CREATIVE LEAD</strong><span>OCT 2024 – DEC 2025 | HYBRID | IIIT KALYANI</span></div><b>↗</b>
+          </article>
+          <article class="experience-item">
+            <img src="assets/images/status%20code%202.png" alt="">
+            <div><h3>StatusCode2 (MLH)</h3><strong>LEAD DESIGNER</strong><span>MAY 2025 – AUG 2025 | HYBRID | IIIT KALYANI</span></div><b>↗</b>
+          </article>
+          <article class="experience-item">
+            <img src="assets/images/sukriya.png" alt="">
+            <div><h3>Sukriya</h3><strong>UI/UX INTERN</strong><span>SEP 2024 – MAR 2025 | REMOTE | KOLKATA</span></div><b>↗</b>
+          </article>
+          <article class="experience-item">
+            <img src="assets/images/Foss%202.png" alt="">
+            <div><h3>FOSS Club IIIT Kalyani</h3><strong>DESIGNER</strong><span>DEC 2023 – DEC 2024 | HYBRID | IIIT KALYANI</span></div><b>↗</b>
+          </article>
+        </div>
+        <div class="grass-break">
+          <img src="assets/images/How%20i%20work-1.png" alt="">
+          <div><span>BEFORE THE PIXELS,</span><strong>THERE WAS GRASS.</strong></div>
+        </div>
+      </section>
+
+      <section class="contact section-block" id="contact">
+        <div class="section-heading">
+          <div class="section-kicker">MIGHT AS WELL SAY HI</div>
+          <h2>Let's Build<br>Together</h2>
+          <p>Whether it's a collaboration, an opportunity, or just a conversation, I'm always open. Tell me what's on your mind.</p>
+        </div>
+        <form class="contact-form">
+          <label>NAME<input name="name" autocomplete="name" required placeholder="Your name"></label>
+          <label>EMAIL<input name="email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
+          <label>PROJECT / MESSAGE<textarea name="message" rows="5" required placeholder="Tell me a bit about the project, role, or idea."></textarea></label>
+          <button class="button button--dark" type="submit">Send Message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="socials section-block" id="socials">
+        <div class="section-heading">
+          <div class="section-kicker">ELSEWHERE ON THE INTERNET</div>
+          <h2>Find me<br>online</h2>
+        </div>
+        <a class="social-link" href="https://linkedin.com/in/ritamhere" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>in/ritamhere</span><b>↗</b></a>
+        <a class="social-link" href="https://drive.google.com/file/d/1Jt9EQvYeNBdH3JnhU8e--4qNHByIu6Qo/view" target="_blank" rel="noreferrer"><span>Resume</span><span>Take a look</span><b>↗</b></a>
+        <a class="social-link" href="mailto:biswasritam404@gmail.com"><span>Email</span><span>biswasritam404@gmail.com</span><b>↗</b></a>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-art">
+          <img class="footer-art__board" src="assets/footer%20section%20image/board.png" alt="">
+          <img class="footer-art__item footer-art__paper" src="assets/footer%20section%20image/paper.png" alt="">
+          <img class="footer-art__item footer-art__sign" src="assets/footer%20section%20image/sign.png" alt="">
+          <img class="footer-art__item footer-art__phone" src="assets/footer%20section%20image/phone.png" alt="">
+          <img class="footer-art__item footer-art__uno-back" src="assets/footer%20section%20image/uno%20back.png" alt="">
+          <img class="footer-art__item footer-art__uno-front" src="assets/footer%20section%20image/uno%20front.png" alt="">
+          <img class="footer-art__item footer-art__credit" src="assets/footer%20section%20image/credit%20text.png" alt="">
+          <img class="footer-art__logo" src="assets/footer%20section%20image/logo.png" alt="">
+        </div>
+        <p>Copyright © 2026 Ritam Biswas. All rights reserved.</p>
+      </footer>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
   </body>
 </html>

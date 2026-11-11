@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f2f2">
+    <title>GameON | Ritam Biswas</title>
+    <link rel="icon" href="../assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="../app.js"></script>
+  </head>
+  <body>
+    <div class="preloader" aria-label="Loading portfolio" role="status">
+      <img src="../assets/images/logo_light.png" alt=""><div class="preloader__line"><span></span></div><span class="preloader__count">000</span>
+    </div>
+    <nav class="site-nav case-nav" aria-label="Main navigation">
+      <a class="site-nav__logo" href="../#hero" aria-label="Ritam Biswas home"><img src="../assets/images/logo_light.png" alt="Ritam Biswas"></a>
+      <button class="site-nav__toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="site-nav__links">
+        <a href="../#featured">WORK</a><a href="../#devi-paksha">HIGHLIGHT</a><a href="../#about">ABOUT</a>
+        <a href="../#experience">EXPERIENCE</a><a href="../#contact">CONTACT</a><a href="../#socials">SOCIALS</a>
+      </div>
+    </nav>
+    <main class="case-shell">
+      <div class="case-main">
+        <div class="case-brand"><img src="../assets/game-on/logo.webp" alt="GameON"><div><strong>GameON</strong><span>Find a nearby game, with no club to join</span></div></div>
+        <h1 class="case-title">No club, no commitment: designing the moment a stranger asks to join your game.</h1>
+        <div class="case-note"><div class="case-note__heading"><span>↗</span>What this is</div><p>You decide to play again, and nobody you used to play with is free. A club would fix that, but it asks for a long-term commitment. I designed the opposite: one flow, five screens, from “what’s near me?” to “you’re in”, and the hardest part of it is not finding a game. It is asking a stranger to let you in.</p></div>
+        <figure class="case-hero-image"><img src="../assets/game-on/hero-phone.webp" alt="GameON mobile concept screens"></figure>
+        <div class="case-note"><div class="case-note__heading"><span>◎</span>Scope and approach</div><p>A mobile product concept, never launched, made for a design brief that asked for one flow, the directions I explored, my assumptions and the metrics it might move. Nothing here was user tested: the project file records no interviews or usability tests, so every assumption and metric below is labelled as an assumption or a hypothesis.</p><p>Solo designer, from the desk research through the paper wireframes to the final dark-mode screens and a prototype video. Scope was one happy-path flow, chosen on purpose over a shallow pass at every state.</p></div>
+        <div class="case-stats case-stats--three">
+          <div class="case-stat"><strong>One focused flow</strong><span>Dashboard, Event Info, Request to Join, My Request and All Set, on the happy path.</span></div>
+          <div class="case-stat"><strong>Directions weighed</strong><span>Create a Game, Browse and Join, Sports Feed and Court Booking. One was chosen.</span></div>
+          <div class="case-stat"><strong>Sketched first</strong><span>The whole flow was drawn on paper before it was designed in Figma.</span></div>
+        </div>
+
+        <section class="case-section" id="problem">
+          <div class="case-section__content">
+            <h2>The problem: wanting to play, with no one to play with</h2>
+            <p>Schedules fill up, people relocate, and the friends you used to play with scatter. Clubs and classes offer a way back in, but they ask for a long-term commitment that not everyone can make. So someone who just wants a game on Sunday has nobody to ask.</p>
+            <div class="case-callout"><strong>Perspective</strong><p>“Help adults find someone to play with, nearby, without any long-term commitment.”</p></div>
+            <p>I looked through community platforms, Reddit threads and online discussions about recreational sports. This was desk research, not interviews, so the three themes below are informed starting points, not validated findings. Each one went straight into a screen.</p>
+            <div class="reflection-grid">
+              <article><h3>Age over skill</h3><p>People want to play with someone in the same phase of life, not only the same skill bracket. It became the age range on every game card.</p></article>
+              <article><h3>Distance matters</h3><p>A great game 15 km away on a Sunday morning is not practical. Distance stays visible from the dashboard to the confirmation.</p></article>
+              <article><h3>Trust is a concern</h3><p>People are open to new players but uneasy about who shows up, and hosts feel the same. It became the request note and the verified badge.</p></article>
+            </div>
+            <div class="case-callout"><strong>Insight</strong><p>Full verification, by photo or identity, was out of scope. The verified badge signals that a trust layer exists without designing it, so trust in this concept rests on the organiser card and the note, not on verification.</p></div>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="one-flow">
+          <div class="case-section__content">
+            <h2>One flow, five screens: from “what’s near me?” to “you’re in”</h2>
+            <p>The player is someone who has not played in a while, is new to the app, and does not know the host. The table follows that one player. The middle column is the question I assumed they have at each step, which is my design intent and not research. The right column is the call I made to answer it.</p>
+            <figure class="case-image"><img src="../assets/game-on/flow-five-screens.webp" alt="The primary GameON flow from dashboard to confirmed state"><figcaption>The primary flow, from the dashboard to the confirmed state.</figcaption></figure>
+            <table class="comparison-table"><thead><tr><th>Screen</th><th>What the player is trying to work out</th><th>The call I made</th></tr></thead><tbody>
+              <tr><td>1. Dashboard</td><td>Is anything happening near me, and is it for someone like me?</td><td>Sport chips filter the whole screen. Every card carries age range and distance, so the answer is on the card, not behind a tap (decision 4).</td></tr>
+              <tr><td>2. Event Info</td><td>Who is this host, and what am I walking into?</td><td>The organiser card comes before date, time and place. A fill bar and rule chips follow, so the commitment is clear before the request (decision 3).</td></tr>
+              <tr><td>3. Request to Join</td><td>How do I ask a stranger without it feeling cold?</td><td>A bottom sheet over the blurred event, with an optional note. Writing nothing is allowed (decision 2).</td></tr>
+              <tr><td>4. My Request</td><td>Did it go through, and what did they actually see?</td><td>The sent note is echoed back, a Pending chip says nothing is confirmed, and Browse more games keeps the player moving.</td></tr>
+              <tr><td>5. All Set</td><td>Am I in, and what do I do now?</td><td>A Confirmed chip, where and when in one block, then three next steps that work for any sport: directions, group chat, invite a friend.</td></tr>
+            </tbody></table>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="decisions">
+          <div class="case-section__content">
+            <h2>Five decisions that shaped the flow</h2>
+            <article class="decision"><span class="decision__number">DECISION 01</span><h3>Why I chose Browse and Join over creating a game, a feed or booking a court</h3><p>Four ways to answer the same brief were on the table, and three of them made the player do work before they could play. Court booking was the brief's own example flow, and I still set it aside.</p>
+              <table class="comparison-table"><thead><tr><th>Direction</th><th>What it is</th><th>Why it was or was not pursued</th></tr></thead><tbody>
+                <tr><td>Create a Game</td><td>The user sets up a session, picks a sport, time and place, then waits for others.</td><td>Too much upfront effort for someone who just wants to play, not plan and organise.</td></tr>
+                <tr><td>Browse and Join (chosen)</td><td>See what is nearby, pick a game, request to join.</td><td>Lowest friction, and it works for every sport.</td></tr>
+                <tr><td>Sports Feed</td><td>A scrollable feed of nearby sports activity, like Instagram for local games.</td><td>Too passive. Browsing posts does not get you into a game.</td></tr>
+                <tr><td>Court Booking</td><td>Book a venue first, then find players to fill the slots.</td><td>It puts venue booking and payments before people, so it solves the wrong problem first.</td></tr>
+              </tbody></table>
+              <p>The trade-off is real: Browse and Join gives up everything a host would want, such as creating and managing a session, and it only works if games already exist nearby. I accepted both for one reason. It asks nothing of a player who just opened the app. The security worry went into the request itself, through the note (decision 2).</p><p>Nothing was tested with players, so this is a judgement about friction, not a measured result.</p>
+            </article>
+            <article class="decision"><span class="decision__number">DECISION 02</span><h3>Why a request to join carries an optional note, and is never auto-accepted</h3><figure class="case-image"><img src="../assets/game-on/phone-request-sheet.webp" alt="GameON request sheet with an optional note"></figure><p>Joining means asking a host to say yes to a stranger. My first idea was to remove that question: auto-accept anyone verified. I dropped it, because it takes the organiser out of a decision that belongs to them, and a verified user can still be the wrong fit for a specific game.</p><p>That left the host deciding on a faceless request. So I borrowed LinkedIn's connect with a note: up to 300 characters, so a request arrives as an introduction. The host reads it, and can open the requester's profile, games played and rating, before accepting.</p><p>I considered making the note mandatory and rejected it. A required field costs the most at the moment someone is deciding, which is the drop-off point I least wanted to touch. So the sheet nudges, and Maybe later sits under the primary button as plain text with no visual weight.</p><p>The sheet's copy says hosts approve requests with notes 3x faster. That number is a claim written into the concept. I did not measure it, and it would need real data before it belonged in a product. The working mockups show the copy getting there: an early version said only that hosts approve faster with a friendly intro.</p><p>After sending, the player waits, which is where a note could feel like it vanished. The pending screen echoes it back, so the player sees exactly what the host received. A Pending host approval chip says nothing is confirmed yet, and Browse more games stops the wait from being a dead end.</p><p>What is still unknown is whether hosts read the notes at all, and whether a note raises approval or only adds writing for the player. That is the first thing I would test.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 03</span><h3>Why the organiser comes before the date, time and place</h3><p>The research said people are uneasy about who shows up. The alternative was to lead with when and where, the facts needed to decide. I reversed that: if the host does not feel trustworthy, the time and place do not matter, so the player reads the person first.</p><p>It also answered the stranger concern inside the flow, without adding a step. The cost is that the practical facts sit one card lower, and the verified badge only signals trust, because real verification was out of scope. I did not test whether players read the card in this order.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 04</span><h3>Why every card shows an age range and a distance, and no skill level</h3><figure class="case-image"><img src="../assets/game-on/crop-meta-grid.webp" alt="Game cards showing age ranges and distance"></figure><p>Matching by skill level was the alternative, and the research pointed somewhere else: people want to play with someone in the same phase of life. Skill cannot be verified. Age can. So each card answers the question people actually ask, is this my kind of crowd?</p><p>Distance sits beside it, because a great game 15 km away on a Sunday morning is not practical. The host sets the age range and players cannot change it, which keeps the crowd the host intended.</p><p>The trade-off is exclusion. An age range can shut out someone who would have fit the game perfectly, and a mixed-skill game has no skill signal at all. Both rest on desk research, not on players, so they stay assumptions.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 05</span><h3>Why I took the cost out of the screens</h3><p>The working HTML mockups from 23 June show a version of the flow with money in it: a rupee-per-head price on the game cards, a cost badge, a price on the Request to join button and a payment reminder on the confirmation. The submitted screens have none of it.</p><p>My reasoning, from the project file: casual sports in India are social, not transactional, so cost was removed from the whole UI. If there is a ground fee to split, that happens in the group chat after confirmation.</p><p>What I gave up is clarity. A player may want to know what a game costs before asking to join, and pushing the fee into the chat moves an awkward conversation to after the commitment. I made the call to keep the request about people, not payment, and I did not test it. It is the assumption I would be least surprised to see fail.</p></article>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="smaller-calls">
+          <div class="case-section__content">
+            <h2>Smaller calls that kept the screens consistent</h2>
+            <table class="comparison-table"><thead><tr><th>Decision</th><th>Reasoning</th></tr></thead><tbody>
+              <tr><td>The button follows the state of the game</td><td>A game can be live, upcoming with spots, or upcoming and full, so the button is Follow, Join or Notify Me. A full game still gives the player something to do, and today's full game can be tomorrow's live one to follow. Notify Me is described in the project file but not drawn in the five final screens.</td></tr>
+              <tr><td>Player cards borrow familiar patterns</td><td>A horizontal strip like Instagram's suggested profiles, name and age on one line (Rohan, 34) as dating apps do, and a sport badge on the avatar instead of extra text.</td></tr>
+            </tbody></table>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="iterations">
+          <div class="case-section__content">
+            <h2>What I drew, tried and dropped</h2>
+            <p>Everything was sketched on paper before I opened Figma. Two sheets cover the whole flow, and the first one is where the dashboard was still undecided: one concept with a hero banner, one without it and with filter chips instead. The submitted dashboard uses the chips.</p>
+            <figure class="case-image"><img src="../assets/game-on/wireframe-sheet-1-dashboard-event.webp" alt="Sheet 1: Dashboard concepts and an early Event Detail"></figure>
+            <p>Sheet 1: Dashboard 1 with a hero banner, Concept 2 without it and with filter chips, and an early Event Detail.</p>
+            <figure class="case-image"><img src="../assets/game-on/wireframe-sheet-2-request-flow.webp" alt="Sheet 2: the request flow from note sheet to accepted"></figure>
+            <p>Sheet 2: the request flow, from the note sheet to Request Sent and Request Accept.</p>
+            <p>The note sheet, the echoed note on Request Sent and the accepted screen are all already on sheet 2, so the core layout of the request flow was settled on paper. Figma adjusted it, it did not redesign it.</p>
+            <p>Between the sketches and the submitted screens there are three working HTML mockups of the flow and a colour reference. These are the iterations I can show from files that exist today. Their file dates are 23 June 2026, and I treat the order as Mockup 1 to 3.</p>
+            <table class="comparison-table"><thead><tr><th>Version</th><th>What it contained</th><th>What changed from the version before</th></tr></thead><tbody>
+              <tr><td>Mockup 1</td><td>A dark, near-black base. The player flow, plus a host screen listing join requests with Approve and Decline. Two live cards on the dashboard.</td><td>First version. The note prompt said only that a friendly intro helps hosts approve faster.</td></tr>
+              <tr><td>Mockup 2</td><td>A warmer dark gray base. The player flow from dashboard to approved, with one live card and one starting soon. The host screen is gone.</td><td>The live card stays red and the second card turns blue. The note prompt gains the 3x faster claim, and the pending state is explained as honest: orange means waiting, not success.</td></tr>
+              <tr><td>Mockup 3</td><td>The most detailed version: organiser stats, a fill bar, rules, age range and a price per head on cards, and a payment reminder on the confirmation.</td><td>Cards become information-dense. It is the latest of the three, and the one that shows cost.</td></tr>
+              <tr><td>Submitted screens</td><td>Five screens, player side only, with no cost and no host screen.</td><td>Red marks Pending and blue marks Confirmed. Cost and the host view are gone.</td></tr>
+            </tbody></table>
+            <div class="case-callout"><strong>Insight</strong><p>The colour reference written during these rounds assigns roles: red for action and urgency, blue for information, orange for pending and cost, green for confirmation only after the host approves. The submitted screens do not follow it everywhere. Pending is red, Confirmed is blue and orange appears on the Tomorrow badge. I show both rather than pretend the system survived unchanged.</p></div>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="screens">
+          <div class="case-section__content">
+            <h2>Inside the five screens</h2>
+            <p>The journey above shows the order. These are the calls inside each screen, at the top and scrolled.</p>
+            <h3>SCREEN 01 · DASHBOARD</h3>
+            <table class="comparison-table"><thead><tr><th>Element</th><th>The call</th></tr></thead><tbody><tr><td>Sport filter chips</td><td>They filter the whole screen and the heading updates to match, so the page always says what it is showing.</td></tr><tr><td>One card pattern, used twice</td><td>Happening Now and Games This Week share the same card, horizontal and vertical. Age range, time and distance are always in the same place.</td></tr></tbody></table>
+            <figure class="case-image"><img src="../assets/game-on/screens-dashboard.webp" alt="GameON dashboard"></figure>
+            <h3>SCREEN 02 · EVENT INFO</h3>
+            <table class="comparison-table"><thead><tr><th>Element</th><th>The call</th></tr></thead><tbody><tr><td>Hero illustration</td><td>It communicates the sport before any text is read.</td></tr><tr><td>Players fill bar</td><td>7 joined, 3 spots open, 70% full. It signals urgency without extra copy.</td></tr><tr><td>Rules chips and About</td><td>They set expectations up front: clean boots, water and bibs provided, arrive 10 minutes early.</td></tr><tr><td>Request to join</td><td>A sticky CTA that stays visible while the player scrolls.</td></tr></tbody></table>
+            <figure class="case-image"><img src="../assets/game-on/screens-event-info.webp" alt="GameON event information screen"></figure>
+            <h3>SCREEN 03 · REQUEST TO JOIN</h3>
+            <p>This screen is shown in decision 02, with the note echoed back on the next screen.</p>
+            <table class="comparison-table"><thead><tr><th>Element</th><th>The call</th></tr></thead><tbody><tr><td>Bottom sheet over a blurred event</td><td>The player never leaves the context they are deciding about.</td></tr><tr><td>Blue focus border on the note</td><td>The focused field stays distinct from the red CTAs, so blue means input and red means action.</td></tr></tbody></table>
+            <h3>SCREEN 04 · MY REQUEST</h3>
+            <table class="comparison-table"><thead><tr><th>Element</th><th>The call</th></tr></thead><tbody><tr><td>Pending chip</td><td>Red while the request awaits approval, so it is clear that nothing is confirmed yet.</td></tr><tr><td>Event details stay below</td><td>Context is not lost while the player waits.</td></tr><tr><td>Declined state</td><td>Not drawn. This screen covers the pending state only, and the declined state is a known gap.</td></tr></tbody></table>
+            <figure class="case-image"><img src="../assets/game-on/screens-my-request.webp" alt="GameON pending request screen"></figure>
+            <h3>SCREEN 05 · ALL SET</h3>
+            <table class="comparison-table"><thead><tr><th>Element</th><th>The call</th></tr></thead><tbody><tr><td>Confirmed chip</td><td>It turns blue once the host approves, so the change from pending to confirmed needs no extra copy.</td></tr><tr><td>Three generic next steps</td><td>Get directions, Join the group chat and Invite a friend work for any sport, so the cards are reusable across every game type.</td></tr></tbody></table>
+            <figure class="case-image"><img src="../assets/game-on/screens-all-set.webp" alt="GameON confirmed screen"></figure>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="assumptions">
+          <div class="case-section__content">
+            <h2>What I assumed, and what I left out</h2>
+            <p>These are design assumptions, not validated findings. The project file does not include user testing that confirms them.</p>
+            <table class="comparison-table"><thead><tr><th>Assumption</th><th>What follows from it</th></tr></thead><tbody>
+              <tr><td>No payments in the flow</td><td>Cost is removed from the whole UI. A fee to split is settled in the group chat (decision 5).</td></tr>
+              <tr><td>Location access is granted</td><td>Every near-you feature depends on location permission being on.</td></tr>
+              <tr><td>People play near where they live or work</td><td>Users want games within a short distance, which is why distance is on every card.</td></tr>
+              <tr><td>The host sets the age range</td><td>Players cannot change it, which protects the social fit of each session (decision 4).</td></tr>
+            </tbody></table>
+            <div class="case-callout"><strong>Insight</strong><p>The documented flow is the primary happy path only: find a game, send a request, get confirmed. Declined requests, status indicators on cards for games already applied to, empty states when no games are nearby, and the host's side of the request were outside it. I chose one complete, coherent flow over a shallow pass at every state.</p></div>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="metrics">
+          <div class="case-section__content">
+            <h2>What the design might move (untested)</h2>
+            <p>GameON was never launched and nothing below was measured. These are hypotheses I would want to test, each tied to a decision above.</p>
+            <table class="comparison-table"><thead><tr><th>Potential metric</th><th>Why the design might move it</th></tr></thead><tbody>
+              <tr><td>Join request rate</td><td>Asking with a note could feel less cold than asking with a bare button, so more people might send one (decision 2).</td></tr>
+              <tr><td>Host approval rate</td><td>Notes give hosts context to decide with more confidence. This is the 3x claim, and it is still only a claim.</td></tr>
+              <tr><td>Return session rate</td><td>Confirmed players may come back, and the Invite a friend card puts a growth moment on the confirmation screen.</td></tr>
+              <tr><td>Player connect rate</td><td>Players Near You could build a social graph over time that leads to games organised without the app.</td></tr>
+            </tbody></table>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+
+        <section class="case-section" id="reflection">
+          <div class="case-section__content">
+            <h2>What I'd defend, and what I'd test next</h2>
+            <p>The decisions I would defend most are about where to add friction and where to remove it. Creating a game, auto-accepting and a mandatory note each moved effort or control to the wrong place.</p>
+            <div class="reflection-grid">
+              <article><h3>Build trust</h3><p>Show the organiser and let players introduce themselves before joining.</p></article>
+              <article><h3>Keep it optional</h3><p>A note can help, but requiring one adds friction.</p></article>
+              <article><h3>Plan edge cases</h3><p>Declined requests, empty states and full-game notifications remain to be designed.</p></article>
+            </div>
+            <p>What I would test first, in this order: whether hosts read the notes at all, whether the age range excludes people a host would have welcomed, and whether players want to see a price before they ask to join. The first checks the 3x claim, the second checks decision 4, and the third checks the assumption I would be least surprised to see fail.</p>
+          </div>
+          <aside><a href="#problem">The problem</a><a href="#one-flow">One flow, five screens</a><a href="#decisions">Five decisions</a><a href="#smaller-calls">Smaller calls</a><a href="#iterations">What I drew, tried and dropped</a><a href="#screens">Inside the five screens</a><a href="#assumptions">What I assumed</a><a href="#reflection">What I'd defend</a></aside>
+        </section>
+      </div>
+      <footer class="case-footer"><a href="../#projects">← Back to portfolio</a><p>Copyright © 2026 Ritam Biswas. All rights reserved.</p></footer>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  </body>
+</html>
