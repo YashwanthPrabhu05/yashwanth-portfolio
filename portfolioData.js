@@ -296,7 +296,7 @@ export const portfolioData = {
       {
         name: "LinkedIn",
         detail: "Connect with me",
-        href: "https://www.linkedin.com/in/yashwanthprabhu/",
+        href: "https://www.linkedin.com/in/yashwanth-prabhu-474a37269/",
       },
       {
         name: "Behance",
