@@ -57,19 +57,12 @@ export function renderFeaturedProject(data) {
         <h2><span>${headingLead}</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>${headingRest.join(" ")}</span></h2>
       </div>
     </div>
-    <a class="featured-card" href="${feat.cta.href}" aria-label="Read the ${feat.projectName} case study">
-      <img class="featured-card__bg" src="assets/Zeno%20image/bg.png" alt="">
-      <img class="featured-card__pattern" src="assets/Zeno%20image/patterns.png" alt="">
-      <div class="featured-card__copy">
-        <strong>${feat.subtitle.replace(". ", ".<br>")}</strong>
-        <span class="featured-card__caption">${feat.description}</span>
-      </div>
-      <img class="featured-card__phone" src="assets/Zeno%20image/ZENO%20App.png" alt="${feat.projectName}">
-      <span class="featured-card__brand" style="color: #fff; font-weight: 800; font-size: 20px; letter-spacing: 0.12em;">${feat.projectName}</span>
+    <a class="featured-card" href="${feat.cta.href}" aria-label="See ${feat.projectName}">
+      <img class="featured-card__thumb" src="${feat.image}" alt="${feat.projectName} web app on a laptop">
     </a>
     <div class="featured-summary">
       <div class="featured-summary__title">
-        <img src="${data.personal.logoImage}" alt="${feat.projectName}">
+        <img class="featured-summary__logo" src="${feat.logo || data.personal.logoImage}" alt="${feat.projectName} logo">
         <div>
           <strong>${feat.projectName}${feat.status ? `<em class="status-pill"><i aria-hidden="true"></i>${feat.status}</em>` : ""}</strong>
           <span>${feat.subtitle}</span>
