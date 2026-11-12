@@ -20,7 +20,7 @@ export const portfolioData = {
     positioning: "Product Designer | UI/UX Designer",
     location: "Chennai, India",
     email: "syashwanthprabhu@gmail.com",
-    resumeUrl: "https://drive.google.com/file/d/1Jt9EQvYeNBdH3JnhU8e--4qNHByIu6Qo/view",
+    resumeUrl: "https://drive.google.com/file/d/1N4NUlXQF50N-j3Axq2XTDPnS74gBBICJ/view?usp=sharing",
     logoImage: "assets/images/yp-logo.jpg",
     portraitImage: "assets/images/yashwanth.jpg",
   },
@@ -28,7 +28,6 @@ export const portfolioData = {
   navigation: [
     { label: "WORK", href: "#featured" },
     { label: "PROJECTS", href: "#projects" },
-    { label: "FLEX", href: "#flex" },
     { label: "ABOUT", href: "#about" },
     { label: "JOURNEY", href: "#experience" },
     { label: "CONTACT", href: "#contact" },
@@ -37,50 +36,33 @@ export const portfolioData = {
 
   // 01. HERO SECTION
   hero: {
-    greeting: "Hellooo! I'm Yashwanth, a",
-    titleRole: "Product Designer",
-    accentText: "turning ideas into meaningful digital experiences.",
-    description: "From understanding what needs to be solved to refining the smallest interface details, I enjoy transforming complex problems into simple, intuitive, and visually engaging experiences.",
-    workSnippet: "Previously worked on digital products across web and mobile at Fyrasoft.",
+    greeting: "Hey! I'm Yashwanth,",
+    titleRole: "an AI-First Product Designer",
+    accentText: "blending human creativity with artificial intelligence.",
+    description: "I leverage AI to accelerate both design and development, turning concepts into intuitive interfaces and functional digital products.",
+    workSnippet: "",
     ctaPrimary: {
       label: "View My Work",
       href: "#featured",
     },
     ctaSecondary: {
       label: "View Resume",
-      href: "https://drive.google.com/file/d/1Jt9EQvYeNBdH3JnhU8e--4qNHByIu6Qo/view",
+      href: "https://drive.google.com/file/d/1N4NUlXQF50N-j3Axq2XTDPnS74gBBICJ/view?usp=sharing",
       external: true,
     },
   },
 
   // 02. FEATURED PROJECT
   featuredProject: {
-    sectionLabel: "NOT BAD, HONESTLY",
-    heading: "Featured Project",
+    sectionLabel: "WORK IN PROGRESS",
+    status: "In progress",
+    heading: "Now Building",
     projectName: "GRADIAN",
     subtitle: "Better insights. Better learning.",
     description: "Gradian brings teachers, students, and parents closer through smarter academic assessment and student performance tracking.",
-    points: [
-      {
-        title: "From Complexity to Clarity",
-        description: "Simplifying complex academic assessment workflows into intuitive experiences for teachers.",
-      },
-      {
-        title: "Beyond Exam Scores",
-        description: "Helping educators understand student performance at a topic-wise level.",
-      },
-      {
-        title: "Designed for Every Role",
-        description: "Creating connected experiences for teachers, students, and parents.",
-      },
-      {
-        title: "Consistency Across the Experience",
-        description: "Building structured interfaces and reusable design patterns for a scalable education platform.",
-      },
-    ],
     footerNote: "Education platform focused on bridging academic assessment, topic-wise clarity, and connected roles.",
     cta: {
-      label: "Read Case Study",
+      label: "See What I'm Building",
       href: "zeno/", // link to detailed case study
     },
   },
@@ -121,74 +103,6 @@ export const portfolioData = {
         image: "assets/images/BRAND%20LOGO.png",
         href: "#",
       },
-      {
-        number: "04",
-        title: "Catalyst Hub",
-        description: "Building a digital presence with quality from foundation to finish.",
-        category: "Framer · Web Design · Development",
-        tags: ["FRAMER", "WEB DESIGN", "DEVELOPMENT"],
-        bgClass: "project-card__image--peach",
-        image: "assets/images/EV.png",
-        href: "#",
-      },
-      {
-        number: "05",
-        title: "Interface Explorations",
-        description: "Reimagining everyday digital products through thoughtful design.",
-        category: "Redesign · UI Exploration · Concepts",
-        tags: ["REDESIGN", "UI EXPLORATION", "CONCEPTS"],
-        bgClass: "project-card__image--lavender",
-        image: "assets/images/GAMEON.png",
-        href: "game-on/",
-      },
-    ],
-  },
-
-  // 04. MORE THAN EXPECTED
-  moreThanExpected: {
-    sectionLabel: "A RECENT FLEX",
-    heading: "More Than Expected",
-    paragraphs: [
-      "What started as a passion for creating interfaces gradually turned into opportunities to share ideas, experiment with creativity, and challenge myself beyond everyday design work.",
-      "From participating in design competitions to exploring AI-powered creative workflows, I've enjoyed pushing my creative boundaries and learning along the way.",
-    ],
-    achievements: [
-      {
-        badge: "1st Place",
-        title: "Prompt Pixel",
-        venue: "CIT Tech Fest",
-        highlight: "1st Place — Prompt Pixel, CIT Tech Fest.",
-      },
-      {
-        badge: "2nd Place",
-        title: "Protopitch",
-        venue: "CIT Tech Fest",
-        highlight: "2nd Place — Protopitch, CIT Tech Fest.",
-      },
-      {
-        badge: "Research",
-        title: "Paper Presentation — Flipkart Redesign Concept",
-        venue: "Madha Engineering College",
-        highlight: "Paper Presentation — Flipkart Redesign Concept, Madha Engineering College.",
-      },
-      {
-        badge: "Mentorship",
-        title: "Canva Workshop",
-        venue: "Conducted a four-day workshop for engineering juniors",
-        highlight: "Conducted a four-day workshop for engineering juniors.",
-      },
-      {
-        badge: "Elite + Silver",
-        title: "NPTEL — Python / Data Science",
-        venue: "Elite + Silver certification",
-        highlight: "NPTEL — Python / Data Science Elite + Silver certification.",
-      },
-      {
-        badge: "Community",
-        title: "Friends of Figma",
-        venue: "Participated in design community events",
-        highlight: "Friends of Figma — Participated in design community events.",
-      },
     ],
   },
 
@@ -206,12 +120,11 @@ export const portfolioData = {
       { label: "Designation", value: "Product Designer" },
       { label: "Experience", value: "Product Design at Fyrasoft" },
       { label: "Location", value: "Chennai, India" },
-      { label: "Education", value: "New Prince Shri Bhavani College of Engineering & Technology" },
-      { label: "Graduation", value: "2026" },
+      { label: "Education", value: "New Prince Shri Bhavani College of Engineering & Technology", note: "Grad. 2026" },
       { label: "Email", value: "syashwanthprabhu@gmail.com", isLink: true, href: "mailto:syashwanthprabhu@gmail.com" },
     ],
     toolkit: {
-      sectionLabel: "MY TOOLKIT",
+      sectionLabel: "My Toolkit",
       heading: "Tools I reach for",
       subheading: "Curious by default",
       categories: [
@@ -263,11 +176,7 @@ export const portfolioData = {
         description: "Developed a foundation in technology while exploring product design, creative problem-solving, and digital experiences.",
         icon: "assets/images/education-mark.svg",
       },
-    ],
-    transitionStatement: {
-      prefix: "BEFORE THE PIXELS,",
-      highlight: "THERE WAS CURIOSITY.",
-    },
+    ]
   },
 
   // 07. CONTACT SECTION
@@ -304,19 +213,15 @@ export const portfolioData = {
         href: "https://www.behance.net/yashwanthprabhu",
       },
       {
-        name: "Framer Portfolio",
-        detail: "View my work",
-        href: "https://yashwanth.framer.website",
-      },
-      {
         name: "Email",
-        detail: "Get in touch",
+        detail: "Click to copy",
         href: "mailto:syashwanthprabhu@gmail.com",
+        copy: "syashwanthprabhu@gmail.com",
       },
       {
         name: "Resume",
         detail: "Take a look",
-        href: "https://drive.google.com/file/d/1Jt9EQvYeNBdH3JnhU8e--4qNHByIu6Qo/view",
+        href: "https://drive.google.com/file/d/1N4NUlXQF50N-j3Axq2XTDPnS74gBBICJ/view?usp=sharing",
       },
     ],
   },

@@ -32,10 +32,11 @@ export function renderHero(data) {
 
   heroCopy.innerHTML = `
     <h1>
-      ${hero.greeting} ${hero.titleRole} <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt="">
+      ${hero.greeting}<br class="hero-br">
+      <span class="hero-role">${hero.titleRole} <img class="hero-icon hero-icon--star" src="assets/images/hero-head-2.png" alt=""></span><br class="hero-br">
       <span class="accent">${hero.accentText}</span>
     </h1>
-    <p>${hero.description} ${hero.workSnippet}</p>
+    <p>${[hero.description, hero.workSnippet].filter(Boolean).join(" ")}</p>
     <div class="button-row">
       <a class="button button--dark" href="${hero.ctaPrimary.href}">${hero.ctaPrimary.label}</a>
       <a class="button button--light" href="${hero.ctaSecondary.href}" ${hero.ctaSecondary.external ? 'target="_blank" rel="noreferrer"' : ""}>${hero.ctaSecondary.label}</a>
@@ -47,12 +48,13 @@ export function renderFeaturedProject(data) {
   const section = document.querySelector(".featured");
   if (!section) return;
   const feat = data.featuredProject;
+  const [headingLead, ...headingRest] = feat.heading.split(" ");
 
   section.innerHTML = `
     <div class="featured__heading">
       <div>
         <div class="section-kicker">${feat.sectionLabel}</div>
-        <h2><span>Featured</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>Project</span></h2>
+        <h2><span>${headingLead}</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>${headingRest.join(" ")}</span></h2>
       </div>
     </div>
     <a class="featured-card" href="${feat.cta.href}" aria-label="Read the ${feat.projectName} case study">
@@ -67,25 +69,13 @@ export function renderFeaturedProject(data) {
     </a>
     <div class="featured-summary">
       <div class="featured-summary__title">
-        <img src="${data.personal.logoImage}" style="border-radius: 8px; width: 44px; height: 44px; object-fit: cover;" alt="${feat.projectName}">
+        <img src="${data.personal.logoImage}" alt="${feat.projectName}">
         <div>
-          <strong>${feat.projectName}</strong>
+          <strong>${feat.projectName}${feat.status ? `<em class="status-pill"><i aria-hidden="true"></i>${feat.status}</em>` : ""}</strong>
           <span>${feat.subtitle}</span>
         </div>
       </div>
       <p>${feat.description}</p>
-      <div class="featured-summary__grid">
-        ${feat.points
-          .map(
-            (pt) => `
-          <article>
-            <strong>${pt.title}</strong>
-            <span>${pt.description}</span>
-          </article>
-        `
-          )
-          .join("")}
-      </div>
       <div class="featured-summary__bottom">
         <span>${feat.footerNote}</span>
         <a class="button button--dark" href="${feat.cta.href}">${feat.cta.label} <span>↗</span></a>
@@ -130,52 +120,6 @@ export function renderSelectedProjects(data) {
   `;
 }
 
-export function renderMoreThanExpected(data) {
-  const section = document.querySelector("#flex, #more-than-expected, .highlight");
-  if (!section) return;
-  const flexData = data.moreThanExpected;
-  const [featuredAchievement, ...otherAchievements] = flexData.achievements;
-
-  section.innerHTML = `
-    <div class="section-heading">
-      <div class="section-kicker">${flexData.sectionLabel}</div>
-      <h2>${flexData.heading.replace("Expected", '<img class="highlight__heading-icon" src="assets/images/Flex.png" alt=""> Expected')}</h2>
-    </div>
-    <p class="highlight__intro">${flexData.paragraphs.join(" ")}</p>
-    <div class="highlight__feature">
-      <div class="highlight__poster">
-        <img src="assets/images/Flex.png" alt="">
-        <div><span>CREATIVE HIGHLIGHTS</span><strong>${featuredAchievement.badge}</strong><b>${featuredAchievement.title}</b><small>${featuredAchievement.venue}</small></div>
-      </div>
-      <div class="highlight__side">
-        <article class="highlight__story">
-          <img src="assets/images/Flex.png" alt="">
-          <div><h3>${featuredAchievement.title}</h3><span>${featuredAchievement.badge} · ${featuredAchievement.venue}</span></div>
-          <p>${featuredAchievement.highlight || `${featuredAchievement.title} — ${featuredAchievement.venue}.`}</p>
-        </article>
-        <div class="highlight__achievements">
-          <span class="highlight__eyebrow">MORE MOMENTS</span>
-          <div class="highlight__metrics">
-            ${otherAchievements
-              .map((item) => `
-              <article>
-                <strong>${item.badge}</strong>
-                <span>${item.title}</span>
-                <small>${item.venue}</small>
-              </article>
-            `)
-              .join("")}
-          </div>
-          <div class="highlight__actions">
-            <span class="button button--muted" aria-label="More moments will be added">More soon</span>
-            <a class="button button--white" href="#projects">Explore my work</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
 export function renderAbout(data) {
   const section = document.querySelector(".about");
   if (!section) return;
@@ -209,9 +153,9 @@ export function renderAbout(data) {
           ${ab.details
             .map(
               (d) => `
-            <div>
+            <div class="${d.isLink ? "about-facts__email" : ""}">
               <span>${d.label}</span>
-              <strong>${d.isLink ? `<a href="${d.href}">${d.value}</a>` : d.value}</strong>
+              <strong>${d.isLink ? `<a href="${d.href}">${d.value}</a><button class="about-facts__copy" type="button" data-copy="${d.value}" aria-label="Copy email address" title="Copy email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button>` : d.value}${d.note ? ` <em>(${d.note})</em>` : ""}</strong>
             </div>
           `
             )
@@ -236,6 +180,52 @@ export function renderAbout(data) {
       </article>
     </div>
   `;
+
+  const copyButton = section.querySelector(".about-facts__copy");
+  copyButton?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(copyButton.dataset.copy);
+      copyButton.classList.add("is-copied");
+      copyButton.title = "Copied!";
+      window.setTimeout(() => { copyButton.classList.remove("is-copied"); copyButton.title = "Copy email"; }, 1600);
+    } catch {
+      window.location.href = `mailto:${copyButton.dataset.copy}`;
+    }
+  });
+}
+
+function setupJourneyRider(section) {
+  const grid = section.querySelector(".experience-grid");
+  const rider = grid?.querySelector(".journey-rider");
+  const items = grid ? [...grid.querySelectorAll(".experience-item")] : [];
+  if (!grid || !rider || items.length < 2) return;
+
+  // The rider travels up the rail: from the last card (college) to the first (Fyrasoft).
+  const measure = () => {
+    const centre = (el) => el.offsetTop + el.offsetHeight / 2;
+    grid.style.setProperty("--rider-start", `${centre(items[items.length - 1])}px`);
+    grid.style.setProperty("--rider-end", `${centre(items[0])}px`);
+  };
+  measure();
+  window.addEventListener("resize", measure, { passive: true });
+  window.addEventListener("load", measure, { once: true });
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    grid.classList.add("is-rider-done");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry], obs) => {
+      if (!entry.isIntersecting) return;
+      measure();
+      grid.classList.add("is-riding");
+      obs.disconnect();
+    },
+    { threshold: 0.55 }
+  );
+  observer.observe(grid);
 }
 
 export function renderJourney(data) {
@@ -249,6 +239,10 @@ export function renderJourney(data) {
       <h2>My Design <img class="journey__heading-icon" src="assets/images/How%20i%20work-1.png" alt=""> Journey</h2>
     </div>
     <div class="experience-grid">
+      <div class="journey-rider" aria-hidden="true">
+        <img class="journey-rider__cycle" src="assets/images/journey/rider-cycle.png" alt="">
+        <img class="journey-rider__bike" src="assets/images/journey/rider-bike.png" alt="">
+      </div>
       ${j.timeline
         .map(
           (item) => `
@@ -263,16 +257,10 @@ export function renderJourney(data) {
       `
         )
         .join("")}
-      <article class="grass-break">
-        <div>
-          <span>${j.transitionStatement.prefix}</span>
-          <strong>${j.transitionStatement.highlight}</strong>
-        </div>
-        <img src="assets/Grass/Super%20Fun%20Easter%20Party%20Games%20For%20Kids%20-%20The%20Busy%20Bee%20At%20Kimberlys%201.png" alt="">
-        <div class="grass-break__meadow" aria-hidden="true"></div>
-      </article>
     </div>
   `;
+
+  setupJourneyRider(section);
 }
 
 export function renderContact(data) {
@@ -310,15 +298,36 @@ export function renderFindMeOnline(data) {
     ${f.socialLinks
       .map(
         (link) => `
-      <a class="social-link" href="${link.href}" ${link.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+      <a class="social-link" href="${link.href}" ${link.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""} ${link.copy ? `data-copy="${link.copy}" aria-label="Copy email address ${link.copy}"` : ""}>
         <span>${link.name}</span>
         <span>${link.detail}</span>
-        <b>↗</b>
+        <b>${link.copy ? "⧉" : "↗"}</b>
       </a>
     `
       )
       .join("")}
   `;
+
+  section.querySelectorAll(".social-link[data-copy]").forEach((link) => {
+    const detail = link.querySelector("span:nth-child(2)");
+    const original = detail.textContent;
+    let timer;
+    link.addEventListener("click", async (event) => {
+      event.preventDefault();
+      try {
+        await navigator.clipboard.writeText(link.dataset.copy);
+        detail.textContent = `Copied ${link.dataset.copy}`;
+        link.classList.add("is-copied");
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => {
+          detail.textContent = original;
+          link.classList.remove("is-copied");
+        }, 2000);
+      } catch {
+        window.location.href = link.href;
+      }
+    });
+  });
 }
 
 export function renderFooter(data) {
@@ -335,7 +344,6 @@ export function renderFooter(data) {
       <img class="footer-art__item footer-art__phone" src="assets/footer%20section%20image/phone.png" alt="">
       <img class="footer-art__item footer-art__uno-back" src="assets/footer%20section%20image/uno%20back.png" alt="">
       <img class="footer-art__item footer-art__uno-front" src="assets/footer%20section%20image/uno%20front.png" alt="">
-      <img class="footer-art__item footer-art__credit" src="assets/footer%20section%20image/credit%20text.png" alt="">
       <img class="footer-art__logo" src="${logoImg}" alt="${ft.monogram}">
     </div>
     <p>${ft.monogram} ${ft.tagline} &bull; ${ft.copyright}</p>
@@ -355,7 +363,6 @@ export function renderAll(data) {
   renderHero(data);
   renderFeaturedProject(data);
   renderSelectedProjects(data);
-  renderMoreThanExpected(data);
   renderAbout(data);
   renderJourney(data);
   renderContact(data);
