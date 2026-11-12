@@ -65,7 +65,7 @@ export const portfolioData = {
     logo: "assets/images/preple/preple-logo.png",
     cta: {
       label: "See What I'm Building",
-      href: "zeno/", // link to detailed case study
+      href: "preple/", // link to detailed case study
     },
   },
 
@@ -82,7 +82,8 @@ export const portfolioData = {
         tags: ["E-COMMERCE", "WEB & APP", "UI/UX"],
         bgClass: "project-card__image--crea",
         image: "assets/images/crea/crea-thumbnail.png",
-        href: "#",
+        href: "https://www.figma.com/design/qZYyk5A1veG4q1YYuVfKV4/CREA-Devotion-Enterprise---ECommerce?node-id=0-1&t=sa8IZsuM5Lgo9zxS-1",
+        cursorLabel: "Figma File",
         wide: true,
       },
       {
@@ -93,7 +94,8 @@ export const portfolioData = {
         tags: ["FINTECH", "MOBILE APP", "UI/UX DESIGN"],
         bgClass: "project-card__image--instacart",
         image: "assets/images/instacart/instacart-thumbnail.png",
-        href: "shopez/",
+        href: "https://claude.ai/artifact/MQRokHimkezyUdZ6h5iZ1L#artboard-30956c1cee26",
+        cursorLabel: "Claude Artifact",
       },
     ],
   },

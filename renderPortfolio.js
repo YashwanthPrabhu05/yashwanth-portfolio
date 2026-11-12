@@ -91,7 +91,7 @@ export function renderSelectedProjects(data) {
       ${sel.items
         .map(
           (item) => `
-        <a class="project-card ${item.wide ? "project-card--wide" : ""}" href="${item.href}" ${item.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+        <a class="project-card ${item.wide ? "project-card--wide" : ""}" href="${item.href}" ${item.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}${item.cursorLabel ? ` data-cursor-label="${item.cursorLabel}"` : ""}>
           <div class="project-card__image ${item.bgClass || ""}">
             <img src="${item.image}" alt="${item.title}">
           </div>
@@ -344,7 +344,8 @@ export function renderFooter(data) {
 }
 
 export function renderAll(data) {
-  if (data.meta) {
+  // Only the homepage takes its title/description from portfolioData; case-study pages keep their own.
+  if (data.meta && !document.querySelector(".case-shell")) {
     if (data.meta.title) document.title = data.meta.title;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc && data.meta.description) metaDesc.content = data.meta.description;

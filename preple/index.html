@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f2f2">
+    <meta name="description" content="Preple AI case study: designing an AI study companion that helps school students prepare for exams.">
+    <title>Preple AI — AI Study Companion | Yashwanth Prabhu</title>
+    <link rel="icon" href="../assets/images/yp-logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="module" src="../app.js"></script>
+  </head>
+  <body>
+    <div class="preloader" aria-label="Loading portfolio" role="status">
+      <img src="../assets/images/yp-logo.jpg" alt="" style="border-radius: 8px;"><div class="preloader__line"><span></span></div><span class="preloader__count">000</span>
+    </div>
+    <nav class="site-nav case-nav" aria-label="Main navigation">
+      <a class="site-nav__logo" href="../#hero" aria-label="Yashwanth Prabhu home"><img src="../assets/images/yp-logo.jpg" alt="Yashwanth Prabhu"></a>
+      <button class="site-nav__toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="site-nav__links">
+        <a href="../#featured">WORK</a><a href="../#projects">PROJECTS</a><a href="../#about">ABOUT</a>
+        <a href="../#experience">JOURNEY</a><a href="../#contact">CONTACT</a><a href="../#socials">SOCIALS</a>
+      </div>
+    </nav>
+    <main class="case-shell">
+      <div class="case-main">
+        <div class="case-brand"><img src="../assets/images/preple/preple-logo.png" alt="Preple AI"><div><strong>Preple AI</strong><span>AI Study Companion for School Exams</span></div></div>
+        <h1 class="case-title">Designing an AI Study Companion That Tells Students What to Revise Next.</h1>
+        <div class="case-note"><div class="case-note__heading"><span>🚧</span>Work in Progress</div><p>Preple AI is a product I'm currently designing and building. This case study grows with the product, so screens and decisions shown here may change before launch.</p></div>
+        <figure class="case-hero-image"><img src="../assets/images/preple/preple-thumbnail.png" alt="Preple AI web app home screen on a laptop"></figure>
+        <div class="case-stats">
+          <div class="case-stat"><strong>Chat-First Home</strong><span>Students start by asking what to revise, not by digging through menus.</span></div>
+          <div class="case-stat"><strong>Exam-Aware Experience</strong><span>Switch between Mid-term, Quarterly, and Half-yearly, and the whole workspace follows.</span></div>
+          <div class="case-stat"><strong>3 Quick Starts</strong><span>Revise weak chapters, check readiness, or practice a chapter in one tap.</span></div>
+          <div class="case-stat"><strong>Web App</strong><span>Designed for the browser so students can open it from any device at school or at home.</span></div>
+        </div>
+
+        <section class="case-section" id="what-preple-does">
+          <div class="case-section__content">
+            <h2>What Preple AI Does</h2>
+            <p>Exam season is when students have the most information and the least clarity. Marks, answer sheets, timetables, and hall ticket dates all matter, but they live in different places. Preple AI brings them together around one simple question: what should I revise today?</p>
+            <p>A student picks the exam they're preparing for. Preple shows their latest results, points out weak chapters, checks how ready they are, and lines up what's coming next. When they're unsure, they just ask in plain language.</p>
+            <div class="case-callout"><strong>Perspective</strong><p>“Students shouldn't have to plan their revision. They should be able to ask, and get a clear next step.”</p></div>
+            <h3>My Role</h3>
+            <p>I'm the product designer behind Preple AI, shaping the experience from the first idea to working screens. I'm using AI throughout the process to speed up both design and development, so ideas can move from concept to a usable product quickly.</p>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+
+        <section class="case-section" id="the-problem">
+          <div class="case-section__content">
+            <h2>The Problem</h2>
+            <h3>Challenge</h3>
+            <p>Turn scattered exam information into one calm workspace that a school student can understand at a glance and act on immediately.</p>
+            <p>The home screen had to answer several questions at once without feeling like a report card. Every element needed a clear reason to be there.</p>
+            <table class="comparison-table"><thead><tr><th>Must Show</th><th>Why</th></tr></thead><tbody>
+              <tr><td>Exam switcher</td><td>Everything depends on which exam the student is preparing for</td></tr>
+              <tr><td>Latest results by subject</td><td>Shows where the student actually stands</td></tr>
+              <tr><td>Weak chapters</td><td>The most useful place to spend revision time</td></tr>
+              <tr><td>Readiness check</td><td>Answers the question every student asks before an exam</td></tr>
+              <tr><td>Upcoming classes and exam countdown</td><td>Keeps revision tied to real dates</td></tr>
+              <tr><td>Hall ticket and holiday alerts</td><td>Important school updates that are easy to miss</td></tr>
+            </tbody></table>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+
+        <section class="case-section" id="principles">
+          <div class="case-section__content">
+            <h2>Design Principles</h2>
+            <p>Before designing screens, I set four principles to guide every decision.</p>
+            <div class="reflection-grid">
+              <article><h3>Ask, don't navigate</h3><p>Conversation is the main way in. Menus are there for students who want them, not as a requirement.</p></article>
+              <article><h3>Show the evidence</h3><p>Real marked answer sheets make results feel trustworthy and personal, not just numbers.</p></article>
+              <article><h3>One exam at a time</h3><p>Focus on the exam that matters now and let everything else wait.</p></article>
+              <article><h3>Friendly, not clinical</h3><p>Exams are stressful. A warm tone and a friendly mascot make the product feel like a study buddy, not a grading system.</p></article>
+            </div>
+            <div class="case-callout"><strong>Perspective</strong><p>“This product needed to feel like a study partner, not a report card.”</p></div>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+
+        <section class="case-section" id="decisions">
+          <div class="case-section__content">
+            <h2>Key Design Decisions</h2>
+            <article class="decision"><span class="decision__number">DECISION 01</span><h3>Chat as the home screen</h3><p>The first thing a student sees is a direct question: “What to revise today?” Instead of choosing between sections, they can ask about what to revise first, how ready they are, or when their hall ticket is available. A suggested-questions prompt sits above the input for students who don't know where to start.</p><div class="lesson"><strong>Thinking</strong><p>The fastest path to an answer is asking for it. Navigation should be a backup, not a gate.</p></div></article>
+            <article class="decision"><span class="decision__number">DECISION 02</span><h3>An exam switcher that sets the context</h3><p>Mid-term 1, Mid-term 2, Quarterly, and Half-yearly sit in a single segmented control at the top. Completed exams are ticked and the current one is highlighted, so students always know which exam the screen is about.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 03</span><h3>Results as answer-sheet cards</h3><p>Each subject shows a photo of the student's actual marked answer sheet with the score and grade on top. Seeing their own handwriting and the teacher's marks makes results instantly recognisable, and it opens the door for the AI to explain exactly where marks were lost.</p><div class="lesson"><strong>Thinking</strong><p>A score tells students how they did. The answer sheet shows them why.</p></div></article>
+            <article class="decision"><span class="decision__number">DECISION 04</span><h3>Three clear ways to get started</h3><p>Revise weak chapters, check my readiness, and practice a chapter. Each card has its own colour and a small visual preview, such as chapter progress bars or a readiness ring, so students can tell them apart without reading every word.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 05</span><h3>Keeping revision tied to real dates</h3><p>The “Coming up” row shows tomorrow's timetable, a countdown to the next exam with the number of papers, and upcoming holidays. Revision planning only works when it's anchored to the school calendar.</p></article>
+            <article class="decision"><span class="decision__number">DECISION 06</span><h3>Timely nudges, not noise</h3><p>Important school updates, like when hall tickets open, appear as a single dismissible card in the sidebar with a “Remind me” action. Students get what they need to know without a crowded notification feed.</p><div class="lesson"><strong>Thinking</strong><p>The best reminder appears once, at the right moment, and is easy to act on.</p></div></article>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+
+        <section class="case-section" id="the-product">
+          <div class="case-section__content">
+            <h2>The Product So Far</h2>
+            <p>The home screen brings everything together: a chat-first workspace in the centre, results and quick actions on the right, and learning tools and school info in the sidebar.</p>
+            <figure class="case-image"><img src="../assets/images/preple/preple-home.png" alt="Preple AI home screen with chat, latest results, quick actions, and upcoming schedule"></figure>
+            <p>One screen answers the three questions students ask most before an exam: how did I do, what should I revise, and what's coming up.</p>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+
+        <section class="case-section" id="whats-next">
+          <div class="case-section__content">
+            <h2>What's Next</h2>
+            <div class="reflection-grid">
+              <article><h3>Test with students</h3><p>Put the product in front of real students during exam preparation and learn where they get stuck.</p></article>
+              <article><h3>Deepen the AI guidance</h3><p>Make revision suggestions more personal using results, weak chapters, and the time left before each exam.</p></article>
+              <article><h3>Expand the experience</h3><p>Build out the Backpack, Practice, and Performance areas into complete flows.</p></article>
+            </div>
+            <div class="case-callout"><strong>Perspective</strong><p>“The goal isn't more information for students. It's fewer decisions before an exam.”</p></div>
+          </div>
+          <aside><a href="#what-preple-does">What Preple AI Does</a><a href="#the-problem">The Problem</a><a href="#principles">Design Principles</a><a href="#decisions">Key Design Decisions</a><a href="#the-product">The Product So Far</a><a href="#whats-next">What's Next</a></aside>
+        </section>
+      </div>
+      <footer class="case-footer"><a href="../#featured">← Back to portfolio</a><p>Copyright © 2026 Yashwanth Prabhu. All rights reserved.</p></footer>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  </body>
+</html>

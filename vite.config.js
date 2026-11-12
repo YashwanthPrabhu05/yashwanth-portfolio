@@ -12,7 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        zeno: resolve(root, 'zeno/index.html'),
+        preple: resolve(root, 'preple/index.html'),
         shopez: resolve(root, 'shopez/index.html'),
         gameOn: resolve(root, 'game-on/index.html'),
       },
