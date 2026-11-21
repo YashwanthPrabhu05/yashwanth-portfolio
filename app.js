@@ -77,7 +77,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
   const getCursorTarget = (target) => {
     if (!(target instanceof Element)) return null;
-    return target.closest("[data-cursor-label], .site-nav__logo, .site-nav__links a, .button, .featured-card, .project-card, .social-link, .case-section aside a, .case-footer a, .contact-form .button, a[href^='mailto:']");
+    return target.closest("[data-cursor-label], .site-nav__logo, .site-nav__links a, .button, .featured-card, .project-card, .social-link, .case-section aside a, .case-toc a, .case-footer a, .contact-form .button, a[href^='mailto:']");
   };
 
   const getCursorLabel = (target) => {
@@ -89,7 +89,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     if (target.matches(".button--light")) return "Resume";
     if (target.matches(".featured-card, .project-card")) return "Case study";
     if (target.matches(".social-link")) return "Connect";
-    if (target.matches(".case-section aside a")) return "Jump to";
+    if (target.matches(".case-section aside a, .case-toc a")) return "Jump to";
     if (target.matches(".case-footer a")) return "Back to work";
     if (target.matches(".contact-form .button")) return "Send message";
     if (target.matches("a[href^='mailto:']")) return "Email me";
@@ -613,7 +613,7 @@ if ("IntersectionObserver" in window && caseSections.length) {
   const caseObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      document.querySelectorAll(".case-section aside a").forEach((link) => {
+      document.querySelectorAll(".case-section aside a, .case-toc a").forEach((link) => {
         link.classList.toggle("is-active", link.hash === `#${entry.target.id}`);
       });
     });
