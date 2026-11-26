@@ -645,18 +645,53 @@ if ("IntersectionObserver" in window && caseSections.length) {
 const contactForm = document.querySelector(".contact-form");
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!contactForm.reportValidity()) return;
 
     const formData = new FormData(contactForm);
-    const subject = encodeURIComponent(`Portfolio enquiry from ${formData.get("name")}`);
-    const body = encodeURIComponent(
-      `${formData.get("message")}\n\nFrom: ${formData.get("name")} (${formData.get("email")})`
-    );
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+    const title = `Portfolio enquiry from ${name}`;
     const status = contactForm.querySelector(".form-status");
-    status.textContent = "Opening your email app…";
     const recipient = portfolioData.personal?.email || portfolioData.contact?.recipientEmail || "syashwanthprabhu@gmail.com";
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    const { serviceId, templateId, publicKey } = portfolioData.contact?.emailjs || {};
+
+    // Not set up yet: hand the message to the visitor's email app
+    if (!serviceId || !templateId || !publicKey) {
+      status.textContent = "Opening your email app…";
+      const body = encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`);
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(title)}&body=${body}`;
+      return;
+    }
+
+    const submit = contactForm.querySelector('[type="submit"]');
+    submit.disabled = true;
+    status.removeAttribute("data-state");
+    status.textContent = "Sending…";
+    try {
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: { name, email, message, title },
+        }),
+      });
+      if (!response.ok) throw new Error(`EmailJS ${response.status}: ${await response.text()}`);
+      contactForm.reset();
+      status.dataset.state = "success";
+      status.textContent = "Thanks! Your message has been sent.";
+    } catch (error) {
+      console.error(error);
+      status.dataset.state = "error";
+      status.textContent = `Sorry, that didn't send. Please email me at ${recipient}.`;
+    } finally {
+      submit.disabled = false;
+      status.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
   });
 }

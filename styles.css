@@ -364,6 +364,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .contact-form .button:hover { opacity: .88; }
 .contact-form .button:active { transform: translateY(0) scale(.99); }
 .form-status { min-height: 1em; margin: 0; color: #666; font-size: 13px; }
+.form-status[data-state] { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 2px solid; border-radius: 14px; font-size: 16px; font-weight: 700; line-height: 1.4; animation: form-status-in .45s cubic-bezier(.22,1,.36,1); }
+.form-status[data-state]::before { display: grid; flex: 0 0 32px; height: 32px; place-items: center; color: #fff; border-radius: 50%; font-size: 18px; }
+.form-status[data-state="success"] { color: #12613a; background: #e6f6ec; border-color: #2ea66a; }
+.form-status[data-state="success"]::before { background: #1f8a54; content: "✓"; }
+.form-status[data-state="error"] { color: #9b2c1c; background: #fdebe7; border-color: #d9533c; }
+.form-status[data-state="error"]::before { background: #c0412b; content: "!"; }
+@keyframes form-status-in { from { opacity: 0; transform: translateY(10px) scale(.97); } }
+@media (prefers-reduced-motion: reduce) { .form-status[data-state] { animation: none; } }
 
 .socials { padding-top: 22px; padding-bottom: 46px; }
 .socials .section-heading { margin-bottom: 20px; }

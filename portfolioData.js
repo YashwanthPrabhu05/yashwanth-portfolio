@@ -186,6 +186,13 @@ export const portfolioData = {
     },
     cta: "Send Message",
     recipientEmail: "syashwanthprabhu@gmail.com",
+    // EmailJS (https://dashboard.emailjs.com). All three are safe to publish; never put the Private Key here.
+    // While any of them is empty, the form opens the visitor's email app instead.
+    emailjs: {
+      serviceId: "service_7wbkhwy", // Email Services > Service ID
+      templateId: "template_nbmcz1h", // Email Templates > your template > Settings > Template ID
+      publicKey: "fnrL-MSC1yc7axzUj", // Account > General > Public Key
+    },
   },
 
   // 08. FIND ME ONLINE
