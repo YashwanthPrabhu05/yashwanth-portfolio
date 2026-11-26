@@ -132,6 +132,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-art__eyes { left: 46%; top: 40%; width: 12%; cursor: grab; }
 .hero-art__glasses { left: 13%; top: 42%; width: 20%; cursor: grab; }
 .hero-art__flame { left: 53%; bottom: 3%; width: 10%; cursor: grab; }
+.hero-art__airpods { left: 37%; top: 5%; width: 18%; cursor: grab; }
 .hero-art__earphones { right: 4%; top: 40%; width: 18%; cursor: grab; }
 .hero-art__ok { right: 28%; top: 56%; width: 8%; cursor: grab; }
 .hero-art__sticker-extra { right: 72%; top: 56%; width: 6%; cursor: grab; }
