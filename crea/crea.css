@@ -1,0 +1,67 @@
+/* Interactive blocks on the CREA case study. Loaded after ../kylar/kylar.css */
+.kylar [class^="cx-"] button, .kylar button[class^="cx-"] { font-family: inherit; cursor: pointer; }
+.kylar button[class^="cx-"]:focus-visible, .cx-doubt summary:focus-visible { outline: 2px solid #a27a36; outline-offset: 2px; }
+.cx-action { margin-top: 14px; padding: 9px 16px; color: #fff; background: #111; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.cx-tab { padding: 8px 14px; color: #555; background: transparent; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; transition: background .2s ease, color .2s ease; }
+.cx-tab[aria-pressed="true"] { color: #fff; background: #111; }
+.kylar .zs-card .cx-caption { margin: 0 0 8px; color: #888; font-size: 12px; font-weight: 600; }
+
+/* The loop */
+.cx-track { position: relative; display: flex; justify-content: space-between; }
+.cx-track::before { position: absolute; top: 50%; right: 0; left: 0; height: 2px; background: #e4e4e4; content: ""; }
+.cx-dot { position: relative; width: 38px; height: 38px; padding: 0; color: #777; background: #fff; border: 2px solid #ddd; border-radius: 50%; font-size: 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.cx-dot:hover { transform: scale(1.1); }
+.cx-dot.is-done { color: #8a6628; border-color: #c9a45c; }
+.cx-dot[aria-pressed="true"] { color: #fff; background: #111; border-color: #111; transform: scale(1.12); }
+.cx-panel { min-height: 96px; margin-top: 20px; }
+.cx-panel strong { display: block; margin-bottom: 6px; font-size: 18px; }
+.kylar .zs-card .cx-panel p { font-size: 15px; }
+
+/* Designer eyes / user eyes */
+.cx-eyes { transition: background .3s ease, border-color .3s ease, color .3s ease; }
+.cx-switch { display: inline-flex; gap: 4px; margin-bottom: 16px; padding: 4px; background: #f1f1f1; border-radius: 999px; }
+.kylar .cx-list { margin: 0; padding: 0; list-style: none; }
+.cx-list li { padding: 12px 0; border-top: 1px solid #eee; font-size: 16px; font-weight: 600; animation: cx-in .35s ease both; }
+.cx-list li:nth-child(2) { animation-delay: .06s; }
+.cx-list li:nth-child(3) { animation-delay: .12s; }
+.cx-list li:nth-child(4) { animation-delay: .18s; }
+.cx-eyes.is-user { color: #fff; background: #14100c; border-color: #14100c; }
+.cx-eyes.is-user .cx-switch { background: #2b241c; }
+.cx-eyes.is-user .cx-tab { color: #cbbfae; }
+.cx-eyes.is-user .cx-tab[aria-pressed="true"] { color: #14100c; background: #e0bd77; }
+.cx-eyes.is-user li { border-color: #2f281f; }
+.kylar .zs-card.cx-eyes.is-user .cx-caption { color: #e0bd77; }
+
+/* Doubts */
+.cx-doubts { display: grid; gap: 8px; margin-top: 16px; }
+.cx-doubt { background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; }
+.cx-doubt summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; font-size: 15px; font-weight: 600; list-style: none; cursor: pointer; }
+.cx-doubt summary::-webkit-details-marker { display: none; }
+.cx-doubt summary::after { color: #a27a36; font-size: 22px; font-weight: 400; line-height: 1; content: "+"; transition: transform .2s ease; }
+.cx-doubt[open] summary::after { transform: rotate(45deg); }
+.kylar .cx-doubt p { margin: 0; padding: 0 16px 16px; color: #555; font-size: 14px; line-height: 1.6; animation: cx-in .3s ease both; }
+
+/* One week */
+.cx-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cx-days .cx-tab { padding-inline: 0; white-space: nowrap; }
+.cx-bar { height: 4px; margin-top: 12px; overflow: hidden; background: #eee; border-radius: 4px; }
+.cx-bar i { display: block; height: 100%; background: #c9a45c; transition: width .35s ease; }
+.kylar .zs-card .cx-focus { min-height: 52px; margin-top: 16px; color: #222; font-size: 17px; font-weight: 600; }
+
+/* Marketing voice to record voice */
+.cx-line { display: grid; gap: 4px; width: 100%; margin-top: 8px; padding: 12px 14px; text-align: left; background: #f6f6f6; border: 1px dashed #ccc; border-radius: 8px; transition: background .25s ease, color .25s ease; }
+.cx-line small { color: #999; font-size: 11px; font-weight: 600; }
+.cx-line span { color: #555; font-size: 16px; font-style: italic; animation: cx-in .3s ease both; }
+.cx-line[aria-pressed="true"] { background: #14100c; border: 1px solid #14100c; }
+.cx-line[aria-pressed="true"] small { color: #e0bd77; }
+.cx-line[aria-pressed="true"] span { color: #fff; font-style: normal; font-weight: 700; }
+
+@keyframes cx-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 600px) {
+  .cx-dot { width: 34px; height: 34px; }
+  .cx-days { grid-template-columns: repeat(4, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kylar [class^="cx-"], .kylar [class^="cx-"] * { animation: none !important; transition: none !important; }
+}
