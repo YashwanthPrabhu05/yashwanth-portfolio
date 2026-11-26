@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         preple: resolve(root, 'preple/index.html'),
+        kylar: resolve(root, 'kylar/index.html'),
         crea: resolve(root, 'crea/index.html'),
         shopez: resolve(root, 'shopez/index.html'),
         gameOn: resolve(root, 'game-on/index.html'),

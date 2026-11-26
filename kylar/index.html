@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f2f2">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Kylar Studio case study: a GitHub-inspired platform where designers version their work, send it for approval, and hand approved designs to developers.">
+    <title>Kylar Studio — Version Control for Designers | Yashwanth Prabhu</title>
+    <link rel="icon" href="../assets/images/yp-logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./kylar.css">
+    <script type="module" src="../app.js"></script>
+  </head>
+  <body class="kylar">
+    <div class="preloader" aria-label="Loading portfolio" role="status">
+      <img src="../assets/images/yp-logo.jpg" alt="" style="border-radius: 8px;"><div class="preloader__line"><span></span></div><span class="preloader__count">000</span>
+    </div>
+    <nav class="site-nav case-nav" aria-label="Main navigation">
+      <a class="site-nav__logo" href="../#hero" aria-label="Yashwanth Prabhu home"><img src="../assets/images/yp-logo.jpg" alt="Yashwanth Prabhu"></a>
+      <button class="site-nav__toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="site-nav__links">
+        <a href="../#featured">WORK</a><a href="../#projects">PROJECTS</a><a href="../#about">ABOUT</a>
+        <a href="../#experience">JOURNEY</a><a href="../#contact">CONTACT</a><a href="../#socials">SOCIALS</a>
+      </div>
+    </nav>
+    <main>
+      <header class="zs-row">
+        <div class="zs-col zs-hero">
+          <div class="zs-brand"><img class="zs-logo" src="../assets/images/kylar/kylar-logo.png" alt="Kylar Studio logo"><div><strong>Kylar Studio</strong><span>Version Control and Approvals for Designers</span></div></div>
+          <h1 class="zs-title">How I'm Bringing a GitHub-Style Workflow to Design.</h1>
+          <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Work in Progress</h3><p>Kylar Studio is a concept I'm currently designing. Screens and decisions shown here may change as the product develops. Names and data in the screens are sample content.</p></div>
+          <img class="zs-heroimg" src="../assets/images/kylar/kylar-thumbnail.png" alt="Kylar Studio dashboard on a laptop">
+        </div>
+      </header>
+      <div class="zs-row"><div class="zs-col"><div class="zs-grid"><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>3 Team Roles</h3><p>Designer, manager, and developer work in the same project.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>2 Design Sources</h3><p>Figma frames and Claude Design exports live together.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>4-Step Figma Import</h3><p>Connect, link, pick frames, and confirm.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10M18 9c0 5-12 3-12 8"/></svg>Full Version History</h3><p>Preview, trace the source, and restore a version.</p></div></div></div></div></div>
+
+      <div>
+        <div class="zs-toc"><nav aria-label="On this page"><a href="#overview">Overview</a><a href="#the-problem">The Problem</a><a href="#research">Research</a><a href="#the-workflow">Workflow</a><a href="#dashboard">Structure</a><a href="#decisions">Decisions</a><a href="#final-product">Final Product</a><a href="#toolkit">Tools &amp; Skills</a><a href="#reflection">Reflection</a></nav></div>
+        <section class="zs-section" id="overview">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>What Kylar Studio Does</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>Kylar Studio is a GitHub-inspired platform where designers version their work, send it for approval, and hand approved designs to developers. Teams keep Figma and Claude Design files in one project, follow how each screen changes, and know which version has been signed off.</p>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h4v5c0 2-1 3-3 4M15 8h4v5c0 2-1 3-3 4"/></svg>Perspective</h3><p>“Everyone should be able to tell which design is approved without having to ask.”</p></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>My Role</h3>
+                <div class="zs-equation" role="img" aria-label="Designer plus Developer equals Design Engineer">
+                  <div class="zs-term"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 1-5L16 4l4 4L9 19zM14 6l4 4"/></svg><strong>Designer</strong><span>Shapes the experience</span></div>
+                  <b class="zs-operator" aria-hidden="true">+</b>
+                  <div class="zs-term"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg><strong>Developer</strong><span>Builds it in code</span></div>
+                  <b class="zs-operator" aria-hidden="true">=</b>
+                  <div class="zs-term zs-term--result"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2 6 6 3-6 3-2 6-2-6-6-3 6-3z"/></svg><strong>Design Engineer</strong><span>Takes an idea from sketch to screen</span></div>
+                </div>
+              </div>
+          </div></div>
+        </section>
+        <section class="zs-section" id="the-problem">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>The Problem</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>Developers have an established way to track changes, review work, and release it. Design work often lacks that shared trail.</p>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Insight</h3><p>The hard part is not storing design files. It is knowing which one is current, what was approved, and what is ready to build.</p></div>
+              <table class="zs-table"><thead><tr><th>Must Show</th><th>Why</th></tr></thead><tbody><tr><td>What needs my attention</td><td>Requested changes and new comments should not get lost</td></tr><tr><td>Version history</td><td>Shows how a screen changed over time</td></tr><tr><td>Approval status</td><td>Tells the team whether a design can be built</td></tr><tr><td>Latest releases</td><td>Gives developers one version to refer to</td></tr></tbody></table>
+          </div></div>
+        </section>
+        <section class="zs-section" id="research">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>Research and Early Thinking</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>Three problems shaped the starting point. These are working assumptions until they are tested.</p>
+              <div class="zs-grid"><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Scattered files</h3><p>Design files sit in different tools and links, so the latest one is hard to find.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Unclear approval</h3><p>Sign-off happens in chats and meetings, with no lasting record.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>Messy handoff</h3><p>Developers can end up building from a design that has since changed.</p></div></div>
+              <div class="zs-card">
+                <h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Borrowing From Code</h3>
+                <p>My starting reference was GitHub. For each idea developers rely on, I asked what a designer would call it and why they would need it.</p>
+                <ul class="zs-map">
+                  <li><code>Repository</code><i aria-hidden="true">→</i><strong>Project</strong><span>One home for Figma and Claude Design files</span></li>
+                  <li><code>Commit</code><i aria-hidden="true">→</i><strong>Version</strong><span>A saved moment you can look back at</span></li>
+                  <li><code>Pull request</code><i aria-hidden="true">→</i><strong>Review</strong><span>Screens sent to a manager for sign-off</span></li>
+                  <li><code>Merge</code><i aria-hidden="true">→</i><strong>Approval</strong><span>The design is locked and trusted</span></li>
+                  <li><code>Release</code><i aria-hidden="true">→</i><strong>Handoff</strong><span>Specs, assets, and tokens for developers</span></li>
+                </ul>
+              </div>
+              <figure class="zs-card zs-trail">
+                <figcaption>The idea in one picture: the life of a single screen</figcaption>
+                <ol>
+                  <li><b>v1</b><span>First draft</span></li>
+                  <li><b>v2</b><span>Sent for review</span></li>
+                  <li class="is-changes"><b>v3</b><span>Changes requested</span></li>
+                  <li class="is-approved"><b>v4</b><span>Approved and locked</span></li>
+                </ol>
+              </figure>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h4v5c0 2-1 3-3 4M15 8h4v5c0 2-1 3-3 4"/></svg>Perspective</h3><p>“GitHub gave code a shared history. What should that feel like for designers?”</p></div>
+          </div></div>
+        </section>
+        <section class="zs-section" id="the-workflow">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>The Workflow</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>A design moves along one path, and its status is visible at every step.</p>
+              <table class="zs-table"><thead><tr><th>Step</th><th>What Happens</th></tr></thead><tbody><tr><td>Bring it in</td><td>Import frames from Figma, or upload a design such as a Claude Design export</td></tr><tr><td>Draft</td><td>New work starts as a draft version inside a project</td></tr><tr><td>In review</td><td>The designer submits the screen for review</td></tr><tr><td>Changes requested</td><td>The reviewer sends it back, and a new version is uploaded</td></tr><tr><td>Approved</td><td>The signed-off version is the one the team builds from</td></tr><tr><td>Implemented</td><td>The screen is marked once it has been built</td></tr></tbody></table>
+              <h3 class="zs-sub">Importing from Figma</h3>
+              <p>Import is split into four short steps: Connect, Link, Frames, and Confirm. The first screen says up front that Kylar Studio only reads from Figma, and imported frames arrive as drafts, so nothing skips review.</p>
+              <figure class="zs-figure"><a href="../assets/images/kylar/kylar-figma-import.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-figma-import.png" alt="Import from Figma, step one of four: Connect" loading="lazy"></a><figcaption>A four-step import with read-only access.</figcaption></figure>
+          </div></div>
+        </section>
+        <section class="zs-section" id="dashboard">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>Information Architecture</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>The product is organised from the whole workspace down to a single version, so people always know where they are. Breadcrumbs at the top follow the same path.</p>
+              <ol class="zs-levels"><li><strong>Home</strong><span>What needs me today</span><small>Kylar Studio</small></li><li><strong>Projects</strong><span>Every body of work and its status</span><small>/ Projects</small></li><li><strong>Project</strong><span>Screens, reviews, releases, issues, activity</span><small>/ crea-portfolio</small></li><li><strong>Screen</strong><span>Preview, source, and version history</span><small>/ Home</small></li></ol>
+              <div class="zs-grid"><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Core</h3><p>Home, Projects, and Reviews cover the everyday work.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10M18 9c0 5-12 3-12 8"/></svg>Workflows</h3><p>Releases and Notifications track what changed and what shipped.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Starred</h3><p>Pinned projects stay one click away in the sidebar.</p></div><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Three Roles</h3><p>Each project lists its designer, manager, and developer.</p></div></div>
+          </div></div>
+        </section>
+        <section class="zs-section" id="decisions">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>The Decision Journey</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <article class="zs-decision"><span>DECISION 01</span><h3>Start with what needs you</h3><p>Home opens on “Needs your attention”: requested changes, unsubmitted drafts, and new comments, beside recent activity and the latest releases.</p><table class="zs-table"><thead><tr><th>Without it</th><th>With it</th></tr></thead><tbody><tr><td>Open each project to check for updates</td><td>See pending items on the first screen</td></tr></tbody></table><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Why it matters</h3><p>A review tool is only useful if people know it is their turn.</p></div></article>
+              <article class="zs-decision"><span>DECISION 02</span><h3>Projects you can read at a glance</h3><p>Each project card shows screen previews, screen count, last update, source, and status. Search, status and source filters, sorting, and a grid or list view help as the workspace grows.</p><figure class="zs-figure"><a href="../assets/images/kylar/kylar-projects.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-projects.png" alt="Projects page with cards showing previews, source and status" loading="lazy"></a><figcaption>Status and source are readable without opening a project.</figcaption></figure><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Why it matters</h3><p>Draft, In review, and Approved have their own colour and label, so colour is never the only clue.</p></div></article>
+              <article class="zs-decision"><span>DECISION 03</span><h3>A repository, in a designer’s language</h3><p>A project borrows GitHub’s tabbed layout, but lists screens instead of files. Folders separate Flows and Components, and the side panel shows the latest release, open reviews, and members.</p><figure class="zs-figure"><a href="../assets/images/kylar/kylar-screens.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-screens.png" alt="Project page listing screens with status and source links" loading="lazy"></a><figcaption>Each screen row carries its status, source, and order.</figcaption></figure><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Why it matters</h3><p>“Implemented” sits beside “Approved”, because signed off and built are different things.</p></div></article>
+              <article class="zs-decision"><span>DECISION 04</span><h3>Never lose the original</h3><p>From any screen, “View source” shows what a version was created from: the type, file, who added it, and its status. People can download the original or open the rendered design, while version history offers restore.</p><figure class="zs-figure"><a href="../assets/images/kylar/kylar-source.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-source.png" alt="Source dialog for the Home screen, version 1" loading="lazy"></a><figcaption>The source of every version stays traceable.</figcaption></figure><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Why it matters</h3><p>A preview shows how it looks. The source proves where it came from.</p></div></article>
+              <article class="zs-decision"><span>DECISION 05</span><h3>A contribution graph and named releases</h3><p>Two more patterns come from code. The activity graph shows a year of design work, and releases such as Checkout v1.2 give approved work a name.</p><div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 2h6s0-1 1-2a6 6 0 0 0-4-10z"/></svg>Why it matters</h3><p>Familiar patterns help explain a new idea, and a named release gives developers one thing to point to.</p></div></article>
+          </div></div>
+        </section>
+        <section class="zs-section" id="final-product">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>The Final Product</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <p>Four views show the product from daily overview to a single version. Select an image to see it full size.</p>
+              <figure class="zs-figure"><a href="../assets/images/kylar/kylar-thumbnail.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-thumbnail.png" alt="Kylar Studio home dashboard on a laptop" loading="lazy"></a><figcaption>Home: activity, pending items, releases, and projects.</figcaption></figure>
+              <figure class="zs-figure"><a href="../assets/images/kylar/kylar-projects.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-projects.png" alt="Kylar Studio projects page" loading="lazy"></a><figcaption>Projects: every design project and where it stands.</figcaption></figure>
+              <figure class="zs-figure"><a href="../assets/images/kylar/kylar-screens.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-screens.png" alt="Kylar Studio project screens list" loading="lazy"></a><figcaption>Project: screens, folders, members, and releases.</figcaption></figure>
+              <figure class="zs-figure"><a href="../assets/images/kylar/kylar-source.png" target="_blank" rel="noreferrer" data-cursor-label="Zoom"><img src="../assets/images/kylar/kylar-source.png" alt="Kylar Studio screen preview with source dialog" loading="lazy"></a><figcaption>Screen: preview, source, and version history.</figcaption></figure>
+          </div></div>
+        </section>
+        <section class="zs-section" id="toolkit">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>Tools and Skills</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 1-5L16 4l4 4L9 19zM14 6l4 4"/></svg>Design Tools</h3><ul class="zs-tools"><li><img src="../assets/images/new%20tech%20stack/figma.png" alt=""><div><strong>Figma</strong><span>Interface design and components</span></div></li><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Claude Design</strong><span>Exploring and generating screens</span></div></li></ul></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>Development Tools</h3><ul class="zs-tools"><li><img src="../assets/images/new%20tech%20stack/vs%20code.png" alt=""><div><strong>VS Code</strong><span>Writing and editing the code</span></div></li><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Claude</strong><span>AI-assisted development</span></div></li></ul></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2 6 6 3-6 3-2 6-2-6-6-3 6-3z"/></svg>Claude Skills</h3><p>I used Claude Skills to define the design rules, so screens stay consistent as the product grows.</p><ul class="zs-tools"><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Colors</strong><span>Colour rules, including how each status looks</span></div></li><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Typography &amp; Spacing</strong><span>Type scale and spacing rules across screens</span></div></li><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Motion</strong><span>How elements move and respond</span></div></li><li><img src="../assets/images/new%20tech%20stack/ckaude.png" alt=""><div><strong>Components</strong><span>Rules for building consistent, reusable parts</span></div></li></ul></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Skills Used as a Designer</h3><ul class="zs-chips"><li>Product Thinking</li><li>Information Architecture</li><li>User Flows</li><li>Wireframing</li><li>UI Design</li><li>Interaction Design</li><li>Design Systems</li><li>Prototyping</li><li>UX Writing</li><li>Developer Handoff</li></ul></div>
+          </div></div>
+        </section>
+        <section class="zs-section" id="reflection">
+          <div class="zs-row"><div class="zs-col zs-heading"><h2>Reflection</h2></div></div>
+          <div class="zs-row"><div class="zs-col zs-body">
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Test the approval flow early</h3><p>Walk designers and managers through a review and find where the status is unclear.</p></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>Bring developers in</h3><p>Ask whether the specs, assets, and tokens are enough to start building.</p></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10M18 9c0 5-12 3-12 8"/></svg>Plan version comparison</h3><p>Explore how two versions of a screen can be compared side by side.</p></div>
+              <div class="zs-card"><h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h4v5c0 2-1 3-3 4M15 8h4v5c0 2-1 3-3 4"/></svg>Perspective</h3><p>“The goal is not more process for designers. It is less doubt about what is final.”</p></div>
+          </div></div>
+        </section>
+      </div>
+      <footer class="zs-row"><div class="zs-col zs-footer"><a href="../#featured">← Back to portfolio</a><p>Copyright © 2026 Yashwanth Prabhu. All rights reserved.</p></div></footer>
+    </main>
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+    <script>
+      // Point each full-size link at its image's final URL (the build renames image files).
+      document.querySelectorAll(".zs-figure a").forEach((link) => { link.href = link.querySelector("img").src; });
+
+      // Highlight the side-menu link for the section being read.
+      const links = [...document.querySelectorAll(".zs-toc a")];
+      const sections = links.map((link) => document.querySelector(link.hash));
+      const markCurrent = () => {
+        let current = 0;
+        sections.forEach((section, index) => { if (section.getBoundingClientRect().top < innerHeight * 0.4) current = index; });
+        links.forEach((link, index) => link.setAttribute("aria-current", String(index === current)));
+      };
+      addEventListener("scroll", markCurrent, { passive: true });
+      markCurrent();
+    </script>
+  </body>
+</html>

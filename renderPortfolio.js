@@ -50,6 +50,16 @@ export function renderFeaturedProject(data) {
   const feat = data.featuredProject;
   const [headingLead, ...headingRest] = feat.heading.split(" ");
 
+  // Image and link are optional: without them the card shows the project name and isn't clickable.
+  const href = feat.cta?.href;
+  const thumb = feat.image ? `<img class="featured-card__thumb" src="${feat.image}" alt="${feat.projectName}">` : "";
+  let media = `<div class="featured-placeholder" aria-hidden="true">${feat.projectName}</div>`;
+  if (thumb) {
+    media = href
+      ? `<a class="featured-card" href="${href}" aria-label="See ${feat.projectName}">${thumb}</a>`
+      : `<div class="featured-card">${thumb}</div>`;
+  }
+
   section.innerHTML = `
     <div class="featured__heading">
       <div>
@@ -57,22 +67,20 @@ export function renderFeaturedProject(data) {
         <h2><span>${headingLead}</span><span class="featured__doodle-slot heading-motion-slot"><img class="featured__doodle heading-motion-icon" src="assets/images/Feature%20project.png" alt=""></span><span>${headingRest.join(" ")}</span></h2>
       </div>
     </div>
-    <a class="featured-card" href="${feat.cta.href}" aria-label="See ${feat.projectName}">
-      <img class="featured-card__thumb" src="${feat.image}" alt="${feat.projectName} web app on a laptop">
-    </a>
+    ${media}
     <div class="featured-summary">
       <div class="featured-summary__title">
-        <img class="featured-summary__logo" src="${feat.logo || data.personal.logoImage}" alt="${feat.projectName} logo">
+        ${feat.logo ? `<img class="featured-summary__logo" src="${feat.logo}" alt="${feat.projectName} logo">` : ""}
         <div>
           <strong>${feat.projectName}${feat.status ? `<em class="status-pill"><i aria-hidden="true"></i>${feat.status}</em>` : ""}</strong>
-          <span>${feat.subtitle}</span>
+          ${feat.subtitle ? `<span>${feat.subtitle}</span>` : ""}
         </div>
       </div>
       <p>${feat.description}</p>
-      <div class="featured-summary__bottom">
-        <span>${feat.footerNote}</span>
-        <a class="button button--dark" href="${feat.cta.href}">${feat.cta.label} <span>↗</span></a>
-      </div>
+      ${feat.footerNote || feat.cta?.label ? `<div class="featured-summary__bottom">
+        <span>${feat.footerNote || ""}</span>
+        ${href && feat.cta.label ?`<a class="button button--dark" href="${href}">${feat.cta.label} <span>↗</span></a>` : ""}
+      </div>` : ""}
     </div>
   `;
 }

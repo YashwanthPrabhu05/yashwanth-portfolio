@@ -97,7 +97,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     if (target.matches(".site-nav__links a")) return "You";
     if (target.matches(".button--dark")) return "Show me";
     if (target.matches(".button--light")) return "Resume";
-    if (target.matches(".featured-card, .project-card")) return "Case study";
+    if (target.matches("a.featured-card, .project-card")) return "Case study";
     if (target.matches(".social-link")) return "Connect";
     if (target.matches(".case-section aside a, .case-toc a")) return "Jump to";
     if (target.matches(".case-footer a")) return "Back to work";

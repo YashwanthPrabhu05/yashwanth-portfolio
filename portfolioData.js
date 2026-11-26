@@ -57,16 +57,14 @@ export const portfolioData = {
     sectionLabel: "WORK IN PROGRESS",
     status: "In progress",
     heading: "Now Building",
-    projectName: "Preple AI",
-    subtitle: "Revise smarter. Walk in ready.",
-    description: "Preple AI is an AI study companion that helps school students prepare for exams, from reviewing results to finding weak chapters and planning what to revise next.",
-    footerNote: "Web app for students that brings exam results, readiness checks, and timetables into one AI-powered space.",
-    image: "assets/images/preple/preple-thumbnail.png",
-    logo: "assets/images/preple/preple-logo.png",
-    cta: {
-      label: "See What I'm Building",
-      href: "preple/", // link to detailed case study
-    },
+    projectName: "Kylar Studio",
+    description: "Kylar Studio is a GitHub-inspired platform where designers version their work, send it for approval, and hand approved designs to developers.",
+    image: "assets/images/kylar/kylar-thumbnail.png",
+    // Optional, add when ready:
+    // subtitle: "",
+    // footerNote: "",
+    // logo: "assets/images/kylar/kylar-logo.png",
+    cta: { href: "kylar/" }, // add a label to show a button under the description
   },
 
   // 03. SELECTED PROJECTS

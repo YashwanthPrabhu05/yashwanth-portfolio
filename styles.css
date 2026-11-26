@@ -221,8 +221,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-radius: 14px;
   isolation: isolate;
 }
-.featured-card__thumb { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 47%; transition: transform .5s ease; }
+.featured-card__thumb { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; transition: transform .5s ease; }
 .featured-card:hover .featured-card__thumb { transform: scale(1.03); }
+.featured-placeholder { display: grid; place-items: center; aspect-ratio: 16 / 10; padding: 24px; color: #fff; background: #121a33; border-radius: 14px; font-size: clamp(28px, 5vw, 48px); font-weight: 700; text-align: center; }
 .featured-summary { padding: 26px 0 0; }
 .featured-summary__title { display: flex; align-items: center; gap: 14px; }
 .featured-summary__title img { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; }

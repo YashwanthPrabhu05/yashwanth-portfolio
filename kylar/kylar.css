@@ -1,0 +1,113 @@
+/* Kylar Studio case study: bordered centre column with a side menu. Loaded after ../styles.css */
+html { scroll-behavior: smooth; }
+body.kylar { margin: 0; background: #f2f2f2; color: #222; }
+.kylar *, .kylar *::before, .kylar *::after { box-sizing: border-box; }
+
+.kylar .site-nav.case-nav { width: min(720px, calc(100% - 32px)); max-width: 720px; }
+
+.zs-row { border-bottom: 1px solid #d9d9d9; }
+.zs-col { width: min(768px, 100%); margin: 0 auto; padding: 24px; border-inline: 1px solid #d9d9d9; }
+.zs-hero { padding-top: 102px; }
+
+.zs-brand { display: flex; align-items: center; gap: 16px; }
+.zs-logo { flex: 0 0 auto; width: auto; height: 64px; }
+.zs-brand strong { display: block; font-size: 17px; font-weight: 600; text-transform: uppercase; }
+.zs-brand span { display: block; margin-top: 4px; color: #555; font-size: 16px; }
+.kylar .zs-title { margin: 26px 0; font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; text-wrap: balance; }
+
+.zs-card { margin: 16px 0 0; padding: 16px; background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; }
+.kylar .zs-card h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; font-size: 16px; font-weight: 600; line-height: 1.4; letter-spacing: 0; }
+.zs-card svg { flex: 0 0 20px; width: 20px; height: 20px; fill: none; stroke: #2f9be0; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.kylar .zs-card p { margin: 0; color: #555; font-size: 14px; line-height: 1.6; }
+
+/* My Role: Designer + Developer = Design Engineer */
+.zs-equation { display: grid; grid-template-columns: 1fr auto 1fr auto 1.2fr; align-items: stretch; gap: 10px; margin-top: 14px; text-align: center; }
+.zs-term { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 18px 10px; background: #f6f6f6; border: 1px solid #e4e4e4; border-radius: 8px; transition: transform .25s ease; }
+.zs-term:hover { transform: translateY(-4px); }
+.kylar .zs-term svg { flex: 0 0 auto; width: 26px; height: 26px; }
+.zs-term strong { font-size: 15px; font-weight: 700; }
+.zs-term span { color: #777; font-size: 12px; line-height: 1.45; }
+.zs-term--result { color: #fff; background: #0b0b0b; border-color: #0b0b0b; }
+.zs-term--result span { color: #bbb; }
+.zs-operator { align-self: center; color: #2f9be0; font-size: 26px; font-weight: 600; }
+
+/* Research: GitHub-to-design map and the life of a screen */
+.kylar .zs-map { display: grid; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.zs-map li { display: grid; grid-template-columns: 112px 16px 80px 1fr; align-items: center; gap: 10px; padding: 10px 12px; background: #f6f6f6; border-radius: 8px; font-size: 14px; }
+.zs-map code { justify-self: start; padding: 3px 8px; color: #fff; background: #0b0b0b; border-radius: 5px; font-size: 12px; }
+.zs-map i { color: #2f9be0; font-style: normal; font-weight: 700; }
+.zs-map span { color: #666; font-size: 13px; }
+.zs-trail figcaption { font-size: 14px; font-weight: 600; }
+.kylar .zs-trail ol { display: grid; grid-template-columns: repeat(4, 1fr); margin: 20px 0 4px; padding: 0; list-style: none; }
+.zs-trail li { --dot: #2f9be0; position: relative; display: grid; justify-items: center; gap: 6px; text-align: center; }
+.zs-trail li::before { z-index: 1; width: 16px; height: 16px; background: #fff; border: 4px solid var(--dot); border-radius: 50%; content: ""; }
+.zs-trail li:not(:last-child)::after { position: absolute; top: 7px; left: 50%; width: 100%; height: 2px; background: #ddd; content: ""; }
+.zs-trail li.is-changes { --dot: #e8774f; }
+.zs-trail li.is-approved { --dot: #2ea66a; }
+.zs-trail li b { font-size: 13px; }
+.zs-trail li span { color: #666; font-size: 12px; line-height: 1.4; }
+
+/* Structure levels, tools and skills */
+.kylar .zs-sub { margin: 28px 0 0; font-size: 20px; font-weight: 600; }
+.kylar .zs-levels { margin: 16px 0 0; padding: 0; list-style: none; background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; }
+.zs-levels li { display: grid; grid-template-columns: 90px 1fr auto; align-items: baseline; gap: 16px; padding: 14px 16px; font-size: 14px; }
+.zs-levels li + li { border-top: 1px solid #eee; }
+.zs-levels span { color: #666; }
+.zs-levels small { color: #999; font-size: 12px; }
+.kylar .zs-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+.zs-tools li { display: flex; align-items: center; gap: 12px; padding: 12px; background: #f6f6f6; border-radius: 8px; }
+.zs-tools img { width: 32px; height: 32px; object-fit: contain; }
+.zs-tools strong { display: block; font-size: 14px; }
+.zs-tools span { display: block; color: #666; font-size: 12px; line-height: 1.45; }
+.kylar .zs-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.zs-chips li { padding: 7px 14px; background: #f6f6f6; border: 1px solid #e4e4e4; border-radius: 999px; font-size: 13px; font-weight: 600; }
+
+.zs-heroimg { display: block; width: 100%; margin-top: 24px; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 60%; border-radius: 8px; }
+.zs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zs-grid .zs-card { margin: 0; }
+.zs-grid .zs-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.zs-body > .zs-grid { margin-top: 16px; }
+.zs-grid + .zs-card, .zs-card + .zs-grid, .zs-grid + .zs-todo, .zs-todo + .zs-grid { margin-top: 16px; }
+
+.zs-heading { padding-block: 28px; }
+.kylar .zs-heading h2 { margin: 0; font-size: clamp(28px, 5vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
+.zs-body > :first-child { margin-top: 0; }
+.kylar .zs-body > p, .kylar .zs-decision > p { margin: 16px 0 0; color: #555; font-size: 16px; line-height: 1.7; }
+.kylar .zs-body > p:first-child { margin-top: 0; }
+
+.zs-decision + .zs-decision { margin-top: 40px; }
+.zs-decision span { color: #2f9be0; font-size: 12px; font-weight: 700; letter-spacing: .06em; }
+.kylar .zs-decision > h3 { margin: 6px 0 0; font-size: 22px; font-weight: 600; }
+
+.zs-table { width: 100%; margin-top: 16px; overflow: hidden; background: #fff; border: 1px solid #e4e4e4; border-spacing: 0; border-radius: 8px; font-size: 14px; text-align: left; }
+.zs-table th, .zs-table td { padding: 12px 16px; vertical-align: top; border-bottom: 1px solid #eee; }
+.zs-table tr:last-child td { border-bottom: 0; }
+.zs-table td { color: #555; }
+
+.zs-todo { margin-top: 16px; padding: 28px 20px; color: #777; border: 1px dashed #bbb; border-radius: 8px; font-size: 14px; text-align: center; }
+.zs-figure { margin: 16px 0 0; }
+.zs-figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; }
+.zs-figure img[src$="thumbnail.png"] { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 60%; }
+.zs-figure figcaption { margin-top: 8px; color: #777; font-size: 13px; }
+
+/* Side menu sits to the right of the column and stays in view while reading */
+.zs-toc { position: sticky; z-index: 2; top: 90px; height: 0; }
+.zs-toc nav { position: absolute; top: 28px; left: calc(50% + 408px); display: grid; gap: 16px; padding: 4px 10px; background: #f2f2f2; }
+.zs-toc a { color: #999; font-size: 13px; white-space: nowrap; }
+.zs-toc a[aria-current="true"] { color: #222; font-weight: 600; }
+.zs-section { scroll-margin-top: 80px; }
+
+.zs-footer { text-align: center; color: #777; font-size: 13px; }
+.zs-footer a { color: #222; font-weight: 600; }
+
+@media (max-width: 1120px) { .zs-toc { display: none; } }
+@media (max-width: 600px) {
+  .zs-col { padding-inline: 16px; border-inline: 0; }
+  .zs-hero { padding-top: 90px; }
+  .zs-grid, .zs-equation { grid-template-columns: 1fr; }
+  .zs-operator { justify-self: center; }
+  .zs-map li { grid-template-columns: auto 16px 1fr; }
+  .zs-map span { grid-column: 1 / -1; }
+  .kylar .zs-tools { grid-template-columns: 1fr; }
+  .zs-levels li { grid-template-columns: 1fr; gap: 2px; }
+}
