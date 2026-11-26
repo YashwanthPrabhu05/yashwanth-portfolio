@@ -132,7 +132,7 @@ export function renderAbout(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${ab.sectionLabel}</div>
-      <h2>${ab.heading.replace("Me", '<img class="about__heading-icon" src="assets/images/About%20me.png" alt=""> Me')}</h2>
+      <h2>${ab.heading.replace(" Me", '<span class="about__heading-slot heading-motion-slot" aria-hidden="true"><img class="about__heading-icon heading-motion-icon" src="assets/images/About%20me.png" alt=""></span> Me')}</h2>
     </div>
     <div class="about__bio">
       ${ab.bio.map((p) => `<p>${p}</p>`).join("")}
@@ -229,7 +229,7 @@ export function renderJourney(data) {
   section.innerHTML = `
     <div class="section-heading">
       <div class="section-kicker">${j.sectionLabel}</div>
-      <h2>My Design <img class="journey__heading-icon" src="assets/images/How%20i%20work-1.png" alt=""> Journey</h2>
+      <h2>My Design<span class="journey__heading-slot heading-motion-slot" aria-hidden="true"><img class="journey__heading-icon heading-motion-icon" src="assets/images/How%20i%20work-1.png" alt=""></span> Journey</h2>
     </div>
     <div class="experience-grid">
       <div class="journey-rider" aria-hidden="true">

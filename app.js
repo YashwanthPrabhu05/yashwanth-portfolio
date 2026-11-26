@@ -22,9 +22,15 @@ document.querySelectorAll("img[src^='assets/']").forEach((image) => {
 });
 
 const preloader = document.querySelector(".preloader");
+let pageLoading = Boolean(preloader);
+let resolvePageLoaded;
+const pageLoaded = new Promise((resolve) => {
+  resolvePageLoaded = resolve;
+  if (!pageLoading) resolve();
+});
 
 document.querySelectorAll("img").forEach((image) => {
-  if (!image.closest(".preloader, .site-nav, .hero-art, .hero-copy, .logo-strip, .case-brand, .case-hero-image")) {
+  if (!image.closest(".preloader, .site-nav, .hero-art, .hero-copy, .case-brand, .case-hero-image")) {
     image.loading = "lazy";
   }
 });
@@ -47,7 +53,11 @@ if (preloader) {
 
     window.setTimeout(() => {
       preloader.classList.add("is-hidden");
-      window.setTimeout(() => preloader.remove(), 600);
+      window.setTimeout(() => {
+        preloader.remove();
+        pageLoading = false;
+        resolvePageLoaded();
+      }, 600);
     }, 140);
   };
 
@@ -113,6 +123,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
   };
 
   document.addEventListener("pointermove", (event) => {
+    if (pageLoading) return;
     document.documentElement.classList.add("has-custom-cursor");
     cursor.removeAttribute("data-hide");
     cursor.setAttribute("data-on", "");
@@ -156,11 +167,15 @@ const revealTargets = document.querySelectorAll(
   ".section-block, .project-card, .case-section, .case-stat, .case-note, .case-hero-image"
 );
 
-const headingMotionSections = document.querySelectorAll(".featured, .projects");
+const headingMotionSections = document.querySelectorAll(".featured, .projects, .about, .experience");
 const headingMotionPlayed = new WeakSet();
 const headingMotionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const animateHeadingAsset = (section) => {
+  if (pageLoading) {
+    pageLoaded.then(() => animateHeadingAsset(section));
+    return;
+  }
   const slot = section.querySelector(".heading-motion-slot");
   const asset = slot?.querySelector(".heading-motion-icon");
   if (!slot || !asset || headingMotionPlayed.has(section) || headingMotionReduced) return;
@@ -197,18 +212,20 @@ const animateHeadingAsset = (section) => {
 
   const moveToSlot = () => {
     const targetRect = slot.getBoundingClientRect();
-    cursor.style.transform = `translate3d(${targetRect.left + assetWidth + cursorWidth + 6}px, ${targetRect.top + assetHeight}px, 0)`;
+    cursor.style.transform = `translate3d(${targetRect.left + assetWidth + 6}px, ${targetRect.top + assetHeight}px, 0)`;
   };
   const followSlotOnScroll = () => moveToSlot();
   window.addEventListener("scroll", followSlotOnScroll, { passive: true });
 
   window.setTimeout(() => {
     moveToSlot();
+    section.classList.add("is-making-space");
   }, 80);
 
   window.setTimeout(() => {
     window.removeEventListener("scroll", followSlotOnScroll);
     moveToSlot();
+    section.classList.remove("is-making-space");
     section.classList.add("has-heading-asset");
     cursor.setAttribute("data-placed", "");
   }, 950);
@@ -229,7 +246,7 @@ if ("IntersectionObserver" in window) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("is-visible");
-      if (entry.target.matches(".featured, .projects")) {
+      if (entry.target.matches(".featured, .projects, .about, .experience")) {
         animateHeadingAsset(entry.target);
       }
       observer.unobserve(entry.target);
@@ -242,7 +259,7 @@ if ("IntersectionObserver" in window) {
   });
 } else {
   headingMotionSections.forEach((section) => {
-    section.classList.add("is-visible");
+    section.classList.add("reveal", "is-visible", "has-heading-asset");
   });
 }
 
@@ -329,7 +346,7 @@ if (hero && parallaxItems.length) {
   };
 
   const scheduleAutoDemo = (delay = 1800) => {
-    if (!autonomousCursorsEnabled || !ghostCursor || !heroIsVisible) return;
+    if (!autonomousCursorsEnabled || !ghostCursor || !heroIsVisible || pageLoading) return;
     window.clearTimeout(autoTimer);
     autoTimer = window.setTimeout(runAutoDemo, delay);
   };
@@ -365,6 +382,7 @@ if (hero && parallaxItems.length) {
   }
 
   const runAutoDemo = async () => {
+    if (pageLoading) return;
     const heroRect = hero.getBoundingClientRect();
     if (!heroIsVisible || heroRect.bottom < 0 || heroRect.top > window.innerHeight) {
       return;
@@ -433,6 +451,8 @@ if (hero && parallaxItems.length) {
       scheduleAutoDemo(1400 + Math.random() * 1800);
     }
   };
+
+  pageLoaded.then(() => scheduleAutoDemo(900));
 
   stickers.forEach((item) => {
     item.addEventListener("pointerdown", (event) => {

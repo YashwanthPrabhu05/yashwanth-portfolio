@@ -37,7 +37,7 @@ export const portfolioData = {
   // 01. HERO SECTION
   hero: {
     greeting: "Hey! I'm Yashwanth,",
-    titleRole: "an AI-First Product Designer",
+    titleRole: "an AI-First UI/UX Designer",
     accentText: "blending human creativity with artificial intelligence.",
     description: "I leverage AI to accelerate both design and development, turning concepts into intuitive interfaces and functional digital products.",
     workSnippet: "",
@@ -111,8 +111,8 @@ export const portfolioData = {
       "These days, I'm particularly interested in the intersection of product design, technology, and AI — exploring better ways to turn ideas into real products.",
     ],
     details: [
-      { label: "Designation", value: "Product Designer" },
-      { label: "Experience", value: "Product Design at Fyrasoft" },
+      { label: "Designation", value: "UIUX Designer" },
+      { label: "Experience", value: "1 year 2 months" },
       { label: "Location", value: "Chennai, India" },
       { label: "Education", value: "New Prince Shri Bhavani College of Engineering & Technology", note: "Grad. 2026" },
       { label: "Email", value: "syashwanthprabhu@gmail.com", isLink: true, href: "mailto:syashwanthprabhu@gmail.com" },
