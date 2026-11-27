@@ -126,16 +126,22 @@ export function renderAbout(data) {
   if (!section) return;
   const ab = data.about;
   const toolkitIcons = [
-    { name: "VS Code", image: "assets/images/new%20tech%20stack/vs%20code.png" },
-    { name: "Figma", image: "assets/images/new%20tech%20stack/figma.png" },
-    { name: "Framer", image: "assets/images/new%20tech%20stack/framer.png" },
-    { name: "ProtoPie", image: "assets/images/new%20tech%20stack/protopie.png" },
-    { name: "Figr", image: "assets/images/new%20tech%20stack/figr.png" },
-    { name: "Notion", image: "assets/images/new%20tech%20stack/notion.png" },
-    { name: "Stitch", image: "assets/images/new%20tech%20stack/stitch.png" },
-    { name: "Claude", image: "assets/images/new%20tech%20stack/ckaude.png" },
-    { name: "Gemini", image: "assets/images/new%20tech%20stack/gemini.png" },
+    { name: "Figma", file: "figma.png" },
+    { name: "Framer", file: "framer.png" },
+    { name: "Adobe Photoshop", file: "photoshop.svg" },
+    { name: "Notion", file: "notion.png" },
+    { name: "NotebookLM", file: "notebooklm.svg" },
+    { name: "Claude", file: "ckaude.png" },
+    { name: "Gemini", file: "gemini.png" },
+    { name: "ChatGPT", file: "chatgpt.svg" },
+    { name: "VS Code", file: "vs%20code.png" },
+    { name: "Antigravity", file: "antigravity.svg" },
+    { name: "Pinterest", file: "pinterest.svg" },
   ];
+  // The set is rendered twice so the row can loop without a gap; screen readers get it once.
+  const toolkitSet = (hidden) => `<ul class="toolkit__set"${hidden ? ' aria-hidden="true"' : ""}>${toolkitIcons
+    .map((tool) => `<li title="${tool.name}"><img src="assets/images/new%20tech%20stack/${tool.file}" alt="${tool.name}"></li>`)
+    .join("")}</ul>`;
 
   section.innerHTML = `
     <div class="section-heading">
@@ -165,7 +171,7 @@ export function renderAbout(data) {
         <div class="toolkit">
           <span class="toolkit__label">${ab.toolkit.sectionLabel}</span>
           <div class="toolkit__icons">
-            ${toolkitIcons.map((tool) => `<img src="${tool.image}" alt="${tool.name}" title="${tool.name}">`).join("")}
+            <div class="toolkit__track">${toolkitSet(false)}${toolkitSet(true)}</div>
           </div>
         </div>
       </div>
@@ -352,8 +358,11 @@ export function renderFooter(data) {
 }
 
 export function renderAll(data) {
-  // Only the homepage takes its title/description from portfolioData; case-study pages keep their own.
-  if (data.meta && !document.querySelector(".case-shell")) {
+  // portfolioData only fills the homepage. Case-study pages keep their own title and header:
+  // their links start with "../" to get back to it.
+  if (!document.querySelector(".hero-copy")) return;
+
+  if (data.meta) {
     if (data.meta.title) document.title = data.meta.title;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc && data.meta.description) metaDesc.content = data.meta.description;

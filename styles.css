@@ -279,13 +279,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .about__portrait {
   position: relative;
   min-height: 300px;
-  height: 100%;
-  max-height: 390px;
   overflow: hidden;
   background: #e5e3e1;
   border-radius: 8px;
 }
 .about__portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -306,8 +306,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .about__details a:hover { color: var(--accent-text); }
 .toolkit { min-width: 0; }
 .toolkit__label { display: block; margin-bottom: 12px; }
-.toolkit__icons { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 9px; }
-.toolkit__icons img { width: 100%; aspect-ratio: 1; padding: 7px; background: #f8f8f8; border-radius: 8px; object-fit: contain; }
+.toolkit__icons { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+.toolkit__track { display: flex; width: max-content; animation: toolkit-loop 32s linear infinite; }
+.toolkit__icons:hover .toolkit__track { animation-play-state: paused; }
+.toolkit__set { display: flex; gap: 9px; margin: 0; padding: 0 9px 0 0; list-style: none; }
+.toolkit__set li { flex: 0 0 48px; height: 48px; }
+.toolkit__set img { width: 100%; height: 100%; padding: 8px; background: #f8f8f8; border-radius: 8px; object-fit: contain; }
+@keyframes toolkit-loop { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .toolkit__icons { -webkit-mask-image: none; mask-image: none; }
+  .toolkit__track { width: auto; animation: none; }
+  .toolkit__set { flex-wrap: wrap; }
+  .toolkit__set[aria-hidden] { display: none; }
+}
 .about__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
 .about__card { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-content: start; gap: 12px; min-height: 112px; padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
 .about__card > svg { width: 19px; height: 19px; fill: #222; stroke: #222; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
@@ -493,13 +504,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .about__portrait {
     height: clamp(320px, 105vw, 410px);
     min-height: 0;
-    max-height: none;
   }
   .about-facts { gap: 16px 14px; }
   .about-facts span { font-size: 11px; }
   .about-facts strong { font-size: 14px; }
   .about__details { padding: 16px; }
-  .toolkit__icons { gap: 5px; }
   .about__cards { grid-template-columns: 1fr; gap: 10px; }
   .experience .section-heading { margin-right: -20px; margin-left: -20px; padding-right: 20px; padding-left: 20px; }
   .journey__heading-slot { --journey-slot-size: 30px; vertical-align: -4px; }
